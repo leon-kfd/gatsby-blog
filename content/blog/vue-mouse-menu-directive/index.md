@@ -2,11 +2,11 @@
 title: "Vue mouse menu directive"
 date: "2020-01-02"
 description: "使用vue指令的方式为HTML盒子加入自定义右键菜单"
-outlinkAddress: "http://kongfandong.cn/pratice/mouse-menu-directive/"
+outlinkAddress: "http://www.kongfandong.cn/pratice/mouse-menu-directive/"
 tag: "Vue Directive"
 ---
 
-[View Online Document](http://kongfandong.cn/pratice/mouse-menu-directive)
+[View Online Document](http://www.kongfandong.cn/pratice/mouse-menu-directive)
 
 + Vue指令
 + 使用vue指令的方式为HTML盒子加入自定义右键菜单
@@ -19,4 +19,4 @@ tag: "Vue Directive"
 3. 支持子菜单
 4. 支持加入菜单图标
 
-[View Online Document](http://kongfandong.cn/pratice/mouse-menu-directive)
+[View Online Document](http://www.kongfandong.cn/pratice/mouse-menu-directive)

@@ -6,7 +6,7 @@ outlinkAddress: "http://kongfandong.cn/pratice/animation-dialog"
 tag: "Vue Component"
 ---
 
-[View Online Document](http://kongfandong.cn/pratice/animation-dialog)
+[View Online Document](http://www.kongfandong.cn/pratice/animation-dialog)
 
 + Vue模态框组件
 + 使用交互动画或Animation.css等方式打开模态框
@@ -16,4 +16,4 @@ tag: "Vue Component"
 2. 可使用animate.css动画进行dialog的打开与关闭
 3. [animate.css](https://daneden.github.io/animate.css/)
 
-[View Online Document](http://kongfandong.cn/pratice/animation-dialog)
+[View Online Document](http://www.kongfandong.cn/pratice/animation-dialog)

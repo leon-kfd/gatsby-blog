@@ -2,11 +2,11 @@
 title: "Standard table"
 date: "2019-08-10"
 description: "基于ElementUI的el-table的二次封装"
-outlinkAddress: "http://kongfandong.cn/pratice/standard-table"
+outlinkAddress: "http://www.kongfandong.cn/pratice/standard-table"
 tag: "Vue Component"
 ---
 
-[View Online Document](http://kongfandong.cn/pratice/standard-table)
+[View Online Document](http://www.kongfandong.cn/pratice/standard-table)
 
 + Vue表格组件
 + 基于ElementUI的el-table的二次封装
@@ -19,4 +19,4 @@ tag: "Vue Component"
 5. 可配置自动生成条件过滤表单
 6. 可配置大数据表格，固定表格渲染行数（试验阶段）
 
-[View Online Document](http://kongfandong.cn/pratice/standard-table)
+[View Online Document](http://www.kongfandong.cn/pratice/standard-table)
