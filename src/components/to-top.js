@@ -9,7 +9,6 @@ class ToTop extends React.Component {
     this.state = {
       showToTop: false
     }
-    window.addEventListener('scroll', this.onScrollWatch)
   }
 
   onScrollWatch () {
@@ -20,6 +19,10 @@ class ToTop extends React.Component {
 
   handleClick () {
     scrollTo(0, 400)
+  }
+
+  componentDidMount () {
+    window.addEventListener('scroll', this.onScrollWatch)
   }
 
   componentWillUnmount () {
