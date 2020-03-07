@@ -32,7 +32,7 @@ class ToTop extends React.Component {
   render () {
     const showToTop = this.state.showToTop
     return (
-      <div role="button" tabIndex="0" className={`to-top ${showToTop && 'active'}`} onClick={this.handleClick}>
+      <div className={`to-top ${showToTop && 'active'}`} onClick={this.handleClick}>
         <img src={toTopImg} alt="to-top" />
       </div>
     )
