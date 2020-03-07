@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ToTop from "../components/to-top"
 import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
@@ -55,6 +56,7 @@ const BlogIndex = ({ data, location }) => {
           </article>
         )
       })}
+      <ToTop />
     </Layout>
   )
 }

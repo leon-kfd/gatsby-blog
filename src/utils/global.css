@@ -2,6 +2,8 @@ body {
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  scroll-behavior: smooth;
+  scroll-margin-top: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10,6 +12,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h3 {
    font-weight: bold;
+}
+
+h4 {
+  letter-spacing: 0.08em;
 }
 
 body.light {
@@ -256,3 +262,36 @@ pre[data-line] {
   float: left;
   min-width: 100%;
 }
+
+/*to-top*/
+.to-top {
+  position: fixed;
+  right: 5vw;
+  bottom: 2em;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  background: #fff;
+  z-index: 999;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #888;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.to-top img {
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.to-top.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+}
+
