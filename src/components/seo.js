@@ -18,7 +18,8 @@ const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
-            author
+            author,
+            keywords
           }
         }
       }
@@ -26,6 +27,7 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaKeywords = site.siteMetadata.keywords || ``
 
   return (
     <Helmet
@@ -67,6 +69,10 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: 'keywords',
+          content: metaKeywords
+        }
       ].concat(meta)}
     />
   )

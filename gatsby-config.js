@@ -5,7 +5,8 @@ module.exports = {
     author: `Leon.D`,
     position: 'front-end developer',
     email: 'kfd_personal@163.com',
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    keywords: `前端技术,Vue组件,Vue指令,Koa,Eggjs,全栈,Nginx,Leon.D`,
+    description: `Leon.D前端技术分享, 记录个人组件API文档, 开发经验, 主要技术栈有Vue, Nodejs, PHP, Mysql, Nginx等`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `kylemathews`,
