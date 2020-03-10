@@ -11,7 +11,7 @@ tag: "Personal"
   + 测试账号1: user1  密码: 7gzt9i0lkh
   + 测试账号2: user2  密码: lyufmklxy
 + 教师端登录
-  + 测试账号: admin  密码: guoh6yffkx
+  + 测试账号: admin1  密码: qrmeke4p75
 
 
 该系统为本人毕业设计，由于时间仓促，部分功能设计不太优雅，请见谅。  
