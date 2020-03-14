@@ -1,9 +1,11 @@
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-  scroll-behavior: smooth;
-  scroll-margin-top: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {

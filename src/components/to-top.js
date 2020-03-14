@@ -6,8 +6,10 @@ class ToTop extends React.Component {
   constructor(props) {
     super(props)
     this.onScrollWatch = this.onScrollWatch.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.state = {
-      showToTop: false
+      showToTop: false,
+      isSupportScrollBehavior: false
     }
   }
 
@@ -18,11 +20,16 @@ class ToTop extends React.Component {
   }
 
   handleClick () {
-    scrollTo(0, 400)
+    if (!this.state.isSupportScrollBehavior) {
+      scrollTo(0, 400)
+    }
   }
 
   componentDidMount () {
     window.addEventListener('scroll', this.onScrollWatch)
+    this.setState({
+      isSupportScrollBehavior: Object.keys(document.documentElement.style).findIndex((key) => key === 'scrollBehavior') > -1
+    })
   }
 
   componentWillUnmount () {
@@ -32,9 +39,11 @@ class ToTop extends React.Component {
   render () {
     const showToTop = this.state.showToTop
     return (
-      <div className={`to-top ${showToTop && 'active'}`} onClick={this.handleClick}>
-        <img src={toTopImg} alt="to-top" />
-      </div>
+      <a href="#___gatsby">
+        <div className={`to-top ${showToTop && 'active'}`} onClick={this.handleClick}>
+          <img src={toTopImg} alt="to-top" />
+        </div>
+      </a>
     )
   }
 }
