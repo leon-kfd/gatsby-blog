@@ -31,7 +31,7 @@ class Theme extends React.Component {
     }
   }
 
-  componentDillMount () {
+  componentDidMount () {
     let theme = localStorage.getItem('theme') || 'light'
     this.setState({
       isLightTheme: theme === 'light'
