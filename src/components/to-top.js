@@ -1,6 +1,6 @@
 import React from "react"
 import { scrollTo } from '../utils/helper'
-const toTopImg = require('../../static/top.svg')
+const toTopImg = require('../../static/icon/top.svg')
 
 class ToTop extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class ToTop extends React.Component {
     const showToTop = this.state.showToTop
     return (
       <a href="#___gatsby">
-        <div className={`to-top ${showToTop && 'active'}`} onClick={this.handleClick}>
+        <div className={`to-top ${showToTop && 'active'}`} onClick={this.handleClick} title="Back To Top">
           <img src={toTopImg} alt="to-top" />
         </div>
       </a>

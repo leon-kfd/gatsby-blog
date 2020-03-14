@@ -55,7 +55,7 @@ const Bio = () => {
       <p>
         A personal blog of <strong>{author}</strong>, {position}.
         <br></br>
-        <a href={`mailto:${email}`} style={{ color: '#667', boxShadow: 'none' }}>{email}</a>
+        <a href={`mailto:${email}`} style={{ color: 'var(--textGrey)', boxShadow: 'none' }}>{email}</a>
       </p>
     </div>
   )

@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ToTop from "../components/to-top"
 import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
@@ -33,8 +32,13 @@ const BlogIndex = ({ data, location }) => {
                   node.frontmatter.outlinkAddress
                     ? (
                       <a style={{ boxShadow: `none` }} href={node.frontmatter.outlinkAddress}
-                        target="_blank" rel="noopener noreferrer">
+                        target="_blank" rel="noopener noreferrer" className="home-outlink">
                         {title}
+                        <svg className="home-outlink-img" viewBox="0 0 1024 1024">
+                          <path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z"></path>
+                          <path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z"></path>
+                          <path d="M1007.168 310.656h-96V112h-208V16h304z"></path>
+                        </svg>
                       </a>
                     ) : (
                       <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
@@ -56,7 +60,6 @@ const BlogIndex = ({ data, location }) => {
           </article>
         )
       })}
-      <ToTop />
     </Layout>
   )
 }

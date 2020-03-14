@@ -97,7 +97,7 @@ rimraf('/dist', function (err) {
 
 使用gatbsy搭建静态站点服务时，有部分依赖资源需要访问国外站点下载
 
-*若为 gatsby-starter-blog项目安装依赖时，有可能出现 libvips无法下载的问题，可以访问其站点将资源下载到本地的 C:\Users\Administrator\AppData\Roaming\npm-cache\\_libvips\\ 目录下后再重试*
+*若为 gatsby-starter-blog项目安装依赖时，有可能出现 libvips无法下载的问题，可以访问其站点将资源下载到本地的 C:\Users\\[当前用户]\AppData\Roaming\npm-cache\\_libvips\\ 目录下后再重试*
 
 
 
