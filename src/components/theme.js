@@ -42,8 +42,9 @@ class Theme extends React.Component {
   render () {
     const { isLightTheme } = this.state
     return (
-      <div className={`theme-selector`} title="Change Theme" onClick={this.handleClick}>
-        {isLightTheme ? <img src={moonImg} alt="theme-light" /> : <img src={sunImg} alt="theme-dark" />}
+      <div className={`theme-selector ${isLightTheme ? 'light' : 'dark'}`} title="Change Theme" onClick={this.handleClick}>
+        <img src={moonImg} alt="theme-light" />
+        <img src={sunImg} alt="theme-dark" />
       </div>
     )
   }

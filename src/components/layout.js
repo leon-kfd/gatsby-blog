@@ -14,10 +14,11 @@ const Layout = ({ location, title, children }) => {
     header = (
       <h1
         style={{
-          ...scale(1.5),
+          ...scale(1.2),
           marginBottom: rhythm(1.5),
           marginTop: 0,
           color: 'var(--textLink)',
+          position: 'relative'
         }}
       >
         <Link
@@ -30,6 +31,7 @@ const Layout = ({ location, title, children }) => {
         >
           {title}
         </Link>
+        <Theme />
       </h1>
     )
   } else {
@@ -38,7 +40,8 @@ const Layout = ({ location, title, children }) => {
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
-          color: 'var(--textLink)'
+          color: 'var(--textLink)',
+          position: 'relative'
         }}
       >
         <Link
@@ -51,6 +54,7 @@ const Layout = ({ location, title, children }) => {
         >
           {title}
         </Link>
+        <Theme />
       </h3>
     )
   }
@@ -67,7 +71,6 @@ const Layout = ({ location, title, children }) => {
       <header>{header}</header>
       <main>{children}</main>
       <ToTop />
-      <Theme />
       <footer>
         <p style={{
           marginTop: '4.375rem',
