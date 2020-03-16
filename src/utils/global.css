@@ -269,7 +269,7 @@ pre[data-line] {
 .to-top {
   position: fixed;
   right: 5vw;
-  bottom: 1.2rem;
+  bottom: 2rem;
   width: 36px;
   height: 36px;
   text-align: center;
@@ -313,9 +313,10 @@ pre[data-line] {
   box-shadow: 0 0 8px #888;
   cursor: pointer;
   box-sizing: border-box;
-  line-height: 30px;
+  line-height: 1;
   overflow: hidden;
   transition: .4s background cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  font-size: 0;
 }
 .theme-selector img {
   width: 36px;
