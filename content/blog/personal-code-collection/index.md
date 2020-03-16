@@ -9,8 +9,10 @@ tag: "Personal"
 
 ### 目录
 1. [CSS全局默认样式base.css](#base), <a href="./base.css" target="_blank">下载base.css</a>
-2. [Nodejs返回数据模板response.js](#response), <a href="./response.js" target="_blank">下载response.js</a>
-3. [Nodejs连接Mysql封装async-mysql.js](#mysql), <a href="./async-mysql.js" target="_blank">下载async-mysql.js</a>
+2. [JS个人常用工具函数helper.js](#helper), <a href="./helper.js" target="_blank">下载helper.js</a>
+3. [Nodejs返回数据模板response.js](#response), <a href="./response.js" target="_blank">下载response.js</a>
+4. [Nodejs连接Mysql封装async-mysql.js](#mysql), <a href="./async-mysql.js" target="_blank">下载async-mysql.js</a>
+5. [VSCode个人首选项配置setting.json](#VSSetting), <a href="./setting.json" target="_blank">下载setting.json</a>
 
 代码展示
 
@@ -86,6 +88,150 @@ ul, li {
   border-radius: 6px;
   background: #bbb;
   background-clip: padding-box;
+}
+```
+
+**<a id="helper" href="./helper.js" target="_blank">helper.js</a>**
+```js
+/**
+ * 速览
+ * 函数节流: throttle(fn, wait)
+ * 函数防抖: debounce(fn, delay)
+ * 类型检测: typeTest(target)
+ * 深拷贝: deepClone(obj)
+ * 滚动到指定位置: scrollTo(top, duration, selector = window)
+ * 加载外部Script：loadScript(url)
+ */
+
+/**
+* 函数节流
+* @param {Function} fn 实际要执行的函数
+* @param {Number} wait 执行间隔，单位是毫秒（ms），默认100ms
+* @return {Function}  返回一个“节流”函数
+*/
+export function throttle (fn, wait = 100) {
+  let timer = null
+  let previous // 上次执行时间
+  return function () {
+    const context = this
+    const args = arguments
+    const now = +new Date()
+    if (previous && now < previous + wait) {
+      clearTimeout(timer)
+      timer = setTimeout(function () {
+        previous = now
+        fn.apply(context, args)
+      }, wait)
+    } else {
+      previous = now
+      fn.apply(context, args)
+    }
+  }
+}
+
+/**
+* 函数防抖
+* @param {Function} fn 实际要执行的函数
+* @param {Number} delay 延迟时间，单位是毫秒（ms）
+* @return {Function}
+*/
+export function debounce (fn, delay = 1000) {
+  let timer
+  return function () {
+    var context = this
+    var args = arguments
+    clearTimeout(timer)
+    timer = setTimeout(function () {
+      fn.apply(context, args)
+    }, delay)
+  }
+}
+
+/**
+ * 类型检测
+ * @param {Any} element 传入需要检测的元素
+ * @return {String}
+ */
+export function typeTest (target) {
+  var classType = {}
+  'Array Date RegExp Object Error'.split(' ').map(item => {
+    classType[`[object ${item}]`] = item.toLowerCase()
+  })
+  if (target == null) return String(target)
+  return typeof target === 'object' ? classType[Object.prototype.toString.call(target)] || 'object' : typeof element
+}
+
+/**
+ * 深拷贝
+ * @param {Object} obj
+ * @return {Object}
+ */
+export function deepClone (obj) {
+  var objClone = Array.isArray(obj) ? [] : {}
+  if (obj && typeof obj === 'object') {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        if (obj[key] && typeof obj[key] === 'object') {
+          objClone[key] = deepClone(obj[key])
+        } else {
+          objClone[key] = obj[key]
+        }
+      }
+    }
+  }
+  return objClone
+}
+
+/**
+* 滚动到指定位置
+* @param {number} top 滚到到指定位置的高度
+* @param {number} duration 滚动时长
+* @param {object} selector 滚动条不在body上时，需传入当前滚动条所在javascriptDom元素
+*/
+export function scrollTo (top, duration, selector = window) {
+  const lastTop = selector === window ? (document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) : selector.scrollTop
+  const startTime = new Date()
+  let timer
+  function scrollAnimate () {
+    const time = new Date() - startTime
+    selector.scrollTo(0, lastTop + (top - lastTop) * (time / duration))
+    timer = window.requestAnimationFrame(scrollAnimate)
+    if (time >= duration) {
+      selector.scrollTo(0, top)
+      window.cancelAnimationFrame(timer)
+    }
+  }
+  window.requestAnimationFrame(scrollAnimate)
+}
+
+/**
+ * 加载外部Script
+ * @param {String} url
+ * @return {Promise}
+ */
+export function loadScriptSync (url) {
+  return new Promise((resolve, reject) => {
+    try {
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      if (script.readyState) {
+        script.onreadystatechange = function () {
+          if (script.readyState === 'loaded' || script.readyState === 'complete') {
+            script.onreadystatechange = null
+            resolve(1)
+          }
+        };
+      } else {
+        script.onload = function () {
+          resolve(1)
+        };
+      }
+      script.src = url
+      document.getElementsByTagName('head')[0].appendChild(script);
+    } catch (e) {
+      reject(e)
+    }
+  })
 }
 ```
 
@@ -213,5 +359,57 @@ const transactionQuery = (sql, values) => {
 }
 
 module.exports = { query, transactionQuery }
+```
+
+**<a id="VSSetting" href="./setting.json" target="_blank">setting.json</a>**
+
+插件版本
++ Vetur V0.22.6
++ ESLint V2.1.1
+
+```json
+{
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-aligned"
+    },
+    "prettier": {
+      "semi": false,
+      "singleQuote": true
+    }
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.tabSize": 2,
+  "standard.enable": true,
+  "standard.options.parser": "babel-eslint",
+  "standard.autoFixOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.disableLanguages": [
+    "markdown"
+  ],
+  "prettier.printWidth": 150
+}
 ```
 
