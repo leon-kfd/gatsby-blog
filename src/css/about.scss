@@ -1,0 +1,63 @@
+.about-bg-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-image: var(--about-img-radial);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+.about-title {
+  font-size: 2rem;
+}
+.about-body {
+  .about-base {
+    .title {
+      font-size: 1.6rem;
+      border-left: 0.4rem solid var(--ornament);
+      padding-left: 0.6rem;
+    }
+    .content {
+      .row {
+        display: flex;
+        align-items: center;
+        margin-bottom: .5rem;
+        .icon {
+          width: 2.2rem;
+          height: 2.2rem;
+          margin-right: .5rem;
+          path {
+            fill: var(--textNormal)
+          }
+        }
+        .text {
+          font-weight: bold;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .about-title {
+    font-size: 1.6rem;
+  }
+  .about-body {
+    .about-base {
+      .content {
+        .row {
+          .icon {
+            width: 1.8rem;
+            height: 1.8rem;
+          }
+          .text {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

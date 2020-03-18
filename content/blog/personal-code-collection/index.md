@@ -388,28 +388,9 @@ module.exports = { query, transactionQuery }
     "source.fixAll.stylelint": true
   },
   "editor.tabSize": 2,
-  "standard.enable": true,
-  "standard.options.parser": "babel-eslint",
-  "standard.autoFixOnSave": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "vue",
-      "autoFix": true
-    }
-  ],
-  "prettier.singleQuote": true,
-  "prettier.semi": false,
-  "prettier.disableLanguages": [
-    "markdown"
-  ],
-  "prettier.printWidth": 150
+  "eslint.options": {
+    "parser": "babel-eslint"
+  }
 }
 ```
 

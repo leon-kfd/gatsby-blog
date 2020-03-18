@@ -31,6 +31,8 @@ body.light {
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1a1a1a;
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
+  --about-img-radial: radial-gradient(ellipse closest-side, rgba(255, 255, 255, 0.75), #ffffff), url('../../static/img/about-bg.jpg');
+  --ornament: rgb(109, 8, 224);
 }
 
 body.dark {
@@ -46,6 +48,8 @@ body.dark {
   --inlineCode-bg: rgba(115, 124, 153, 0.2);
   --inlineCode-text: #e6e6e6;
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+  --about-img-radial: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.75), #282c35), url('../../static/img/about-bg1.jpg');
+  --ornament: rgb(202, 158, 253);
 }
 
 /*
@@ -283,18 +287,16 @@ pre[data-line] {
   transition: transform 0.4s ease-in, opacity 0.4s ease-in;
   transform: translateY(10px);
   opacity: 0;
-}
-
-.to-top img {
-  width: 30px;
-  height: 30px;
-  padding-top: 5px;
-}
-
-.to-top.active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  img {
+    width: 30px;
+    height: 30px;
+    padding-top: 5px;
+  }
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  }
 }
 
 /* theme-selector */
@@ -306,7 +308,6 @@ pre[data-line] {
   width: 36px;
   height: 36px;
   text-align: center;
-  /*background: #161616;*/
   background: var(--bg-against);
   z-index: 999;
   border-radius: 4px;
@@ -317,18 +318,20 @@ pre[data-line] {
   overflow: hidden;
   transition: .4s background cubic-bezier(0.6, -0.28, 0.735, 0.045);
   font-size: 0;
-}
-.theme-selector img {
-  width: 36px;
-  height: 36px;
-  margin: 0;
-  padding: 3px;
-  transform: translateY(0);
-  transition: .4s transform cubic-bezier(0.6, -0.28, 0.735, 0.045);
-}
-.theme-selector.dark img {
-  transform: translateY(-36px);
-  transition: .4s transform cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 3px;
+    transform: translateY(0);
+    transition: .4s transform cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
+  &.dark {
+    img {
+      transform: translateY(-36px);
+      transition: .4s transform cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    }
+  }
 }
 
 
@@ -339,15 +342,16 @@ pre[data-line] {
   margin-left: 0.4rem;
   opacity: 0;
   transition: all .4s;
+  path {
+    fill: var(--textLink);
+  }
+  &:hover {
+    .home-outlink-img {
+      opacity: 1;
+      transition: all .4s;
+    }
+  }
 }
-.home-outlink-img path {
-  fill: var(--textLink);
-}
-.home-outlink:hover .home-outlink-img {
-  opacity: 1;
-  transition: all .4s;
-}
-
 
 a.anchor svg[aria-hidden="true"] {
   stroke: var(--textLink)
