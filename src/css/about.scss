@@ -40,6 +40,22 @@
       }
     }
   }
+  .about-tags {
+    .title {
+      font-size: 1.6rem;
+      border-left: 0.4rem solid var(--ornament);
+      padding-left: 0.6rem;
+    }
+    .content {
+      .tags {
+        display: inline-flex;
+        font-weight: bold;
+        margin: 0.4rem;
+        align-items: center;
+        justify-content: space-around;
+      }
+    }
+  }
 }
 @media screen and (max-width: 480px) {
   .about-title {

@@ -6,6 +6,39 @@ import '../css/about.scss'
 
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+  const weightMap = {
+    Vue: 9,
+    Jquery: 7,
+    ElementUI: 7,
+    Nodejs: 6,
+    Layui: 4,
+    PHP: 5,
+    SQL: 6,
+    Nginx: 4,
+    Apache: 4,
+    Koa: 5,
+    Eggjs: 6,
+    React: 3,
+    Rap2: 4,
+    Echart: 4,
+    Canvas: 3,
+    RegExp: 3,
+    Webpack: 5,
+    Fiddler: 2,
+    Requirejs: 2,
+    Linux: 4,
+    Nuxtjs: 5,
+    Puppeteer: 4,
+    Gatsby: 2
+  }
+  const tagsList = Object.keys(weightMap).map(key => {
+    return { name: key, weight: weightMap[key], size: Math.sqrt(weightMap[key]) * 4 }
+  }).sort((a, b) => b.weight - a.weight).map(item => {
+    return (
+      // <span className="tags" key={item.name} style={{ width: `${item.size}rem`, height: `${item.size}rem` }}>{item.name}</span>
+      <span className="tags" key={item.name}>{item.name}</span>
+    )
+  })
   return (
     <Layout location={location} title={`${siteTitle} | About`}>
       <SEO title="About" />
@@ -45,6 +78,12 @@ const About = ({ data, location }) => {
               </svg>
               <div className="text">广州</div>
             </div>
+          </section>
+        </div>
+        <div className="about-tags">
+          <h3 className="title">Tags</h3>
+          <section className="content">
+            {tagsList}
           </section>
         </div>
       </div>
