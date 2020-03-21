@@ -1,11 +1,15 @@
-// const React = require("react")
-// exports.wrapRootElement = ({ element }) => {
-//   const hour = new Date().getHours()
-//   const theme = hour >= 7 && hour <= 18 ? 'light' : 'dark'
-//   localStorage.setItem('theme', theme)
+// import React from 'react'
+// import { createStore } from 'redux'
+// import { Provider } from 'react-redux'
+// import { toChangeTheme } from './src/state/reducer'
+
+// const store = createStore(toChangeTheme)
+
+// const wrapRootElement = ({ element }) => {
 //   return (
-//     <div id="root">
+//     <Provider store={store}>
 //       {element}
-//     </div>
+//     </Provider>
 //   )
 // }
+// export { wrapRootElement }

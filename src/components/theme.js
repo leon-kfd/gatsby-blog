@@ -1,25 +1,10 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 const moonImg = require('../../static/icon/moon.svg')
 const sunImg = require('../../static/icon/sun.svg')
-
-class Theme extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-    this.state = {
-      isLightTheme: true
-    }
-  }
-
-  handleClick () {
-    let { isLightTheme } = this.state
-    this.setState({
-      isLightTheme: !isLightTheme
-    })
-    this.setTheme(!isLightTheme)
-  }
-
-  setTheme (isLightTheme) {
+const Theme = (props) => {
+  console.log(props)
+  const [isLightTheme, setIsLightTheme] = useState(true)
+  const changeTheme = (isLightTheme) => {
     if (!isLightTheme) {
       document.body.classList.add('dark')
       document.body.classList.remove('light')
@@ -29,25 +14,16 @@ class Theme extends React.Component {
       document.body.classList.remove('dark')
       localStorage.setItem('theme', 'light')
     }
+    setIsLightTheme(isLightTheme)
   }
-
-  componentDidMount () {
-    let theme = localStorage.getItem('theme') || 'light'
-    this.setState({
-      isLightTheme: theme === 'light'
-    })
-    this.setTheme(theme === 'light')
-  }
-
-  render () {
-    const { isLightTheme } = this.state
-    return (
-      <div className={`theme-selector ${isLightTheme ? 'light' : 'dark'}`} title="Change Theme" onClick={this.handleClick}>
-        <img src={moonImg} alt="theme-light" />
-        <img src={sunImg} alt="theme-dark" />
-      </div>
-    )
-  }
+  useEffect(() => {
+    changeTheme(localStorage.getItem('theme') !== 'dark')
+  })
+  return (
+    <div className={`theme-selector ${isLightTheme ? 'light' : 'dark'}`} title="Change Theme" onClick={() => changeTheme(!isLightTheme)}>
+      <img src={moonImg} alt="theme-light" />
+      <img src={sunImg} alt="theme-dark" />
+    </div>
+  )
 }
-
 export default Theme

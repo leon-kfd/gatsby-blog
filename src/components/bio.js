@@ -39,7 +39,7 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      <Link style={{ boxShadow: `none` }} to={`about`}>
+      <Link style={{ boxShadow: `none` }} to={`about`} title="About me">
         <Image
           fixed={data.avatar.childImageSharp.fixed}
           alt={author}
@@ -55,7 +55,7 @@ const Bio = () => {
         />
       </Link>
       <p>
-        A personal blog of <strong>{author}</strong>, {position}.
+        A personal blog of <Link to="about" title="About me"><strong>{author}</strong></Link>, {position}.
         <br></br>
         <a href={`mailto:${email}`} style={{ color: 'var(--textGrey)', boxShadow: 'none' }}>{email}</a>
       </p>

@@ -76,7 +76,7 @@ const Layout = ({ location, title, children }) => {
           marginTop: '4.375rem',
           marginBottom: 0
         }}>
-          © {new Date().getFullYear()} Leon.D
+          © {new Date().getFullYear()} <Link title="About me" to="/about">Leon.D</Link>
           &nbsp;&nbsp;
           <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备20011339号</a>
           &nbsp;&nbsp;
