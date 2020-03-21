@@ -3,14 +3,14 @@
 // import "typeface-merriweather";
 // import "prismjs/themes/prism.css"
 
-// const React = require("react")
-// exports.wrapRootElement = ({ element }) => {
-//   const hour = new Date().getHours()
-//   const theme = hour >= 7 && hour <= 18 ? 'light' : 'dark'
-//   localStorage.setItem('theme', theme)
-//   return (
-//     <div id="root">
-//       {element}
-//     </div>
-//   )
-// }
+import React from 'react'
+import { Provider } from 'react-redux'
+import createStore from './src/state/createStore'
+export const wrapRootElement = ({ element }) => {
+  const store = createStore()
+  return (
+    <Provider store={store}>
+      {element}
+    </Provider>
+  )
+}
