@@ -5,12 +5,10 @@ const sunImg = require('../../static/icon/sun.svg')
 const Theme = ({ theme, onChangeTheme }) => {
   const changeTheme = (isLightTheme) => {
     if (!isLightTheme) {
-      document.body.classList.add('dark')
-      document.body.classList.remove('light')
+      document.body.setAttribute('class', 'dark')
       onChangeTheme('dark')
     } else {
-      document.body.classList.add('light')
-      document.body.classList.remove('dark')
+      document.body.setAttribute('class', 'light')
       onChangeTheme('light')
     }
   }
