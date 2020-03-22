@@ -29,7 +29,8 @@ const About = ({ data, location }) => {
     Linux: 4,
     Nuxtjs: 5,
     Puppeteer: 4,
-    Gatsby: 2
+    Gatsby: 2,
+    Laravel: 5
   }
   const tagsList = Object.keys(weightMap).map(key => {
     return { name: key, weight: weightMap[key], size: Math.sqrt(weightMap[key]) * 4 }
