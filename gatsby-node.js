@@ -61,4 +61,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
 }

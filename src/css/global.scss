@@ -33,6 +33,7 @@ body.light {
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
   --about-img-radial: radial-gradient(ellipse closest-side, rgba(255, 255, 255, 0.8), #ffffff), url('../../static/img/about-bg.jpg');
   --ornament: rgb(109, 8, 224);
+  --mask: rgba(0,0,0,.5);
 }
 
 body.dark {
@@ -50,6 +51,7 @@ body.dark {
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
   --about-img-radial: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.6), #282c35), url('../../static/img/about-bg1.jpg');
   --ornament: rgb(202, 158, 253);
+  --mask: rgba(255,255,255,.5);
 }
 
 /*
