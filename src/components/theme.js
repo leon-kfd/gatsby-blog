@@ -15,7 +15,7 @@ const Theme = ({ theme, onChangeTheme }) => {
   useEffect(() => {
     if (theme === 'default') {
       const hour = new Date().getHours()
-      changeTheme(hour > 9 && hour < 20)
+      changeTheme(hour >= 8 && hour < 19)
     } else {
       changeTheme(theme === 'light')
     }
