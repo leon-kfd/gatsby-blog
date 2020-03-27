@@ -308,4 +308,4 @@ for (var i = 0; i < boxList.length; i++) {
 使用JS实现最主要是要运用到判断两点位于直线同侧的算法，这个算法只涉及四则运算，也比较简洁。获取DIV四个顶点和中心的坐标可以用<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank">getBoundingClientRect()</a>来获取元素的top,left,width,height计算出来。
 
 
-
+*以上内容未经授权请勿随意转载。*
