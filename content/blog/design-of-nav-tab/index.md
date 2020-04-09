@@ -1,16 +1,23 @@
 ---
 title: "浏览器导航首页设计"
-date: "2020-03-29"
-description: "一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 账号同步数据等功能"
+date: "2020-04-04"
+description: "一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能"
 tag: "Personal"
 hidden: false
 ---
 
-一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 账号同步数据等功能
+一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能
 
 系统半成品已部署与线上，在线访问：<a href="http://s.kongfandong.cn" target="_blank">http://s.kongfandong.cn</a>
 
-### 搜索引擎切换功能
+### 目录
+1. [搜索引擎切换功能](#搜索引擎切换功能)
+2. [键盘收藏夹功能](#键盘收藏夹功能)
+3. [背景图切换功能](#背景图切换功能)
+4. [配置同步功能](#配置同步功能)
+5. [关于优化](#关于优化)
+
+## 搜索引擎切换功能
 
 该功能时为了便于让用户可快速切换不同的搜索引擎，可以涉及不同领域的搜索，例如常用引擎、视频、翻译等搜索。在搜索框聚焦状态下按Tab键就可按用户规定的顺序快速切换引擎（Shift + Tab向上切换）。
 ```js
@@ -74,7 +81,7 @@ handleInputKeyDown (e) {
 ...
 ```
 
-### 键盘收藏夹功能
+## 键盘收藏夹功能
 
 用户可通过点击模拟键盘按键快速跳转到收藏好的网站，未设置时点击则弹窗让用户添加。
 
@@ -96,11 +103,11 @@ handleInputKeyDown (e) {
 ![添加展示](./keyboardDemo.gif)
 
 
-### 背景图切换功能
+## 背景图切换功能
 
 背景图使用的图片来自免费无版权图片壁纸网站<a href="https://unsplash.com/" target="_blank">Unplash</a>，并使用其提供的<a href="https://unsplash.com/documentation" target="_blank">API服务</a>获取JSON图片列表。其Api接口不可直接调用，需要注册获取到accessKey之后将其放在请求中才可使用接口服务，且普通用户每小时只可调用50次，因此不合适直接把获取unsplash图片的请求放在前端。
 
-#### 后端实现
+### 后端实现
 
 后端使用Nodejs每天定时调用1次获取Unsplash最新图片的接口，并把返回数据保留为json文件，然后由Nodejs提供接口，即背景图片以天为单位更新。
 ```js
@@ -165,9 +172,9 @@ runUnsplashSchedule()
 ...
 ```
 
-#### 前端处理
+### 前端处理
 
-前端使用Vuex保留用户每次切换获取的图片缓存，在不刷新页面下，同一张图片不需要再次加载。本来是想将获取到的图片转成Base64保存到Localstorage里面的，但浏览器Localstorage最大存储5M，Unsplash一张2K的图片转成Base64会超出5M所以放弃了这个方案。
+前端使用Vuex保留用户每次切换获取的图片缓存，在不刷新页面下，同一张图片不需要再次加载。并将最后一次获取到的图片转成Base64保存到Localstorage里面的，此时要注意多少浏览器Localstorage最大存储5M，需要做下判断，图片过大就不进行缓存了。
 
 关于获取图片资源，一开始是使用new Image()方案然后监听onload事件用canvas将Img转成Base64来实现。但是后面发现canvas将Unsplash图片转成base64会有跨域问题，尽管将<a href="https://www.jianshu.com/p/473cc1ec0b7e" target="_blank">Img的crossOrigin属性设成'anonymous'</a>，在Chrome下没问题，但是用Safari依然报跨域。最后采用了另外一种方案，使用Ajax去加载图片资源。需要将responseType改为arraybuffer方式，然后读取二进制拼接成base64。使用Ajax方式还有一个优点，就是可以获取到加载进度，直接用img的src去获取无法监听图片下载进度。
 
@@ -219,6 +226,12 @@ export default new Vuex.Store({
   },
   mutations: {
     // ... //
+    setEngineList (state, engineList) {
+      state.engineList = engineList
+    },
+    setBackupEngineList (state, backupEngineList) {
+      state.backupEngineList = backupEngineList
+    },
     setUnsplashImgList (state, unsplashImgList) {
       state.unsplashImgList = unsplashImgList
     },
@@ -232,6 +245,14 @@ export default new Vuex.Store({
       document.body.style.setProperty('--textColor', base64 ? '#f8f8f9' : '#262626')
       document.body.style.setProperty('--textShadowColor', base64 ? '#262626' : 'transparent')
       state.downloadingImgBase64 = base64
+      const userTodayImgCache = {
+        date: getToday(),
+        base64
+      }
+      const toJson = JSON.stringify(userTodayImgCache)
+      if (toJson.length < 3.5 * 1024 * 1024) {
+        localStorage.setItem('userTodayImgCache', JSON.stringify(userTodayImgCache))
+      }
     },
     setCacheImg (state, { imgId, base64 }) {
       state.cacheImg = {
@@ -249,7 +270,6 @@ export default new Vuex.Store({
         commit('setDownloadingImgBase64', state.cacheImg[imgId])
       } else {
         let imgURL
-        // 判断小屏获取宽度小一点的图片
         if (document.body.clientWidth >= 1440) {
           imgURL = downloadingImg.urls.regular.replace('w=1080', 'w=1920').replace('q=80', 'q=70')
         } else {
@@ -266,11 +286,6 @@ export default new Vuex.Store({
           commit('setDownloadingImgBase64', dataURL)
           commit('setCacheImg', { imgId, base64: dataURL })
           commit('setDownloadingImgInfo', null)
-          const userTodayImgInfo = {
-            ...downloadingImg,
-            date: getToday()
-          }
-          localStorage.setItem('userTodayImgInfo', JSON.stringify(userTodayImgInfo))
         })
       }
     }
@@ -281,7 +296,49 @@ export default new Vuex.Store({
 
 ![背景切换展示](./backgroundDemo.gif)
 
-未完待续...
+*当前并未实现自定义图片上传功能，后续进行优化*
+
+## 配置同步功能
+
+该功能未在线上版本实现，但已有实现思路。
+
+1. 方案一：用户注册账号，登录后自动同步配置。该方案为传统方案，但是系统功能单一，用上账户功能对用户来说是过于麻烦，而且涉及到账号安全问题。（不推荐）
+2. 方案二：用户点击保存配置按钮后生成一串AccessKey随机字符串，在另一端设备用户输入该字符串发送请求，后端返回改字符串对应的配置信息。随机字符串生成后有效期为24小时，后端定时删除。（推荐）
+3. 方案三：导出json文件进行同步。（不推荐）
+
+## 关于优化
+
+### 打包优化
+
+项目使用到的vue、vuex等资源使用线上CDN服务，可减少打包大小并减轻服务端带宽压力。使用Vue-cli3的项目在vue.config.js中加入externals配置，不打包vue相关资源，并在index.html加入Vue CDN资源。
+```js
+// vue.config.js
+module.exports = {
+  // ...
+  configureWebpack: config => {
+    config.externals = {
+      vue: 'Vue',
+      vuex: 'Vuex',
+      // 'vue-router': 'VueRouter',
+      // axios: 'axios'
+    }
+  }
+  // ...
+}
+```
+*因系统功能完全是单页面完成，删除了vue-router功能，涉及请求不多也将axios改为原生ajax实现*
+
+### 图片优化
+
+1. 由于Unsplash为境外站点，国内访问有可能速度很慢。可以考虑在nodejs进行获取图片请求后，再将每张图片保存到本地。或者为了减轻服务器带宽压力，可以将图片上传到七牛云或腾讯云的提供的图片资源服务。
+2. Unsplash提供的图片api接口，可以判断当前用户的设备，例如区分手机端和PC端，然后更改请求部分参数使其返回不同大小的图片。
+3. 将图片缓存到浏览器中。
+
+
+
+系统半成品已部署与线上，在线访问：<a href="http://s.kongfandong.cn" target="_blank">http://s.kongfandong.cn</a>
+
+*以上内容未经授权请勿随意转载。*
 
 
 
