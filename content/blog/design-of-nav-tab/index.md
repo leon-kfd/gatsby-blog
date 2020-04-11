@@ -89,7 +89,7 @@ handleInputKeyDown (e) {
 1. 截取用户输入的http地址中的域名，然后通过“域名 + /favicon.ico”获取主流网站的Icon，当获取不到时，使用截取Title的首字符作为Icon。亦可使用谷歌的Favicon服务，通过“http://www.google.cn/s2/favicons?domain= + 域名”获取网站Icon，但获取出来的都是固定16px x 16px大小。
 2. 使用Flex布局实现模拟键盘布局
 3. 监听按键添加事件，window.open打开用户收藏的网站
-4. 使用个人组件<a href="http://kongfandong.cn/pratice/animation-dialog" target="_blank">Animation Dialog</a>实现动画弹窗(Where open where close交互)
+4. 使用个人组件<a href="http://kongfandong.cn/howdy/animation-dialog" target="_blank">Animation Dialog</a>实现动画弹窗(Where open where close交互)
 
 ```html
 <img class="icon"
