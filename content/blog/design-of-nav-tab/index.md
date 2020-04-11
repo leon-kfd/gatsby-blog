@@ -174,7 +174,7 @@ runUnsplashSchedule()
 
 ### 前端处理
 
-前端使用Vuex保留用户每次切换获取的图片缓存，在不刷新页面下，同一张图片不需要再次加载。并将最后一次获取到的图片转成Base64保存到Localstorage里面的，此时要注意多少浏览器Localstorage最大存储5M，需要做下判断，图片过大就不进行缓存了。
+前端使用Vuex保留用户每次切换获取的图片缓存，在不刷新页面下，同一张图片不需要再次加载。并将最后一次获取到的图片转成Base64保存到Localstorage里面的，此时要注意多数浏览器Localstorage最大存储5M，需要做下判断，图片过大就不进行缓存了。
 
 关于获取图片资源，一开始是使用new Image()方案然后监听onload事件用canvas将Img转成Base64来实现。但是后面发现canvas将Unsplash图片转成base64会有跨域问题，尽管将<a href="https://www.jianshu.com/p/473cc1ec0b7e" target="_blank">Img的crossOrigin属性设成'anonymous'</a>，在Chrome下没问题，但是用Safari依然报跨域。最后采用了另外一种方案，使用Ajax去加载图片资源。需要将responseType改为arraybuffer方式，然后读取二进制拼接成base64。使用Ajax方式还有一个优点，就是可以获取到加载进度，直接用img的src去获取无法监听图片下载进度。
 
