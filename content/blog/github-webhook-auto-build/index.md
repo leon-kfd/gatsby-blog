@@ -106,9 +106,9 @@ module.exports = {
 
 ## 备注
 
-1. 后端可直接使用原生Nodejs搭建服务，使用 **<a href="https://github.com/rvagg/github-webhook-handler#readme" target="_blank">github-webhook-hanlder</a>** 包可快速构建
+1. 后端可直接使用原生Nodejs搭建服务，使用 **<a href="https://github.com/rvagg/github-webhook-handler#readme" target="_blank">github-webhook-hanlder</a>** 包可快速搭建
 2. 建议设置Secert密钥，防止伪造的请求
 3. 本方式适合简单的前端资源自动化部署构建，对于大型的项目还是建议使用Jenkins等持续集成工具进行自动化部署
-4. 可监听Github Webhooks其他事件，issue、start等，并通过GithubApi可实现下Git仓库机器人等功能
+4. 可监听Github Webhooks其他事件，issue、start等，并通过 **<a href="https://developer.github.com/v3/" target="_blank">Github API</a>** 可实现下Git仓库机器人等功能
 
 *以上内容未经授权请勿随意转载。*
