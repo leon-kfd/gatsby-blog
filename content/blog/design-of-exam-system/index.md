@@ -313,6 +313,6 @@ class Response extends Model
 
 由于时间仓促，本次开发的系统虽然基本功能已经完成，但仍有很大的提升空间。
 
-以上内容未经授权请勿随意转载。
+*以上内容未经授权请勿随意转载。*
 
 系统在线访问：<a href="http://kongfandong.cn/exam/index.html" target="_blank">ExamSystem</a>
