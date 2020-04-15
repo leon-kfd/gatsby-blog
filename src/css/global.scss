@@ -342,6 +342,7 @@ pre[data-line] {
 
 
 /* home-outlink */
+
 .home-outlink-img {
   width: .8em;
   height: .8em;
@@ -351,11 +352,17 @@ pre[data-line] {
   path {
     fill: var(--textLink);
   }
-  &:hover {
-    .home-outlink-img {
-      opacity: 1;
-      transition: all .4s;
-    }
+  // &:hover {
+  //   .home-outlink-img {
+  //     opacity: 1;
+  //     transition: all .4s;
+  //   }
+  // }
+}
+.home-outlink:hover {
+  .home-outlink-img {
+    opacity: 1;
+    transition: all .4s;
   }
 }
 
