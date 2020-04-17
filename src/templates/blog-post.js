@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
+import { ImgZoom } from '../utils/img-zoom'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -10,6 +11,37 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+
+
+  useEffect(() => {
+    Array.from(document.querySelectorAll('img.gatsby-resp-image-image')).map(item => {
+      const srcset = item.srcset && item.srcset.split(',')
+      let imgSrc
+      if (srcset.length > 0) {
+        let str = srcset[srcset.length - 1]
+        imgSrc = str.split(' ')[0]
+      }
+      if (!item.$imgZoom) {
+        new ImgZoom({
+          el: item,
+          options: {
+            imgSrc,
+            title: item.getAttribute('alt'),
+            group: post.frontmatter.title,
+            zoomCursor: true,
+            showCloseBtn: true,
+            preventDefault: true
+          }
+        })
+      }
+    })
+    return () => {
+      Array.from(document.querySelectorAll('img.gatsby-resp-image-image')).map(item => {
+        item.$imgZoom && item.$imgZoom.destory()
+      })
+    }
+  })
+
 
   return (
     <Layout location={location} title={siteTitle}>
