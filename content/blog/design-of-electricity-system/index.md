@@ -149,6 +149,7 @@ proxy: {
 
 1. SQL语句尽量都采用`escaping query values`，使用`?`占位符代替变量，可以防止SQL注入攻击
 2. SQL查询分页，查询总数时可以采用子查询方法，虽然性能差别不大，但是代码看上去可以较简洁
+
 ```js{27}
 // 搜索商品
 router.get('/query', async ctx => {
