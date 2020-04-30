@@ -275,6 +275,10 @@ pre[data-line] {
   min-width: 100%;
 }
 
+.gatsby-resp-image-wrapper{
+  max-width: none !important;
+}
+
 /*to-top*/
 .to-top {
   position: fixed;
