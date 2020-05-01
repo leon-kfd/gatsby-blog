@@ -2,11 +2,11 @@
 title: "Vue scroll directive"
 date: "2019-10-06"
 description: "使用vue指令的方式为HTML盒子加入自定义滚动条"
-outlinkAddress: "http://www.kongfandong.cn/howdy/scroll-directive/"
+outlinkAddress: "https://www.kongfandong.cn/howdy/scroll-directive/"
 tag: "Vue Directive"
 ---
 
-[View Online Document](http://www.kongfandong.cn/howdy/scroll-directive/)
+[View Online Document](https://www.kongfandong.cn/howdy/scroll-directive/)
 
 + Vue指令
 + 使用vue指令的方式为HTML盒子加入自定义滚动条
@@ -18,4 +18,4 @@ tag: "Vue Directive"
 3. 基本不需要更改DOM布局，只需在overflow:scroll的元素上增加该指令即可
 4. 移动端中无效，会自动改回默认的滚动
 
-[View Online Document](http://www.kongfandong.cn/howdy/scroll-directive/)
+[View Online Document](https://www.kongfandong.cn/howdy/scroll-directive/)

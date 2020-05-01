@@ -6,7 +6,7 @@ tag: "Personal"
 hidden: false
 ---
 
-+ 该系统成品已部署与线上，在线访问：<a href="http://kongfandong.cn/exam/index.html" target="_blank">ExamSystem</a>
++ 该系统成品已部署与线上，在线访问：<a href="https://kongfandong.cn/exam/index.html" target="_blank">ExamSystem</a>
 + 系统线上环境部分功能已锁定
 + 学生端登录
   + 测试账号1: user1  密码: 7gzt9i0lkh
@@ -315,4 +315,4 @@ class Response extends Model
 
 *以上内容未经授权请勿随意转载。*
 
-系统在线访问：<a href="http://kongfandong.cn/exam/index.html" target="_blank">ExamSystem</a>
+系统在线访问：<a href="https://kongfandong.cn/exam/index.html" target="_blank">ExamSystem</a>

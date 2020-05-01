@@ -2,11 +2,11 @@
 title: "Vue img zoom directive"
 date: "2020-04-18"
 description: "使用vue指令的方式为img标签加入图片放大功能"
-outlinkAddress: "http://www.kongfandong.cn/howdy/img-zoom-directive"
+outlinkAddress: "https://www.kongfandong.cn/howdy/img-zoom-directive"
 tag: "Vue Directive"
 ---
 
-[View Online Document](http://www.kongfandong.cn/howdy/img-zoom-directive)
+[View Online Document](https://www.kongfandong.cn/howdy/img-zoom-directive)
 
 + Vue指令
 + 使用vue指令的方式为img标签加入图片放大功能
@@ -17,4 +17,4 @@ tag: "Vue Directive"
 3. 图片Loading加载效果
 4. 可设置点击后加载显示的是另外一张大图
 
-[View Online Document](http://www.kongfandong.cn/howdy/img-zoom-directive)
+[View Online Document](https://www.kongfandong.cn/howdy/img-zoom-directive)

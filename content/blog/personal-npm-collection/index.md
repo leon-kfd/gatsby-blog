@@ -61,7 +61,7 @@ rimraf('/dist', function (err) {
 > 可搭建本地NPM仓库、内网NPM私服
 
 官网：**<a href="https://verdaccio.org/" target="_blank">https://verdaccio.org/</a>**  
-本人私服：**<a href="http://kongfandong.cn/npm/" target="_blank">http://kongfandong.cn/npm/</a>**
+本人私服：**<a href="https://kongfandong.cn/npm/" target="_blank">https://kongfandong.cn/npm/</a>**
 
 使用 **npm i verdaccio -g** 后，执行verdaccio即可启动本地NPM服务。启动后在 **C:\Users\\[当前用户]\AppData\Roaming\verdaccio** 生成其配置。
 + **storage**：npm包缓存文件夹，若搭建内网NPM时，可把对应依赖复制到该文件夹，然后使用npm install --registry=[服务访问地址]便可离线安装NPM包
@@ -70,7 +70,7 @@ rimraf('/dist', function (err) {
 
 **发布NPM包流程**
 + 更新版本号: npm version patch
-+ 设置NPM源: npm set registry http://kongfandong.cn/npm/
++ 设置NPM源: npm set registry https://kongfandong.cn/npm/
 + 若未注册，先注册: npm adduser
 + 登录: npm login
 + 发布: npm publish

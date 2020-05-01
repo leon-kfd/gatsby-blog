@@ -7,6 +7,13 @@ tag: "Personal"
 
 在线预览个人组件库: **<a href="https://kongfandong.cn/howdy" target="_blank">Howdy</a>**
 
+### 目录
+
+1. [Markdown-loader](#markdown-loader)
+2. [将Vue文件转为Markdown](#将vue文件转为markdown)
+3. [路由生成优化](#路由生成优化)
+4. [关于部署](#关于部署)
+
 ## Markdown-loader
 
 使用 **<a href="https://www.npmjs.com/package/markdown-loader" target="_blank">Markdown-loader</a>** 可以将markdown文件转为Html代码，直接在`vue.config.js`中加入webpack相关配置。并且使用 **<a href="https://highlightjs.org/" target="_blank">Highlight.js</a>** 对Markdown中出现的代码块进行高亮展示。Markdown-loader中可直接配置Highlightjs。
@@ -139,6 +146,119 @@ async loadCode () {
 }
 ```
 
-未完待续..
+## 路由生成优化
+
+目前组件库中含有多个组件与指令，一个组件或指令又会含有若干个Example，最终需要定义很多个路由（一个Example对于一个路由）。由于它们之间是存在很多相似的引用逻辑的，所以可以将它们抽离出来形成函数，从而不用每次手动去定义一个新的路由，只要更改传入的参数即可。
+
+```js
+// router.js
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+const packageList = [
+  {
+    name: 'resize-directive',
+    exampleNum: 5
+  },
+  {
+    name: 'scroll-directive',
+    exampleNum: 5
+  },
+  {
+    name: 'mouse-menu-directive',
+    exampleNum: 6
+  },
+  {
+    name: 'size-observer-directive',
+    exampleNum: 2
+  },
+  {
+    name: 'animation-dialog',
+    exampleNum: 3
+  },
+  {
+    name: 'standard-table',
+    exampleNum: 9
+  },
+  {
+    name: 'img-zoom-directive',
+    exampleNum: 3
+  }
+]
+const packageRouter = packageList.map(item => {
+  const { name, exampleNum } = item
+  return {
+    name,
+    routers: [
+      {
+        path: `/${name}/readme`,
+        name: `${name}-readme`,
+        component: () => import(`@/pages/${name}/example/readme`)
+      },
+      ...Array.from({ length: exampleNum }, (item, index) => {
+        return {
+          path: `/${name}/example${index + 1}`,
+          name: `${name}-example${index + 1}`,
+          component: () =>
+            import(`@/pages/${name}/example/example${index + 1}`)
+        }
+      })
+    ]
+  }
+})
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@/views/home')
+  },
+  ...Object.keys(packageRouter).map(key => {
+    const { name, routers } = packageRouter[key]
+    return {
+      path: `/${name}`,
+      name,
+      component: () => import(`@/pages/${name}`),
+      children: routers,
+      redirect: `/${name}/readme`
+    }
+  })
+]
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
+export default router
+```
+
+这样下次要添加新的组件或者添加新的Example只需要更改`packageList`即可。这种方式前提是需要确保包文件目录是符合规范的。
+
+其实还有一种更好的办法，就是编写一个nodejs脚本，**读取文件目录自动生成路由文件**，这样就能完全不需要手动配置任何路由，这种方法类似`Nuxtjs`的路由自动生成。
 
 
+## 关于部署
+
+1. 由于最终的访问地址为 **<a href="https://kongfandong.cn/howdy" target="_blank">https://kongfandong.cn/howdy</a>** ，所以需要配置publicPath为howdy，不然会出现资源404
+2. 路由使用了`History`模式，所以服务器端需要加入相关配置。该组件库展示站点最终是放在了`Koa2`的静态资源里面（因为Example里面涉及了一些Mock接口数据，为了方便把它们合在了同一个后端服务里面）。Koa2中可以使用 **<a href="https://www.npmjs.com/package/koa2-connect-history-api-fallback" target="_blank">koa2-connect-history-api-fallback</a>** 中间件实现History路由模式。
+
+```js
+// ...
+const static = require('koa-static')
+const { historyApiFallback } = require('koa2-connect-history-api-fallback')
+app.use(historyApiFallback({
+  htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
+  rewrites: [
+    {
+      from: '/howdy',
+      to: '/howdy'
+    }
+  ],
+}))
+// 打包后的文件放在public目录下,使用koa-static放出静态资源服务
+app.use(static(__dirname + '/public'))
+// ...
+```
+3. 若是使用nginx搭建的静态资源服务器，可以参考官方推荐的 **<a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html#nginx" target="_blank">Nginx配置</a>** 实现History模式。
+
+
+在线预览个人组件库: **<a href="https://kongfandong.cn/howdy" target="_blank">Howdy</a>**
