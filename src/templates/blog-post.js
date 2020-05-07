@@ -14,7 +14,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
 
   useEffect(() => {
-    Array.from(document.querySelectorAll('img.gatsby-resp-image-image')).map(item => {
+    Array.from(document.querySelectorAll('#gatsby-focus-wrapper section img')).map(item => {
       const srcset = item.srcset && item.srcset.split(',')
       let imgSrc
       if (srcset.length > 0) {
@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       }
     })
     return () => {
-      Array.from(document.querySelectorAll('img.gatsby-resp-image-image')).map(item => {
+      Array.from(document.querySelectorAll('#gatsby-focus-wrapper section img')).map(item => {
         item.$imgZoom && item.$imgZoom.destory()
       })
     }
