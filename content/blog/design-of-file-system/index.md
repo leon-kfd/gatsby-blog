@@ -324,4 +324,10 @@ router.post('/upload', async ctx => {
 
 上传上面演示的同一个文件，由于发现是已经存在的文件，则会直接返回成功。
 
-未完待续...
+至此，一个断点续传、秒传功能的前后端都实现完了。
+
+另外该系统还有一些对文件进行移动、删除、下载的功能都是比较简单的，基本都是使用nodejs的fs模块就能实现，这里就不细说了。
+
+该系统前端Git: <a href="https://github.com/leon-kfd/FileSystem" target="_blank">https://github.com/leon-kfd/FileSystem</a>
+
+由于目前该后端是嵌入到了本人的其他系统里面，还未能开源，等有空会整理出一份。同时系统部分功能由于时间问题也还没有空去完善，望见谅。
