@@ -25,21 +25,22 @@ const Bio = () => {
         siteMetadata {
           author,
           email,
-          position
+          position,
+          github
         }
       }
     }
   `)
 
-  const { author, email, position } = data.site.siteMetadata
+  const { author, email, github, position } = data.site.siteMetadata
   return (
     <div
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginBottom: rhythm(2),
       }}
     >
-      <Link style={{ boxShadow: `none` }} to={`about`} title="About me">
+      <Link style={{ boxShadow: `none`, height: 50 }} to={`about`} title="About me">
         <Image
           fixed={data.avatar.childImageSharp.fixed}
           alt={author}
@@ -54,10 +55,12 @@ const Bio = () => {
           }}
         />
       </Link>
-      <p>
+      <p style={{ marginBottom: '0.875rem', overflow: 'hidden' }}>
         A personal blog of <Link to="about" title="About me"><strong>{author}</strong></Link>, {position}.
         <br></br>
-        <a href={`mailto:${email}`} style={{ color: 'var(--textGrey)', boxShadow: 'none' }}>{email}</a>
+        <a href={`mailto:${email}`} style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block' }}>{email}</a>
+        <span style={{ margin: '0 0.4rem' }}>|</span>
+        <a href={github} style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block' }} target="_blank">Github</a>
       </p>
     </div>
   )
