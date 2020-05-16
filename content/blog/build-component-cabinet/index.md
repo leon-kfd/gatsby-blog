@@ -110,11 +110,7 @@ glob('src/pages/**/example/example*.vue', (err, files) => {
   files.map(file => {
     const codeFileName = file.replace('pages', 'code').replace('example/', '').replace('vue', 'md')
     const code = fs.readFileSync(file, 'utf8')
-    const output = `
-\`\`\`vue
-  ${code}
-\`\`\`
-`
+    const output = `\`\`\`vue\n${code}\n\`\`\``
     fs.writeFileSync(codeFileName, output)
   })
 })
