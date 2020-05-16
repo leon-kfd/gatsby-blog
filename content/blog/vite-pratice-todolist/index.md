@@ -5,9 +5,9 @@ description: "用Vue3的CompositionApi实现一个简单的todolist应用，使�
 tag: "Personal"
 ---
 
-Git仓库: <a href="https://github.com/leon-kfd/TodoListVitePratice" target="_blank">https://github.com/leon-kfd/TodoListVitePratice</a>
+Git仓库: <a href="https://github.com/leon-kfd/TodoListVitePratice" target="_blank" style="display:inline-block">https://github.com/leon-kfd/TodoListVitePratice</a>
 
-在线Demo: <a href="https://kongfandong.cn/todo" target="_blank">https://kongfandong.cn/todo</a>
+在线Demo: <a href="https://kongfandong.cn/todo" target="_blank" style="display:inline-block">https://kongfandong.cn/todo</a>
 
 ## Vite
 > Vite is an opinionated web dev build tool that serves your code via native ES Module imports during dev and bundles it with Rollup for production.
@@ -277,10 +277,3 @@ export default {
 这个小Demo的实现过来还是遇到了不少问题，但还是一一解决了，可以让我对vue3与typescript进行了初步的了解。目前只是因为还不太熟悉，但感觉vue3未来发展潜力还是很大的。
 
 还有Vite这个工具好像也是很强大的，目测Vue3官方后面有可能会直接推荐使用该工具进行开发了，有可能会放弃的Webpack了。
-
-
-
-
-
-
-
