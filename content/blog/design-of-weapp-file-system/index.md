@@ -7,7 +7,7 @@ description: "使用Taro-next将vue代码转成微信小程序，将个人网盘
 ## 前言
 笔者之前实现了一个PC端的个人网盘功能，包含断点续传、文件秒传的文件管理系统，具体请参考文章**[《断点续传与个人网盘系统的前后端设计》](https://kongfandong.cn/blog/design-of-file-system/)**
 
-于是构思想将个人网盘功能扩展到小程序，沿用之前的后端（接口基本不需要改动），只需要完成移动端的UI实习即可。又由于PC端是基于Vue实现的，为了方便开发所以想直接采用跨平台框架，将vue代码转成小程序，而且这样还可以考虑后续转出H5或原生手机客户端等。
+于是构思想将个人网盘功能扩展到小程序，沿用之前的后端（接口基本不需要改动），只需要完成移动端的UI实现即可。又由于PC端是基于Vue实现的，为了方便开发所以想直接采用跨平台框架，将vue代码转成小程序，而且这样还可以考虑后续转出H5或原生手机客户端等。
 
 *基于功能的原因，该小程序原则上不可能通过审核，所以只会作为个人练手项目。*
 
@@ -211,10 +211,10 @@ this.$post('/delete', {
 
 这几个接口都会返回一个含有选取路径的成功回调，能拿到文件路径进行上传
 
-<div style="width:47%;display:inline-block;margin-right:5%" >
+<div style="width:45%;display:inline-block;margin-right:5%" >
   <img src="./upload-mode.jpg">
 </div>
-<div style="width:47%;display:inline-block" >
+<div style="width:45%;display:inline-block" >
   <img src="./upload-success.jpg">
 </div>
 
@@ -293,7 +293,78 @@ handleUploadFile (type = 1) {
 
 ## 文件预览
 
-由于微信小程序文件存储最大为10M，所以基本不可能实现下载功能了。于是把下载功能改成了在线预览功能，当前支持的文件类型有图片、视频和办公文档（word、ppt、excel、pdf）
+由于微信小程序文件存储最大为10M，所以基本不可能实现下载功能了。于是把下载功能改成了在线预览功能，当前支持以下几种文件类型
+
++ 办公文档（doc、docx、xls、xlsx、ppt、pptx、pdf）：这几种文档都可以通过`Taro.openDocument`API实现预览操作
++ 图片（jpg、png、svg、gif）：拿到图片临时地址后，使用浮层和`image`组件显示
++ 视频（mp4、mov、m4v、3gp、avi、m3u8）：直接将视频地址放到浮层的`video`组件中显示
+
+以上，除了视频外，其余都是要先通过`wx.downloadFile`将文件下载到本地生成临时路径再执行相应预览操作，这时候可以添加下载进度条优化用户体验。而视频不会直接进行下载，需要后端将视频资源设为流视频（`Accept-Range`），这样视频可以一边下载一边播放。
 
 
-未完待续...
+![图片预览](./文件预览.gif)
+
+*进度条使用微信原生请求事件`onProgressUpdate`实现*
+
+主要代码
+
+```js{6,11,13,24-26,35}
+handleActionPreview (el) {
+  const target = this.actionFileInfo
+  const targetPath = this.currentPathArr.join('/') + '/' + target.fileName
+  const realPath = targetPath.replace('$Root', this.$baseURL)
+  const sessionId = Taro.getStorageSync('sessionId')
+  if (videoSuffixArr.includes(target.suffix)) {
+    // 视频直接展示
+    this.handleActionCancel()
+    this.mediaPreviewVisible = 2
+    this.videoPreviewURL = realPath + '?sessionid=' + Taro.getStorageSync('sessionId')
+  } else if (this.previewArr.includes(target.suffix)) {
+    // 其他类型先下载
+    this.downloadTask = wx.downloadFile({
+      url: realPath,
+      header: {
+        'sessionid': sessionId
+      },
+      success: (data) => {
+        const { tempFilePath } = data
+        if (imgSuffixArr.includes(target.suffix)) {
+          this.mediaPreviewVisible = 1
+          this.imgPreviewURL = tempFilePath
+        } else if (documentSuffixArr.includes(target.suffix)) {
+          Taro.openDocument({
+            filePath: tempFilePath
+          })
+        }
+        this.handleActionCancel()
+      },
+      fail: () => {
+        this.$notify({ type: 'danger', message: `下载失败`, duration: 2000 })
+      }
+    })
+    this.downloadTask.onProgressUpdate((res) => {
+      this.isDownloading = true
+      const { progress, totalBytesWritten, totalBytesExpectedToWrite } = res
+      this.downloadingInfo = { progress, totalBytesWritten, totalBytesExpectedToWrite }
+    })
+  }
+}
+```
+
+*PS：后端是Koa服务，使用了`koa-range`为静态资源下的视频实现流功能，最后在本地微信开发者功能和安卓都可以正常加载视频并播放，但是IOS端一直加载不出来，目前还在找原因*
+
+## 其余功能
+
+### 批量操作
+
+使用了van-checkgroup实现，直接更换当前文件列表，但尽量保持节点位置没发生改变，可防止界面回流影响性能。
+
+![批量操作](./批量操作.gif)
+
+### 移动文件
+
+该功能对于PC端上的移动，可以选择文件仅移动或者是复制，PC端是使用一个树形组件进行选择文件夹。但发现Vant等并没有相关树形组件，可能需要自己封装一个，该功能还未开发完成。
+
+## 关于打包发布
+
+执行命令`npm run build:weapp`后，其余操作与正常小程序一样。
