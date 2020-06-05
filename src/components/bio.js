@@ -58,9 +58,11 @@ const Bio = () => {
       <p style={{ marginBottom: '0.875rem', overflow: 'hidden' }}>
         A personal blog of <Link to="about" title="About me"><strong>{author}</strong></Link>, {position}.
         <br></br>
-        <a href={`mailto:${email}`} style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block' }}>{email}</a>
-        <span style={{ margin: '0 0.4rem' }}>|</span>
-        <a href={github} style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block' }} target="_blank">Github</a>
+        <a href={`mailto:${email}`} style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block', marginRight: '0.8rem' }}>📧 {email}</a>
+        {/* <span style={{ margin: '0 0.4rem' }}>|</span> */}
+        <a href={github} style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block', marginRight: '0.8rem' }} target="_blank">⚡ Github</a>
+        {/* <span style={{ margin: '0 0.4rem' }}>|</span> */}
+        <a href="https://kongfandong.cn/howdy" style={{ color: 'var(--textGrey)', boxShadow: 'none', display: 'inline-block', marginRight: '0.8rem' }} target="_blank" title="个人组件库Howdyjs">🏳️‍🌈 Howdyjs</a>
       </p>
     </div>
   )
