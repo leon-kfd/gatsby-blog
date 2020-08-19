@@ -1,6 +1,6 @@
 ---
 title: "Standard tabs"
-date: "2029-08-08"
+date: "2020-08-08"
 description: "适用于移动端的标签页，定制标签底部滚动动画交互"
 outlinkAddress: "https://www.kongfandong.cn/howdy/standard-tabs"
 tag: "Vue Component"
