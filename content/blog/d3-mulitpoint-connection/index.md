@@ -1,7 +1,7 @@
 ---
 title: "使用D3.js将离散的点形成平滑曲线及其应用"
 date: "2020-08-16"
-description: "D3.js内置了几种可以将离散点连成线的算法，但官方并没有提供效果展示，于是编写了一个简单的可以快速看到各种连线算法的效果图的DEMO。同时利用该功能实现的一个简单的曲线自动校正的Canvas画板Demo"
+description: "D3.js内置了几种可以将离散点连成线的算法，但官方并没有提供效果展示，于是编写了一个简单的可以快速看到各种连线算法的效果图的DEMO。同时利用该功能实现的一个简单的曲线自动校正的Canvas画板Demo。"
 tag: "Personal"
 ---
 
@@ -29,6 +29,10 @@ Demo访问地址: <a href="https://kongfandong.cn/demo/d3-multipoint-connection/
 Demo访问地址: <a href="https://kongfandong.cn/demo/d3-adjust-line/index.html" target="_blank">https://kongfandong.cn/demo/d3-adjust-line/index.html</a>
 
 <iframe src="https://kongfandong.cn/demo/d3-adjust-line/index.html" width="100%" height="750px" style="border: none;outline:none;box-shadow: 0 0 5px #888"></iframe>
+
++ Canvas简易画板
++ 设置的AdjustAngel配置偏移角度
++ 通过AdjustAngel进行点的取样，然后使用D3js的连线算法进行重连
 
 ## 总结
 
