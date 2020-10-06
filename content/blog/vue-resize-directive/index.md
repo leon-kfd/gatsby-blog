@@ -4,6 +4,7 @@ date: "2019-10-03"
 description: "使用vue指令的方式为HTML盒子加入更改大小功能，该插件同时支持原生JS调用"
 outlinkAddress: "https://www.kongfandong.cn/howdy/resize-directive/"
 tag: "Vue Directive"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/resize-directive/)

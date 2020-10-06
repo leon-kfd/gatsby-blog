@@ -4,6 +4,7 @@ date: "2020-01-19"
 description: "使用vue指令的方式为HTML盒子加入大小改变的事件监听, 基于Javascript试验API:ResizeObserver"
 outlinkAddress: "https://www.kongfandong.cn/howdy/size-observer-directive"
 tag: "Vue Directive"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/size-observer-directive)

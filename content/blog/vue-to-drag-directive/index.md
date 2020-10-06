@@ -4,6 +4,7 @@ date: "2020-06-06"
 description: "使用vue指令的方式为Fixed定位的元素加入可拖拽功能，该插件同时支持原生JS调用"
 outlinkAddress: "https://www.kongfandong.cn/howdy/to-drag-directive"
 tag: "Vue Directive"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/to-drag-directive)

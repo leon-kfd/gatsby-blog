@@ -4,6 +4,7 @@ date: "2019-08-10"
 description: "基于ElementUI的el-table的二次封装"
 outlinkAddress: "https://www.kongfandong.cn/howdy/standard-table"
 tag: "Vue Component"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/standard-table)

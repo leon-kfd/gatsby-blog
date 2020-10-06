@@ -4,6 +4,7 @@ date: "2020-01-22"
 description: "使用交互动画或Animation.css等方式打开模态框"
 outlinkAddress: "https://www.kongfandong.cn/howdy/animation-dialog"
 tag: "Vue Component"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/animation-dialog)

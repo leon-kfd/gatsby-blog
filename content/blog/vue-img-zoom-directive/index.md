@@ -4,6 +4,7 @@ date: "2020-04-18"
 description: "使用vue指令的方式为img标签加入图片放大功能，该插件同时支持原生JS调用"
 outlinkAddress: "https://www.kongfandong.cn/howdy/img-zoom-directive"
 tag: "Vue Directive"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/img-zoom-directive)

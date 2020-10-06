@@ -3,7 +3,6 @@ title: "考试系统设计总结"
 date: "2018-12-01"
 description: "采用Vue + Laravel + Mysql 架构开发的在线考试系统，包含学生端与教师管理端功能"
 tag: "Personal"
-hidden: false
 ---
 
 + 该系统成品已部署与线上，在线访问：<a href="https://kongfandong.cn/exam/index.html" target="_blank">ExamSystem</a>

@@ -373,3 +373,58 @@ pre[data-line] {
 a.anchor svg[aria-hidden="true"] {
   stroke: var(--textLink)
 }
+
+
+.home-title {
+  font-size: 1.85rem;
+  font-weight: bold;
+  padding: 0 1.2rem;
+  margin-bottom: 1.4rem;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    border-left: 0.4rem solid #7070d2;
+    height: 60%;
+    top: 20%;
+  }
+}
+
+.home-article {
+  .outlink {
+    display: flex;
+    a {
+      margin-right: 1.2rem;
+      box-shadow: none;
+      color: var(--textNormal);
+      font-size: .95rem;
+      &:hover {
+        color: var(--textLink);
+      }
+    }
+  }
+  details {
+    summary {
+      margin-top: .2rem;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+}
+
+.home-title + article {
+  header {
+    h3 {
+      margin-top: .4rem;
+    }
+  }
+}
+
+.howdy-component {
+  padding: .4rem 1rem;
+  margin-left: 0;
+  li {
+    margin-bottom: .4rem;
+  }
+}

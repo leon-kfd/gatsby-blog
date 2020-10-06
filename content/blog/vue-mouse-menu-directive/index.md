@@ -4,6 +4,7 @@ date: "2020-01-02"
 description: "使用vue指令的方式为HTML盒子加入自定义右键菜单"
 outlinkAddress: "https://www.kongfandong.cn/howdy/mouse-menu-directive/"
 tag: "Vue Directive"
+hidden: true
 ---
 
 [View Online Document](https://www.kongfandong.cn/howdy/mouse-menu-directive)
