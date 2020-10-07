@@ -79,16 +79,6 @@ const Layout = ({ location, title, children }) => {
           © {new Date().getFullYear()} <Link title="About me" to="/about">Leon.D</Link>
           &nbsp;&nbsp;
           <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备20011339号</a>
-          &nbsp;&nbsp;
-          <span style={
-            {
-              display: `inline-block`
-            }
-          }>
-            Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
-          </span>
         </p>
       </footer>
     </div>

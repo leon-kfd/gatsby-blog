@@ -44,7 +44,32 @@ const howdyComponent = [
   item.link = `https://kongfandong.cn/howdy/${linkText}`
   return item
 })
-console.log(howdyComponent)
+
+const howdyLink = [
+  {
+    name: '⚡Github',
+    link: 'https://github.com/leon-kfd/howdyjs'
+  },
+  {
+    name: '💾NPM',
+    link: 'https://www.npmjs.com/package/howdyjs'
+  },
+  {
+    name: '📖Document',
+    link: 'https://kongfandong.cn/howdy'
+  }
+]
+
+const browserNavLink = [
+  {
+    name: '⚡Github',
+    link: 'https://github.com/leon-kfd/NavTabSystem'
+  },
+  {
+    name: '💡Demo',
+    link: 'http://s.kongfandong.cn'
+  }
+]
 
 export default () => {
   return (
@@ -60,7 +85,7 @@ export default () => {
             }}>
             <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
-              Howdyjs
+              Howdyjs 🔸 组件库
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
                 <path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z"></path>
                 <path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z"></path>
@@ -69,14 +94,7 @@ export default () => {
             </a>
           </h3>
           <small className="outlink">
-            <a 
-              href={`https://github.com/leon-kfd/howdyjs`}
-              target="_blank"
-              rel="noopener noreferrer">⚡Github</a>
-            <a 
-              href={`https://kongfandong.cn/howdy`}
-              target="_blank"
-              rel="noopener noreferrer">📖Document</a>
+            {howdyLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer">{item.name}</a>)}
           </small>
         </header>
         <section>
@@ -107,7 +125,7 @@ export default () => {
             }}>
             <a style={{ boxShadow: `none` }} href={`http://s.kongfandong.cn`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
-              Navigation Tab Home
+              Browser Navigation 🔸 浏览器起始页
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
                 <path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z"></path>
                 <path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z"></path>
@@ -116,14 +134,7 @@ export default () => {
             </a>
           </h3>
           <small className="outlink">
-            <a 
-              href={`https://github.com/leon-kfd/NavTabSystem`}
-              target="_blank"
-              rel="noopener noreferrer">⚡Github</a>
-            <a 
-              href={`http://s.kongfandong.cn`}
-              target="_blank"
-              rel="noopener noreferrer">💡Demo</a>
+            {browserNavLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer">{item.name}</a>)}
           </small>
         </header>
         <section>
