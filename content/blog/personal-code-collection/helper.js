@@ -6,6 +6,8 @@
  * 深拷贝: deepClone(obj)
  * 滚动到指定位置: scrollTo(top, duration, selector = window)
  * 加载外部Script：loadScript(url)
+ * 优雅处理Async/Await: coverAsync(_promise)
+ * 执行复制: execCopy(text)
  */
 
 /**
@@ -134,7 +136,7 @@ export function scrollTo (top, duration, selector = window) {
 
 /**
  * 加载外部Script
- * @param {String} url
+ * @param {string} url
  * @return {Promise}
  */
 export function loadScriptSync (url) {
@@ -160,4 +162,36 @@ export function loadScriptSync (url) {
       reject(e)
     }
   })
+}
+
+/**
+ * 优雅处理Async/Await
+ * @params {Promise} _promise
+ * @return {Promise} newPromise
+ */
+export function coverAsync(_promise) {
+  return _promise.then(data => {
+    return [null, data]
+  }, err => {
+    return [err]
+  })
+}
+
+/**
+ * 执行复制
+ * @param {string} text 
+ * @return {boolean}
+ */
+export function execCopy(text) {
+  const input = document.createElement('input')
+  input.style.opacity = 0
+  input.style.position = 'absolute'
+  input.style.left = '-100000px'
+  document.body.appendChild(input)
+  input.value = text
+  input.select()
+  input.setSelectionRange(0, text.length)
+  document.execCommand('copy')
+  document.body.removeChild(input)
+  return true
 }

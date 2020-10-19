@@ -101,6 +101,8 @@ ul, li {
  * 深拷贝: deepClone(obj)
  * 滚动到指定位置: scrollTo(top, duration, selector = window)
  * 加载外部Script：loadScript(url)
+ * 优雅处理Async/Await: coverAsync(_promise)
+ * 执行复制: execCopy(text)
  */
 
 /**
@@ -189,6 +191,29 @@ export function deepClone (obj) {
 * @param {object} selector 滚动条不在body上时，需传入当前滚动条所在javascriptDom元素
 */
 export function scrollTo (top, duration, selector = window) {
+  // 兼容requestionAnimationFrame
+  (function () {
+    var lastTime = 0;
+    var vendors = ['webkit', 'moz'];
+    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+      window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+      window.cancelAnimationFrame =
+        window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    }
+    if (!window.requestAnimationFrame)
+      window.requestAnimationFrame = function (callback) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function () { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+      };
+    if (!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = function (id) {
+        clearTimeout(id);
+      };
+  }());
   const lastTop = selector === window ? (document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop) : selector.scrollTop
   const startTime = new Date()
   let timer
@@ -206,7 +231,7 @@ export function scrollTo (top, duration, selector = window) {
 
 /**
  * 加载外部Script
- * @param {String} url
+ * @param {string} url
  * @return {Promise}
  */
 export function loadScriptSync (url) {
@@ -220,18 +245,50 @@ export function loadScriptSync (url) {
             script.onreadystatechange = null
             resolve(1)
           }
-        };
+        }
       } else {
         script.onload = function () {
           resolve(1)
-        };
+        }
       }
       script.src = url
-      document.getElementsByTagName('head')[0].appendChild(script);
+      document.getElementsByTagName('head')[0].appendChild(script)
     } catch (e) {
       reject(e)
     }
   })
+}
+
+/**
+ * 优雅处理Async/Await
+ * @params {Promise} _promise
+ * @return {Promise} newPromise
+ */
+export function coverAsync(_promise) {
+  return _promise.then(data => {
+    return [null, data]
+  }, err => {
+    return [err]
+  })
+}
+
+/**
+ * 执行复制
+ * @param {string} text 
+ * @return {boolean}
+ */
+export function execCopy(text) {
+  const input = document.createElement('input')
+  input.style.opacity = 0
+  input.style.position = 'absolute'
+  input.style.left = '-100000px'
+  document.body.appendChild(input)
+  input.value = text
+  input.select()
+  input.setSelectionRange(0, text.length)
+  document.execCommand('copy')
+  document.body.removeChild(input)
+  return true
 }
 ```
 
