@@ -67,7 +67,7 @@ const browserNavLink = [
   },
   {
     name: '💡Demo',
-    link: 'http://s.kongfandong.cn'
+    link: 'https://s.kongfandong.cn'
   }
 ]
 
