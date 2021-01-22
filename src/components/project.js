@@ -123,7 +123,7 @@ export default () => {
             style={{
               marginBottom: rhythm(1 / 4),
             }}>
-            <a style={{ boxShadow: `none` }} href={`http://s.kongfandong.cn`}
+            <a style={{ boxShadow: `none` }} href={`https://s.kongfandong.cn`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
               Browser Navigation 🔸 浏览器起始页
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
