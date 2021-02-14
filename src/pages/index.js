@@ -21,11 +21,6 @@ const BlogIndex = ({ data, location }) => {
         <p className="home-title">Article</p>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          // const tags = node.frontmatter.tag.split(',').map((item, index) => {
-          //   return (
-          //     <small key={index} style={{ margin: `0 0.5rem` }}>{item}</small>
-          //   )
-          // })
           return (
             <article key={node.fields.slug}>
               <header>
@@ -83,7 +78,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC },
-      filter: { frontmatter: { hidden: {ne: true} } }
+      filter: { frontmatter: {  } }
     ) {
       edges {
         node {
@@ -95,9 +90,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
-            outlinkAddress,
-            tag,
-            hidden
+            tag
           }
         }
       }

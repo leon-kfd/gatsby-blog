@@ -4,35 +4,27 @@ import { toKebabCase } from "../utils/helper"
 
 const howdyComponent = [
   {
-    title: 'Standard Table',
-    text: '基于ElementUI table的二次封装'
-  },
-  {
     title: 'Animation Dialog',
     text: '使用动画打开模态框'
   },
   {
-    title: 'Resize Directive',
+    title: 'Resize',
     text: '为HTML盒子加入拖拽更改大小功能'
   },
   {
-    title: 'Scroll Directive',
+    title: 'Scroll',
     text: '为HTML盒子加入自定义滚动条'
   },
   {
-    title: 'Mouse Menu Directive',
-    text: '为HTML盒子加入自定义右键菜单'
-  },
-  {
-    title: 'Size Observer Directive',
+    title: 'Size Observer',
     text: '监听盒子大小变化'
   },
   {
-    title: 'Img Zoom Directive',
+    title: 'Img Zoom',
     text: '为Img标签加入图片放大功能，支持按组浏览下一张图片'
   },
   {
-    title: 'To Drag Directive',
+    title: 'To Drag',
     text: '为Fixed定位的元素加入可拖拽功能'
   },
   {
@@ -41,7 +33,7 @@ const howdyComponent = [
   }
 ].map(item => {
   let linkText = toKebabCase(item.title)
-  item.link = `https://kongfandong.cn/howdy/${linkText}`
+  item.link = `https://kongfandong.cn/howdy-next/${linkText}`
   return item
 })
 
@@ -52,11 +44,11 @@ const howdyLink = [
   },
   {
     name: '💾NPM',
-    link: 'https://www.npmjs.com/package/howdyjs'
+    link: 'https://www.npmjs.com/search?q=%40howdyjs'
   },
   {
     name: '📖Document',
-    link: 'https://kongfandong.cn/howdy'
+    link: 'https://kongfandong.cn/howdy-next'
   }
 ]
 
@@ -83,7 +75,7 @@ export default () => {
             style={{
               marginBottom: rhythm(1 / 4),
             }}>
-            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy`}
+            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy-next`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
               Howdyjs 🔸 组件库
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
