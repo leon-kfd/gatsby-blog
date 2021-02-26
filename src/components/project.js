@@ -30,6 +30,10 @@ const howdyComponent = [
   {
     title: 'Standard Tabs',
     text: '移动端标签页'
+  },
+  {
+    title: 'Mouse Menu',
+    text: '自定义右键菜单'
   }
 ].map(item => {
   let linkText = toKebabCase(item.title)
