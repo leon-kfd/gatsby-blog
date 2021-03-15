@@ -37,7 +37,7 @@ const howdyComponent = [
   }
 ].map(item => {
   let linkText = toKebabCase(item.title)
-  item.link = `https://kongfandong.cn/howdy-next/${linkText}`
+  item.link = `https://kongfandong.cn/howdy/${linkText}`
   return item
 })
 
@@ -52,7 +52,7 @@ const howdyLink = [
   },
   {
     name: '📖Document',
-    link: 'https://kongfandong.cn/howdy-next'
+    link: 'https://kongfandong.cn/howdy'
   }
 ]
 
