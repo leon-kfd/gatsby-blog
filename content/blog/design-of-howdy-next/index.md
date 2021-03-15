@@ -9,7 +9,7 @@ tag: "Personal"
 
 ## Link
 + <a href="https://github.com/leon-kfd/howdyjs" target="_blank">⚡Github</a>
-+ <a href="https://kongfandong.cn/howdy-next" target="_blank">📖Document</a>
++ <a href="https://kongfandong.cn/howdy" target="_blank">📖Document</a>
 + <a href="https://www.npmjs.com/search?q=%40howdyjs" target="_blank">💾NPM</a>
 
 ## 主要变更
@@ -136,7 +136,7 @@ const output = `
 /* eslint-disable */
 import { createRouter, createWebHistory } from 'vue-router';
 const router = createRouter({
-  history: createWebHistory('/howdy-next/'),
+  history: createWebHistory('/howdy/'),
   routes: ${routesStr}
 });
 
@@ -150,6 +150,6 @@ fs.writeFileSync('./src/router/index.ts', output);
 
 ## 说明
 
-+ 新版地址: [Howdy-next](https://kongfandong.cn/howdy-next)
-+ 旧版地址: [Howdy](https://kongfandong.cn/howdy)
++ 新版地址: [Howdy](https://kongfandong.cn/howdy)
++ 旧版地址: [Howdy-old](https://kongfandong.cn/howdy-old)
 + 使用的是同一个github仓库，新版参考[master分支](https://github.com/leon-kfd/howdyjs)，旧版参考[howdy分支](https://github.com/leon-kfd/howdyjs/tree/howdy)
