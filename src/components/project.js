@@ -79,7 +79,7 @@ export default () => {
             style={{
               marginBottom: rhythm(1 / 4),
             }}>
-            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy-next`}
+            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
               Howdyjs 🔸 组件库
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
