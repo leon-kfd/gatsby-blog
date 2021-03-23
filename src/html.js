@@ -50,15 +50,6 @@ export default function HTML (props) {
             `,
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163771182-1"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-163771182-1');
-          `
-        }} />
       </body>
     </html>
   )
