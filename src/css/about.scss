@@ -21,6 +21,8 @@
       padding-left: 0.6rem;
     }
     .content {
+      padding-left: 1.2rem;
+      font-size: 1.1rem;
       .row {
         display: flex;
         align-items: center;
@@ -99,6 +101,8 @@
   .about-body {
     .about-base {
       .content {
+        padding-left: 0;
+        font-size: 1rem;
         .row {
           .icon {
             width: 1.8rem;
