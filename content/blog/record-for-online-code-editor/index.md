@@ -7,9 +7,9 @@ tag: "Personal"
 
 OnlineCodeEditor是笔者基于Vue3 + Typescript开发的一个类似`Codepen`的开源项目，本文记录一些项目中使用到技术及实现原理等。
 
-+ <a href="https://github.com/leon-kfd/OnlineCodeEditor" target="_blank">🏹Github</a>
++ <a href="https://github.com/leon-kfd/OnlineCodeEditor/" target="_blank">🏹Github</a>
 + <a href="https://leon-kfd.github.io/OnlineCodeEditor/#/" target="_blank">🌈Simple Demo from Github pages</a>
-+ <a href="https://kongfandong.cn/coder" target="_blank">🎉Simple Demo from author server</a>
++ <a href="https://kongfandong.cn/coder/" target="_blank">🎉Simple Demo from author server</a>
 
 ## 主要原理
 

@@ -44,7 +44,7 @@ const howdyComponent = [
 const howdyLink = [
   {
     name: '⚡Github',
-    link: 'https://github.com/leon-kfd/howdyjs'
+    link: 'https://github.com/leon-kfd/howdyjs/'
   },
   {
     name: '💾NPM',
@@ -52,18 +52,18 @@ const howdyLink = [
   },
   {
     name: '📖Document',
-    link: 'https://kongfandong.cn/howdy'
+    link: 'https://kongfandong.cn/howdy/'
   }
 ]
 
 const dashboardLink = [
   {
     name: '⚡Github',
-    link: 'https://github.com/leon-kfd/Dashboard'
+    link: 'https://github.com/leon-kfd/Dashboard/'
   },
   {
     name: '💡Demo',
-    link: 'https://kongfandong.cn/Dashboard'
+    link: 'https://kongfandong.cn/Dashboard/'
   }
 ]
 
@@ -90,7 +90,7 @@ export default () => {
             style={{
               marginBottom: rhythm(1 / 4),
             }}>
-            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy`}
+            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy/`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
               Howdyjs 🔸 组件库
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
