@@ -10,7 +10,7 @@ tag: "Personal"
 Dashboard是一个笔者基于`Vite` + `Vue3` + `Typesript`开发的项目，个性化的浏览器导航首页面板，支持自定义添加组件，可编辑组件各种属性。响应式设计，可自定义随机壁纸背景图。
 
 + <a href="https://github.com/leon-kfd/Dashboard/" target="_blank">⚡Github</a>
-+ <a href="https://leon-kfd.github.io/Dashboard/" target="_blank">💡Demo</a>
++ <a href="https://kongfandong.cn/Dashboard/" target="_blank">💡Demo</a>
 
 ## 功能特性
 
@@ -199,4 +199,4 @@ export default {
 项目仍在持续开发及优化中，若文章或项目中有做的不好的地方欢迎指出，不胜感激。
 
 + <a href="https://github.com/leon-kfd/Dashboard/" target="_blank">⚡Github</a>
-+ <a href="https://leon-kfd.github.io/Dashboard/" target="_blank">💡Demo</a>
++ <a href="https://kongfandong.cn/Dashboard/" target="_blank">💡Demo</a>
