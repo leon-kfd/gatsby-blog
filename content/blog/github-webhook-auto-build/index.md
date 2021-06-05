@@ -42,6 +42,7 @@ const { webhookSecret } = require('../config/config')
 const r = new Response()
 const router = new Router()
 
+// router的路由路径在Github配置webhook时配置，webhook为向该路径发送请求
 router.post('/****', async ctx => {
   const requestData = ctx.request.body
   const sig = ctx.headers['x-hub-signature']
@@ -84,6 +85,7 @@ router.post('/****', async ctx => {
   }
 })
 
+// updateBlog为接收到hook后要执行的操作
 const updateBlog = () => {
   exec('****.bat', (err) => {
     if (err) {
@@ -101,14 +103,16 @@ module.exports = {
 
 在新建Webhooks后，github会发送一个ping事件到目标服务器，所以这里加多了一种ping事件的处理（直接返回200）。
 
-本次我设置了只有push事件会发请求，所以只处理了push事件，如果设置Webhooks监听其他事件，例如issues、star等，可自行扩展对应功能。
+本次我设置了只有push事件会发请求，所以只处理了push事件，如果设置Webhooks监听其他事件，例如release、issues、star等，可自行扩展对应功能。
 
-## 备注
+## 其他说明
 
 1. 后端可直接使用原生Nodejs搭建服务，使用 **<a href="https://github.com/rvagg/github-webhook-handler#readme" target="_blank">github-webhook-hanlder</a>** 包可快速搭建
 2. 建议设置Secert密钥，防止伪造的请求
 3. 本方式适合简单的前端资源自动化部署构建，对于大型的项目还是建议使用Jenkins等持续集成工具进行自动化部署
 4. 可监听Github Webhooks其他事件，issue、start等，并通过 **<a href="https://developer.github.com/v3/" target="_blank">Github API</a>** 可实现下Git仓库机器人等功能
 5. Github Webhooks请求中有很多有用的信息，例如多人项目中你可以记录是由谁push的，或者处理的是哪个分支等，都可以提取出来进行不同的处理。
+6. 脚本可使用Shell编写再由Nodejs的child_process去执行，也可以直接编写nodejs命令直接去执行文件操作。社区也提供很多类似`shelljs`、`exec-sh`等NPM包可以更优雅的编写脚本命令。
+7. 这种方式适合将网站自动部署到自己的个人服务器，如果没有服务器可以采用`Github Page`方式部署，这时候可以利用`Github Action`去实现，具体后面再写一篇文章说明。
 
 *以上内容未经授权请勿随意转载。*
