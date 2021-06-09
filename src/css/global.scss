@@ -433,3 +433,9 @@ a.anchor svg[aria-hidden="true"] {
     margin-bottom: .4rem;
   }
 }
+
+details {
+  summary {
+    display: list-item;
+  }
+}
