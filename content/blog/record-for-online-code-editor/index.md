@@ -11,9 +11,21 @@ OnlineCodeEditor是笔者基于Vue3 + Typescript开发的一个类似`Codepen`�
 + <a href="https://leon-kfd.github.io/OnlineCodeEditor/#/" target="_blank">🌈Simple Demo from Github pages</a>
 + <a href="https://kongfandong.cn/coder/" target="_blank">🎉Simple Demo from author server</a>
 
+## Feature
+✅ 纯前端项目静态部署（利用iframe与`postMessage`生成实时预览子页）
+
+✅ 响应式布局，布局可弹性伸缩支持拖拽更改宽度、折叠。
+
+✅ HTML/CSS <a href="https://docs.emmet.io/" target="_blank">`Emmet`</a>技术，按`Tab`键快速生成代码
+
+✅ 支持引入外部CDN样式和JS.
+
+✅ 增加`SCSS`解析模块. (基于在线转换API：<a href="https://sassmeister.com" target="_blank">sassmeister.com</a>)
+
+
 ## 主要原理
 
-使用`codemirror`搭建HTML、CSS、JS三种代码块编译器，构建一个Iframe网页用于展示效果。然后利用`Postmessage`向Iframe传入代码数据并替换旧代码。同时支持传入jsCDN与CssCDN路径，也是利用新增或更新动态标签实现。注意为了防止一直更改dom浪费内存，我们可以使用`debounce`等技术让其在代码停止编辑一定时间才进行刷新。
+使用`codemirror`搭建HTML、CSS、JS三种代码块编译器，构建一个Iframe网页用于展示效果。然后利用`Postmessage`向Iframe传入代码数据并替换旧代码。同时支持传入jsCDN与CssCDN路径，也是利用新增或更新动态标签实现。注意为了防止一直更改dom浪费内存，我们可以使用`debounce`防抖等让其在代码停止编辑一定时间才进行刷新。
 
 通过简单的改写html/css/js实现不刷新页面更新页面效果。
 ```js
@@ -91,7 +103,12 @@ function getWord (line: string, ch: number): [string, number] {
 }
 ```
 
-## 支持SASS
+当我们输入完关键词后，按`Tab`键时可快速匹配到相应代码块，当前支持`html`与`css`的速写。
+
+![Emmet](./emmet.gif)
+
+
+## 支持编写SASS代码
 
 项目中支持切换到SCSS预编译器编写CSS。
 
