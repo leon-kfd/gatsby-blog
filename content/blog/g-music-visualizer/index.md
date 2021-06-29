@@ -128,11 +128,117 @@ export class MusicVisualizer {
 
 ### 专辑图片旋转动画
 
-// todo
+因为每个示例都需要用到专辑图片旋转动画，因此为了方便把专辑图片的创建抽离了出来。
+
+在`G`中画一个圆形图片需要用到`Clip`，这个在文档中并没有说明，但从`github`中找到了该用法。
+
+旋转动画不能直接使用基础属性模拟，这里用到了矩阵变换，利用`shape.getMatrix()`获取初始矩阵，再通过`transform`计算出每个`ratio`对应的矩阵。
+
+`transform`是G提供的一个扩展矩阵变换方法，接收2个参数，第一个是当前矩阵，第二个参数是Action数组。这里的旋转对应的action是:
+```
+['t', -x, -y],
+['r', 旋转角度],
+['t', x, y],
+```
+
+代码参考如下:
+```ts
+import { Canvas } from "@antv/g-canvas";
+import { ext } from '@antv/matrix-util';
+
+const { transform } = ext // G提供的矩阵变换快捷方法
+
+type ImageCircleConfig = {
+  x: number;
+  y: number;
+  r: number;
+  shadowColor?: string
+}
+export function getImageCircle(canvas: Canvas, { x, y, r, shadowColor }: ImageCircleConfig) {
+  const shadowConfig = shadowColor ? {
+    shadowColor,
+    shadowBlur: 16
+  } : {}
+  canvas.addShape('circle', {
+    attrs: {
+      x,
+      y,
+      r,
+      fill: '#262626',
+      ...shadowConfig
+    }
+  })
+  const shape = canvas.addShape('image', {
+    attrs: {
+      x: x - r,
+      y: y - r,
+      width: 2 * r,
+      height: 2 * r,
+      img: `https://source.unsplash.com/random/${2 * r}x${2 * r}?Nature`
+    }
+  })
+  shape.setClip({
+    type: 'circle',
+    attrs: {
+      x,
+      y,
+      r
+    }
+  })
+  // 旋转动画
+  const matrix = shape.getMatrix()
+  const radian = 2 * Math.PI // 旋转360度
+  shape.animate((ratio: number) => {
+    return {
+      matrix: transform(matrix, [
+        ['t', -x, -y],
+        ['r', radian * ratio],
+        ['t', x, y],
+      ])
+    }
+  }, {
+    duration: 10000,
+    repeat: true
+  })
+	// 创建后先暂停动画，等待播放后再恢复
+  setTimeout(() => {
+    shape.pauseAnimate()
+  })
+  return shape
+}
+
+```
 
 ### 在圆上的点
 
-// todo
+示例中经常要计算的就是在圆上的点，以柱状条特效（示例一）为例，首先就是要出围绕着圆的平均64个点作为初始坐标。
+
+可通过利用当前点与圆心的夹角结合简单三角函数运算出x,y的偏移量。
+
+```ts
+// POINT_NUM = 64 柱状条数
+sArr.current = Array.from({ length: POINT_NUM }, (item, index: number) => {
+	const deg = index * (360 / POINT_NUM) - 150; // 当前角度
+	const l = Math.cos(deg * Math.PI / 180)  		 // x方向偏移系数
+	const t = Math.sin(deg * Math.PI / 180)      // y方向偏移系数
+	const r = R + OFFSET
+	return (canvas.current as Canvas).addShape('rect', {
+		attrs: {
+			width: RECT_WIDTH,
+			height: RECT_WIDTH,
+			radius: RECT_WIDTH / 2,
+			x: X + l * r - RECT_WIDTH / 2,
+			y: Y + t * r - RECT_WIDTH / 2,
+			fill: RECT_COLOR
+		}
+	}).rotateAtPoint(X + l * r, Y + t * r, (deg - 90) * Math.PI / 180)
+})
+```
+
+这里每个柱状条都需要进行旋转来围绕圆排列，使用的是`rotateAtPoint`绕着初始点旋转对应角度。
+
+基本所有的示例都需要首先计算出围绕圆的点坐标，都是采用这种方式计算即可。
+
 
 ### 使用Path绘制圆形
 
