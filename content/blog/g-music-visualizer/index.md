@@ -242,15 +242,123 @@ sArr.current = Array.from({ length: POINT_NUM }, (item, index: number) => {
 
 ### 使用Path绘制圆形
 
-// todo
+某些场景下需实现一些类圆动画（示例二、三等），但圆形是无法实现这种动画的，这时候可以采用Path实现。
+
+在初始状态未进行播放时，默认会显示一个圆形，这是为了减少创建一个圆的实例，可以直接利用Path绘制出圆形，后续的动画直接更改这个Path实例。
+
+可以使用2个圆弧生成生成一个圆形的Path， 参考以下代码
+
+```ts
+export function getCirclePath(cx: number, cy: number, r: number) {
+  return `M ${cx - r}, ${cy}
+  a ${r}, ${r} 0 1, 0 ${r * 2}, 0 
+  a ${r}, ${r} 0 1, 0 ${-r * 2}, 0`
+}
+```
 
 ### 通过点形成平滑曲线
 
-// todo
+若仅仅是将目标一组点连接成线，在视觉效果上会显得很突兀，及时改换成Path来连接成曲线也是不够平滑。
+
+这时候可以采用插值法为连续目标点再插入中间点来为Path更加平滑，一般来说都是采用`三次样条插值`算法实现。
+
+在`d3`中内置了很多连线算法方案，可以直接采用。在本次的示例中，遇到多个点生成平滑曲线的都是采用了d3的`curveCardinalClosed`算法来生成Path路径。
+
+```ts
+// s-path.tsx
+import { line, curveCardinalClosed } from 'd3'
+// some other code...
+useEffect(() => {
+	if (props.data?.length) {
+		const pathArr: any[] = [[],[],[],[]]
+		getArray(props.data).map((item,index) => {
+			pathArr[index % 4].push(getPointByIndex(index, item * item / 65025 * POINT_OFFSET + 4))
+		})
+		pathArr.map((item,index) => {
+			// 使用d3的curveCardinalClosed为目标点数组插值生成平滑曲线Path
+			const path = line().x((d: [number,number]) => d[0]).y((d: [number, number]) => d[1]).curve(curveCardinalClosed)(item)
+			sPathArr.current[index]?.attr('path', path)
+		})
+	}
+}, [
+	props.data
+])
+```
+
+`d3`其他平滑曲线算法示例可参考笔者在很久以前写的Demo: [Click here](https://kongfandong.cn/blog/d3-mulitpoint-connection/)
 
 ### 粒子特效的实现
 
-// todo
+示例六是一个粒子特效效果，也是实现这么多示例中耗时比较多的一个，这里拿出来说一下实现原理。
+
+与其他示例一样初始化时，先初始化出专辑圆形图。
+
+然后准备初始化粒子，定义圆形作为粒子形状，尽量小一点，可以开启阴影效果，但是性能会很差，这次就把Shadow关闭了。
+
+定义每个取样点周围的粒子数，当前为64个音频样点，一个样点设置12个粒子（可以更多，同样越多就约耗能），最终粒子数为64 X 12个。
+
+使用随机值生成粒子样点，这里可以使用样点当前角度再随机偏移一定量即可生成均匀的粒子。
+
+粒子效果的比较难的在于动画上，要选择一个合适的漂浮动画函数。这次示例选择了正弦函数实现左右均匀漂浮，在加上利用`setTimeout`随机延迟粒子生成时间即可完成粒子按一定规律下漂浮的动画。
+
+定义粒子动画时，通过正弦函数与ratio计算出每帧粒子的实际x,y坐标即可。因为这次还会结合当前音频数据，让某个样点的粒子飘得高一点，让粒子的偏移量加大，这时还需要进一步对动画进行更改。
+
+```ts
+// POINT_NUM = 64 样点数
+// PARTICLE_NUM = 12 样点周围粒子数
+Array.from({ length: POINT_NUM }, (point, index1) => {
+	Array.from({ length: PARTICLE_NUM }, (particle, index2) => {
+		const deg = index1 * (360 / POINT_NUM) - 150 + (Math.random() - 0.5) * 10;
+		const l = Math.cos(deg * Math.PI / 180)
+		const t = Math.sin(deg * Math.PI / 180)
+		const r = R + OFFSET
+		const x = X + l * r
+		const y = Y + t * r
+		const particleShape = (canvas.current as Canvas).addShape('circle', {
+			attrs: {
+				x,
+				y,
+				r: 0.8,
+				fill: '#fff',
+				opacity: 0,
+				// ⚠开启阴影会掉帧
+				// shadowColor: '#fcc8d9',
+				// shadowBlur: 1
+			}
+		})
+		particleShape.animate((ratio: number) => {
+			const deg = index1 * (360 / POINT_NUM) - 150 + Math.sin(ratio * 20) * 4;
+			const l = Math.cos(deg * Math.PI / 180)
+			const t = Math.sin(deg * Math.PI / 180)
+			const _index = POINT_NUM * index1 + index2
+			if (particleActiveArr.current[_index]) {
+				if (ratio < 0.02) {
+					particleActiveArr.current[_index] = 
+						index1 >= currentActiveIndex.current - 1 && index1 <= currentActiveIndex.current + 1 
+						? POINT_ACTIVE_MOVE_LENGTH 
+						: POINT_MOVE_LENGTH
+				} else if (ratio > 0.98) {
+					particleActiveArr.current[_index] = POINT_MOVE_LENGTH
+				}
+			}
+			const offset = particleActiveArr.current[_index] || POINT_MOVE_LENGTH
+			return {
+				x: x + l * ratio * offset,
+				y: y + t * ratio * offset,
+				opacity: 1 - ratio
+			}
+		}, {
+			duration: POINT_CREATE_DELAY,
+			repeat: true,
+			easing: 'easeSinInOut'
+		})
+		particleArr.current.push(particleShape)
+		particleStartArr.current.push(false)
+		particleActiveArr.current.push(POINT_MOVE_LENGTH)
+	})
+})
+```
+
 
 ## 其他说明
 
