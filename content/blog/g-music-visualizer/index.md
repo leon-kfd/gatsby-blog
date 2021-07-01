@@ -21,7 +21,7 @@ tag: "Personal"
 
 类似的还有老大哥`d3`，这个相较以上两个更底层，API更丰富，但上手难度就更大了。同时`g`里面的一些方法好像也是参考了`d3`算法思路。
 
-`G`[文档](https://g.antv.vision/zh/docs/api/canvas) *（这里吐槽说一下，G的文档还有很大优化空间，实在太简洁了，很多API都是一笔带过，用法也不怎么说明）*
+[G官方文档](https://g.antv.vision/zh/docs/api/canvas) *（这里吐槽说一下，G的官方文档感觉还有很大优化空间，实在太简洁了，很多API都是一笔带过，用法也不怎么说明）*
 
 ## AudioContext读取音频数据
 
@@ -130,7 +130,7 @@ export class MusicVisualizer {
 
 因为每个示例都需要用到专辑图片旋转动画，因此为了方便把专辑图片的创建抽离了出来。
 
-在`G`中画一个圆形图片需要用到`Clip`，这个在文档中并没有说明，但从`github`中找到了该用法。
+在G中画一个圆形图片需要用到`Clip`，这个在文档中并没有说明，但从github中找到了该用法。
 
 旋转动画不能直接使用基础属性模拟，这里用到了矩阵变换，利用`shape.getMatrix()`获取初始矩阵，再通过`transform`计算出每个`ratio`对应的矩阵。
 
@@ -140,6 +140,8 @@ export class MusicVisualizer {
 ['r', 旋转角度],
 ['t', x, y],
 ```
+
+[play](./play.gif)
 
 代码参考如下:
 ```ts
@@ -215,6 +217,10 @@ export function getImageCircle(canvas: Canvas, { x, y, r, shadowColor }: ImageCi
 
 可通过利用当前点与圆心的夹角结合简单三角函数运算出x,y的偏移量。
 
+如下图, **l = cos(θ) * r**, **t = sin(θ) * r**, 通过圆心O坐标加上偏移量即可算出点A坐标。
+
+![deg](./deg.jpg)
+
 ```ts
 // POINT_NUM = 64 柱状条数
 sArr.current = Array.from({ length: POINT_NUM }, (item, index: number) => {
@@ -262,7 +268,7 @@ export function getCirclePath(cx: number, cy: number, r: number) {
 
 这时候可以采用插值法为连续目标点再插入中间点来为Path更加平滑，一般来说都是采用`三次样条插值`算法实现。
 
-在`d3`中内置了很多连线算法方案，可以直接采用。在本次的示例中，遇到多个点生成平滑曲线的都是采用了d3的`curveCardinalClosed`算法来生成Path路径。
+在d3中内置了很多连线算法方案，可以直接采用。在本次的示例中，遇到多个点生成平滑曲线的都是采用了d3的[curveCardinalClosed](https://d3js.org.cn/document/d3-shape/#curves)算法来生成Path路径。
 
 ```ts
 // s-path.tsx
@@ -293,15 +299,17 @@ useEffect(() => {
 
 与其他示例一样初始化时，先初始化出专辑圆形图。
 
-然后准备初始化粒子，定义圆形作为粒子形状，尽量小一点，可以开启阴影效果，但是性能会很差，这次就把Shadow关闭了。
+然后准备初始化粒子，定义圆形作为粒子形状，尽量小一点，可以开启阴影效果，但是性能会很差，这次就把Shadow阴影关闭了。
 
 定义每个取样点周围的粒子数，当前为64个音频样点，一个样点设置12个粒子（可以更多，同样越多就约耗能），最终粒子数为64 X 12个。
 
 使用随机值生成粒子样点，这里可以使用样点当前角度再随机偏移一定量即可生成均匀的粒子。
 
-粒子效果的比较难的在于动画上，要选择一个合适的漂浮动画函数。这次示例选择了正弦函数实现左右均匀漂浮，在加上利用`setTimeout`随机延迟粒子生成时间即可完成粒子按一定规律下漂浮的动画。
+粒子效果的比较难的在于动画上，要选择一个合适的漂浮动画函数。这次示例选择了`正弦函数`实现左右均匀漂浮，在加上利用`setTimeout`随机延迟粒子生成时间即可完成粒子按一定规律下漂浮的动画。
 
 定义粒子动画时，通过正弦函数与ratio计算出每帧粒子的实际x,y坐标即可。因为这次还会结合当前音频数据，让某个样点的粒子飘得高一点，让粒子的偏移量加大，这时还需要进一步对动画进行更改。
+
+[particle](./particle.gif)
 
 ```ts
 // POINT_NUM = 64 样点数
@@ -366,7 +374,7 @@ Array.from({ length: POINT_NUM }, (point, index1) => {
 
 或者有什么好看的特效也可以提ISSUE或PR交流一下怎么实现。
 
-项目Github: <a href="https://github.com/leon-kfd/g-music-visualizer" target="_blank">Click Here</a>
+项目Github: <a href="https://github.com/leon-kfd/g-music-visualizer" target="_blank">**Click Here**</a>
 
-项目Demo: <a href="https://leon-kfd.github.io/g-music-visualizer/" target="_blank">Click Here</a>
+项目Demo: <a href="https://leon-kfd.github.io/g-music-visualizer/" target="_blank">**Click Here**</a>
 
