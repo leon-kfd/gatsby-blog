@@ -141,7 +141,7 @@ export class MusicVisualizer {
 ['t', x, y],
 ```
 
-[play](./play.gif)
+![简单示例](./play.gif)
 
 代码参考如下:
 ```ts
@@ -219,7 +219,7 @@ export function getImageCircle(canvas: Canvas, { x, y, r, shadowColor }: ImageCi
 
 如下图, **l = cos(θ) * r**, **t = sin(θ) * r**, 通过圆心O坐标加上偏移量即可算出点A坐标。
 
-![deg](./deg.jpg)
+![获取圆上的点](./deg.jpg)
 
 ```ts
 // POINT_NUM = 64 柱状条数
@@ -309,7 +309,7 @@ useEffect(() => {
 
 定义粒子动画时，通过正弦函数与ratio计算出每帧粒子的实际x,y坐标即可。因为这次还会结合当前音频数据，让某个样点的粒子飘得高一点，让粒子的偏移量加大，这时还需要进一步对动画进行更改。
 
-[particle](./particle.gif)
+![粒子特效](./particle.gif)
 
 ```ts
 // POINT_NUM = 64 样点数
