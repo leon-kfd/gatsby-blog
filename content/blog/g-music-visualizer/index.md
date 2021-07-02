@@ -30,8 +30,8 @@ tag: "Personal"
 原理：
 + 首先需要基于`AudioContext.createAnalyser()`创建一个`Analyser`
 + 为`Analyser`关联音频源，目前常用的音频源方式一般为以下两个
-  + `AudioContext.createMediaElementSource()`: 关联到`audio`或`video`标签中（当前方案选择了这个）
-  + `AudioContext.createMediaStreamSource()`: 关联到本地计算机或网络音频媒体流对象
+  + `createMediaElementSource()`: 关联到`audio`或`video`标签中（当前方案选择了这个）
+  + `createMediaStreamSource()`: 关联到本地计算机或网络音频媒体流对象
 + 创建`Gain`音量节点并关联到`Analyser`的`destination`中
 + 通过`AnalyserNode.getByteFrequencyData()`方法将当前频率数据复制到传入的最终需读取音频的Uint8Array中
 
@@ -116,7 +116,7 @@ export class MusicVisualizer {
 
 初始化之后，就可以监听Audio的播放事件，当播放时利用`getVisualizeValue()`方法获取到实时音频（可结合利用requestAnimationFrame或setTimeout获取），这里因为是做可视化动画，当然是利用`requestAnimationFrame`读取每帧的数据后渲染。
 
-还有一个需要注意的点，当Audio的数据源是网络音频时，有可能会出现无法读取到音频数据的问题。这个问题一般可能是因为网络音频的跨域限制，需要为Audio标签加入`crossOrigin="anonymous"`属性。
+还有一个需要注意的点，当Audio的数据源是网络音频时，有可能会出现无法读取到音频数据的问题。这个问题一般可能是因为网络音频的**跨域限制**，需要为Audio标签加入`crossOrigin="anonymous"`属性。
 一般的CDN资源是很少设置AccessHeader跨域限制的，但加入这个属性后仍然出现了跨域的报错，说明这网络路径是设置了跨域限制的，这时候可以考虑用Nginx反向代理或服务端解决。
 ```html
 <audio controls onPlay={play} onPause={pause} ref={audio} src={audioURL} crossOrigin="anonymous"></audio>
@@ -293,6 +293,55 @@ useEffect(() => {
 
 `d3`其他平滑曲线算法示例可参考笔者在很久以前写的Demo: [Click here](https://kongfandong.cn/blog/d3-mulitpoint-connection/)
 
+### 在圆上的点跟随圆放大的同时做圆周运动
+
+![圆周运动](./circle.gif)
+
+示例五中的动画会出现在圆上的点跟随圆放大的同时做圆周运动，这种动画在实现时有两种方案：
+
+第一种，是大圆利用Path模拟，然后动画开始后在每帧动画中，利用`Path.getPoint(ratio: number)`获取当前大圆中点当前帧下某个对应点的坐标。
+
+第二种，是直接计算出当前帧下这个点在圆上的位置，利用三角函数结合大圆的放大偏移系数与`ratio`即可计算出当前点坐标。
+
+在实现第一种方案时，发现效果不太理想，不知道是不是有setTimeout的原因，弃用了然后选择了方案二实现。
+
+部分参考代码如下:
+
+```ts
+Array.from({ length: CIRCLE_NUM }, (item, index) => {
+	circleArrStart.current.push(false)
+	// circle大圆
+	circleArr.current.push(addCircle())
+	circleArr.current[index].animate((ratio: number) => {
+		return {
+			r: R + ratio * CIRCLE_SCALE_OFFSET,
+			// path: getCirclePath(X, Y, R + ratio * 80),
+			opacity: ratio > 0.02 && ratio < 0.9 ? 0.8 - ratio * 0.8 : 0
+		}
+	}, animateOption)
+	// circle-dot大圆上的点
+	circleDotArr.current.push(addCircleDot())
+	circleDotDegArr.current.push(0)
+	circleDotArr.current[index].animate((ratio: number) => {
+		if (props.data && ratio < 0.05 && !circleDotDegArr.current[index]) {
+			circleDotDegArr.current[index] = pickStartPoint()
+		} else if (ratio > 0.9) {
+			circleDotDegArr.current[index] = 0
+		}
+		const deg = circleDotDegArr.current[index] + ratio * 360 - 180
+		const l = Math.cos(deg * Math.PI / 180)
+		const t = Math.sin(deg * Math.PI / 180)
+		const r = R + ratio * CIRCLE_SCALE_OFFSET
+		return {
+			x: X + l * r,
+			y: Y + t * r,
+			r: DOT_R * (1 - ratio / 2),
+			opacity: ratio > 0.05 && ratio < 0.9 ? 0.8 - ratio * 0.8 : 0
+		}
+	}, animateOption)
+})
+```
+
 ### 粒子特效的实现
 
 示例六是一个粒子特效效果，也是实现这么多示例中耗时比较多的一个，这里拿出来说一下实现原理。
@@ -366,7 +415,6 @@ Array.from({ length: POINT_NUM }, (point, index1) => {
 	})
 })
 ```
-
 
 ## 其他说明
 
