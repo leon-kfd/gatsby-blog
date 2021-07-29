@@ -34,6 +34,10 @@ const howdyComponent = [
   {
     title: 'Mouse Menu',
     text: '自定义右键菜单'
+  },
+  {
+    title: 'To Control',
+    text: '将元素设置为可拖拽改变位置与大小'
   }
 ].map(item => {
   let linkText = toKebabCase(item.title)
@@ -67,17 +71,6 @@ const dashboardLink = [
   }
 ]
 
-// const browserNavLink = [
-//   {
-//     name: '⚡Github',
-//     link: 'https://github.com/leon-kfd/NavTabSystem'
-//   },
-//   {
-//     name: '💡Demo',
-//     link: 'https://s.kongfandong.cn'
-//   }
-// ]
-
 export default () => {
   return (
     <div style={{
@@ -92,7 +85,7 @@ export default () => {
             }}>
             <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/howdy/`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
-              Howdyjs 🔸 组件库
+              Howdyjs 🔸 插件库
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
                 <path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z"></path>
                 <path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z"></path>
@@ -105,7 +98,7 @@ export default () => {
           </small>
         </header>
         <section>
-          <p style={{marginBottom: 0}}>个人VUE组件与指令库，包含动画模态框、标签页、表格等组件与自定义拖拽、滚动条、右键菜单、图片放大等指令。</p>
+          <p style={{marginBottom: 0}}>个人JS插件库，包含自定义拖拽、滚动条、右键菜单、图片放大等原生JS插件和动画模态框、标签页等Vue3组件或指令。</p>
           <details>
             <summary>预览组件</summary>
             <ul className="howdy-component">
@@ -148,31 +141,6 @@ export default () => {
           <p>个性化的浏览器导航首页面板，支持自定义添加组件，可编辑组件各种属性。响应式设计，可自定义随机壁纸背景图，目前支持时钟、天气、搜索栏、TodoList等组件。</p>
         </section>
       </article>
-
-      {/* <article className="home-article">
-        <header>
-          <h3
-            style={{
-              marginBottom: rhythm(1 / 4),
-            }}>
-            <a style={{ boxShadow: `none` }} href={`https://s.kongfandong.cn`}
-              target="_blank" rel="noopener noreferrer" className="home-outlink">
-              Browser Navigation 🔸 浏览器起始页
-              <svg className="home-outlink-img" viewBox="0 0 1024 1024">
-                <path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z"></path>
-                <path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z"></path>
-                <path d="M1007.168 310.656h-96V112h-208V16h304z"></path>
-              </svg>
-            </a>
-          </h3>
-          <small className="outlink">
-            {browserNavLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer">{item.name}</a>)}
-          </small>
-        </header>
-        <section>
-          <p>个性化的浏览器导航首页网站，包含自定义切换搜索引擎、键盘收藏夹、每日图片、配置同步等功能，后续会使用Vue3迭代。</p>
-        </section>
-      </article> */}
     </div>
   )
 }
