@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "gatsby-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "description": "Blog for Leon.D",
+  "version": "0.0.1",
+  "author": "Leon.D",
   "dependencies": {
     "@mdx-js/mdx": "^1.1.5",
     "@mdx-js/react": "^1.1.5",
@@ -46,7 +43,7 @@
     "gatsby-remark-autolink-headers": "^2.1.25",
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://kongfandong.cn/",
   "keywords": [
     "gatsby"
   ],
@@ -54,7 +51,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/leon-kfd/gatsby-blog"
   },
   "scripts": {
     "build": "gatsby build --prefix-paths",
