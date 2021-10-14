@@ -11,81 +11,53 @@ const About = ({ data, location }) => {
       weight: 9,
       url: 'https://cn.vuejs.org/'
     },
-    Jquery: {
-      weight: 7,
-      url: 'https://www.runoob.com/jquery/jquery-tutorial.html'
-    },
-    ElementUI: {
-      weight: 7,
-      url: 'https://element.eleme.cn/#/zh-CN'
-    },
     Nodejs: {
       weight: 6,
       url: 'http://nodejs.cn/api/'
     },
-    Layui: {
-      weight: 4,
-      url: 'https://www.layui.com/'
-    },
-    PHP: {
-      weight: 5,
-      url: 'https://www.php.net/'
+    Vite: {
+      weight: 6,
+      url: 'https://cn.vitejs.dev/'
     },
     MySQL: {
       weight: 6,
       url: 'https://www.mysql.com/'
     },
     Nginx: {
-      weight: 4,
+      weight: 5,
       url: 'https://www.nginx.cn/doc/'
     },
+    PHP: {
+      weight: 2,
+      url: 'https://www.php.net/'
+    },
     Apache: {
-      weight: 4,
+      weight: 2,
       url: 'http://httpd.apache.org/docs/2.4/'
     },
     Koa: {
-      weight: 5,
+      weight: 4,
       url: 'https://koa.bootcss.com/'
     },
     Eggjs: {
-      weight: 6,
+      weight: 3,
       url: 'https://eggjs.org/zh-cn/index.html'
     },
     React: {
-      weight: 3,
+      weight: 5,
       url: 'https://react.docschina.org/'
-    },
-    Rap2: {
-      weight: 4,
-      url: 'https://github.com/thx/rap2-delos'
     },
     Echart: {
       weight: 4,
       url: 'https://www.echartsjs.com/zh/index.html'
     },
     Canvas: {
-      weight: 3,
+      weight: 5,
       url: 'https://www.w3school.com.cn/html5/html5_ref_canvas.asp'
     },
-    RegExp: {
-      weight: 3,
-      url: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp'
-    },
     Webpack: {
-      weight: 5,
-      url: 'https://www.webpackjs.com/'
-    },
-    Fiddler: {
-      weight: 2,
-      url: 'https://www.telerik.com/fiddler'
-    },
-    Requirejs: {
-      weight: 2,
-      url: 'https://requirejs.org/'
-    },
-    Linux: {
       weight: 4,
-      url: 'https://www.linux.org/'
+      url: 'https://www.webpackjs.com/'
     },
     Nuxtjs: {
       weight: 4,
@@ -95,17 +67,21 @@ const About = ({ data, location }) => {
       weight: 4,
       url: 'https://pptr.dev/'
     },
+    Git: {
+      weight: 5,
+      url: 'https://git-scm.com/'
+    },
+    Konva: {
+      weight: 5,
+      url: 'https://konvajs.org/docs/index.html'
+    },
     Gatsby: {
       weight: 2,
       url: 'https://www.gatsbyjs.org/'
     },
-    Laravel: {
-      weight: 5,
-      url: 'https://learnku.com/docs/laravel/7.x'
-    },
-    Git: {
+    Taro: {
       weight: 4,
-      url: 'https://git-scm.com/'
+      url: 'https://taro-docs.jd.com/taro/docs/README'
     }
   }
   let tagsList = Object.keys(weightMap).map(key => {
