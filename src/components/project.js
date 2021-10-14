@@ -67,7 +67,7 @@ const dashboardLink = [
   },
   {
     name: '💡Demo',
-    link: 'https://kongfandong.cn/Dashboard/'
+    link: 'https://s.kongfandong.cn'
   }
 ]
 
@@ -123,9 +123,9 @@ export default () => {
             style={{
               marginBottom: rhythm(1 / 4),
             }}>
-            <a style={{ boxShadow: `none` }} href={`https://kongfandong.cn/Dashboard/`}
+            <a style={{ boxShadow: `none` }} href={`https://s.kongfandong.cn`}
               target="_blank" rel="noopener noreferrer" className="home-outlink">
-              Dashboard 🔸 自定义面板
+              Howdz 🔸 浏览器起始页
               <svg className="home-outlink-img" viewBox="0 0 1024 1024">
                 <path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z"></path>
                 <path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z"></path>
