@@ -47,19 +47,19 @@ const howdyComponent = [
 
 const howdzDashboard = [
   {
-    title: '在线网页版',
+    title: '网页版 - View Online',
     link: 'https://s.kongfandong.cn'
   },
   {
-    title: 'Chrome插件',
+    title: 'Chrome插件 - Install from store',
     link: 'https://chrome.google.com/webstore/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/ggglfehkglgpenacfalffmiojghklamm/related'
   },
   {
-    title: 'Edge插件',
+    title: 'Edge插件 - Install from store',
     link: 'https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd'
   },
   {
-    title: '桌面应用',
+    title: '桌面应用 - Download install package',
     link: 'https://github.com/leon-kfd/Dashboard/releases/tag/v1.0.1-beta.2'
   }
 ]
@@ -123,7 +123,7 @@ export default () => {
         <section>
           <p style={{marginBottom: 0}}>完全自定义配置的浏览器导航首页面板，支持自定义添加天气、时钟、搜索、收藏等各种物料组件，可编辑删除组件与其各种样式或功能属性。响应式设计，可自定义随机壁纸背景图或动态壁纸。</p>
           <details>
-            <summary>预览组件</summary>
+            <summary>安装方式</summary>
             <ul className="howdy-component">
               {
                 howdzDashboard.map(item => {
