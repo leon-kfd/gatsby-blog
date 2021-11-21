@@ -78,7 +78,7 @@ const Layout = ({ location, title, children }) => {
         }}>
           © {new Date().getFullYear()} <Link title="About me" to="/about">Leon.D</Link>
           &nbsp;&nbsp;
-          <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备20011339号</a>
+          <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备20011339号</a>
         </p>
       </footer>
     </div>
