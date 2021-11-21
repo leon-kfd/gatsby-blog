@@ -6,7 +6,7 @@ description: "Howdz是基于Vue3开发的一个完全自定义配置的浏览器
 
 ## 前言
 
-**[Howdz](https://howdz.vercel.app)**是基于`Vue3`开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供网页在线访问、打包出浏览器插件、打包出桌面应用(Electron)等访问方式。
+**[Howdz](https://howdz.vercel.app)**是基于`Vue3` + `Typescript`开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供[网页在线访问](https://s.kongfandong.cn)、打包出[浏览器插件](https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd)、打包出[桌面应用(Electron)](https://github.com/leon-kfd/Dashboard/releases)等访问方式。
 
 本文记录项目开发中使用的相关技术。
 
@@ -82,7 +82,7 @@ export default {
 }
 ```
 
-![StandardForm](./standard-form.png)
+![JSX生成的表单](./standard-form.png)
 
 ## 右键菜单
 
@@ -110,7 +110,7 @@ setup () {
 </script>
 ```
 
-![MouseMenu](./mouse-menu.gif)
+![右键菜单](./mouse-menu.gif)
 
 ## 物料组件布局
 
@@ -186,7 +186,73 @@ setup () {
 
 ![Fixed模式](./to-control.gif)
 
-## 获取任意网站Favicon
-
 ## 交互弹窗Popover
 
+系统提供一种配置交互行为的功能，可以配置点击一个组件时弹窗另外一个组件，并配置组件弹出的方向。经过调研后发现`Element-plus`的`Popover`并不太适合用于这种情况，因为弹出的组件时动态的。于是就自己封装了一个组件，不仅支持配置`Popover`的各个方向，还另外扩展了一个`ScreenCenter`的弹出，让组件可以在屏幕中间弹出（类似`dialog`）。
+
+通过传入点击的元素、目标弹窗的宽高和弹窗方向，返回出目标弹窗的`x`和`y`。核心代码如下：
+```ts
+/**
+ * 获取Popover目标信息
+ * @param element 来源DOM
+ * @param popoverRect popover信息
+ * @param direction popover方向
+ * @returns [endX, endY, fromX, fromY]
+ */
+export function getPopoverActivePointByDirection(
+  element: HTMLElement,
+  popoverRect: PopoverOption,
+  direction = DirectionEnum.BOTTOM_CENTER
+) {
+  const { width, height, top, left } = element.getBoundingClientRect()
+  const { width: popoverWidth, height: popoverHeight, offset = 10 } = popoverRect
+  const activePointMap = {
+    [DirectionEnum.SCREEN_CENTER]: [window.innerWidth / 2 - popoverWidth / 2, window.innerHeight / 2 - popoverHeight / 2],
+    [DirectionEnum.TOP_START]: [left, top - popoverHeight - offset],
+    [DirectionEnum.TOP_CENTER]: [left + width / 2 - popoverWidth / 2, top - popoverHeight - offset],
+    [DirectionEnum.TOP_END]: [left + width - popoverWidth, top - popoverHeight - offset],
+    [DirectionEnum.RIGHT_START]: [left + width + offset, top],
+    [DirectionEnum.RIGHT_CENTER]: [left + width + offset, top + height / 2 - popoverHeight / 2],
+    [DirectionEnum.RIGHT_END]: [left + width + offset, top + height - popoverHeight],
+    [DirectionEnum.BOTTOM_END]: [left + width - popoverWidth, top + height + offset],
+    [DirectionEnum.BOTTOM_CENTER]: [left + width / 2 - popoverWidth / 2, top + height + offset],
+    [DirectionEnum.BOTTOM_START]: [left, top + height + offset],
+    [DirectionEnum.LEFT_END]: [left - popoverWidth - offset, top + height - popoverHeight],
+    [DirectionEnum.LEFT_CENTER]: [left - popoverWidth - offset, top + height / 2 - popoverHeight / 2],
+    [DirectionEnum.LEFT_START]: [left - popoverWidth - offset, top]
+  }
+  const fromPoint = [left + width / 2, top + height / 2]
+  return [...activePointMap[direction], ...fromPoint] || [0, 0, ...fromPoint]
+}
+```
+
+另外，使用`transform-origin`这个属性可以实现弹窗从点击元素过渡展开的动画。最后配置弹窗的方向与弹出的组件类型即可。代码参考：[ActionPopover.vue](https://github.com/leon-kfd/Dashboard/blob/main/src/components/Action/ActionPopover.vue)
+
+![不同方向的Popover](./popover.gif)
+
+## 获取任意网站Favicon
+
+在`Collection`与`Search`组件中，都有用到一个功能，就是由用户输入网址后能自动获取到网站的Favicon。在初版实现是直接使用网址origin + /favicon.ico获取，但经过大量尝试后发现，当前很多网站的icon并不是以这种标准形式存储的。所以后面就自己实现了一个后端接口来获取。
+
+后端接口原理:
+1. 从用户输入的网站中读取到origin
+2. 尝试从`Redis`中读取已缓存的图标路径，读取到则返回
+3. 若缓存中没有，这使用`cheerio`加载网站，使用`$('link[rel*="icon"]').attr('href')`读取图标路径
+4. 若上一步没有读取到，则继续尝试使用标准形式读取，即网站Origin + /favicon.ico
+5. 读取成功则写入`Redis`缓存，否则返回获取失败
+
+同时接口接收`type`参数，可由后端直接返回图片流，以解决一些网站的ICON资源做了CORS限制。因为在`Collection`组件中，为了减少初次访问请求加载数，前端读取到图标后会将图标转成BASE64格式存到本地存储中。这种方式需要使用Ajax获取图标，让接口直接返回文件流可以解决跨域问题。
+
+另读取图标时，前端会使用Canvas通道法将图标的白色部分扣成透明，代码可[参考此处](https://github.com/leon-kfd/Dashboard/blob/main/src/utils/images.ts#L40)
+
+![添加网站自动获取图标](./favicon.gif)
+
+## 总结
+
+项目仍在持续优化开发中，欢迎各种建议。由于篇幅问题，部分使用到的技术会不定时更新记录。若感谢的可以持续关注、Star，谢谢。
+
+### 相关链接
+
++ [Howdz介绍文档](https://howdz.vercel.app)
++ [Github](https://github.com/leon-kfd/Dashboard/)
++ [在线网页版地址](https://s.kongfandong.cn)
