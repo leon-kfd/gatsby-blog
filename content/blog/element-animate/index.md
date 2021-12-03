@@ -135,7 +135,7 @@ async function animateEffect3(text) {
 
 本次使用原生`Element.animate()`API实现了一个简单的图片切换特效。
 
-[图片特效](./img-effect.gif)
+![图片特效](./img-effect.gif)
 
 这个特效主要原理：
 
