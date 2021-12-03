@@ -166,7 +166,7 @@
 <h3 id="图片切换特效" style="position:relative;"><a href="#%E5%9B%BE%E7%89%87%E5%88%87%E6%8D%A2%E7%89%B9%E6%95%88" aria-label="图片切换特效 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图片切换特效</h3>
 <p>在使用CSS实现元素动画，一般通过添加类名、移出类名来实现。因为图片无法准确知道需要加载的时间，一般情况是监听图片的load事件回调进行判断，所以基本无法使用纯CSS来实现切换动画。</p>
 <p>本次使用原生<code class="language-text">Element.animate()</code>API实现了一个简单的图片切换特效。</p>
-<p><a href="/blog/e1d85283052a975f92b0a85fbe685da4/img-effect.gif">图片特效</a></p>
+<p><img src="/blog/e1d85283052a975f92b0a85fbe685da4/img-effect.gif" alt="图片特效"></p>
 <p>这个特效主要原理：</p>
 <ul>
 <li>点击切换时，调用函数切换图片路径，这时候图片会异步加载</li>
