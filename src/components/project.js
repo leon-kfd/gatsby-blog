@@ -117,7 +117,7 @@ export default () => {
             </a>
           </h3>
           <small className="outlink">
-            {dashboardLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer">{item.name}</a>)}
+            {dashboardLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer" key={item.name}>{item.name}</a>)}
           </small>
         </header>
         <section>
@@ -128,7 +128,7 @@ export default () => {
               {
                 howdzDashboard.map(item => {
                   return (
-                    <li key={item.title}>
+                    <li key={item.title} key={item.title}>
                       <a href={item.link} target="_blank">{item.title}</a>
                     </li>
                   )
@@ -156,7 +156,7 @@ export default () => {
             </a>
           </h3>
           <small className="outlink">
-            {howdyLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer">{item.name}</a>)}
+            {howdyLink.map(item => <a href={item.link} target="_blank" rel="noopener noreferrer" key={item.link}>{item.name}</a>)}
           </small>
         </header>
         <section>

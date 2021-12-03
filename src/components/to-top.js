@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { scrollTo } from '../utils/helper'
-const toTopImg = require('../../static/icon/top.svg')
+import toTopImg from '../../static/icon/top.svg'
 const ToTop = () => {
   const [showToTop, setShowToTop] = useState(false)
   // const [isSupportScrollBehavior, setIsSupportScrollBehavior] = useState(false)

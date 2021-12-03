@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { connect } from 'react-redux'
-const moonImg = require('../../static/icon/moon.svg')
-const sunImg = require('../../static/icon/sun.svg')
+import moonImg from '../../static/icon/moon.svg'
+import sunImg from '../../static/icon/sun.svg'
 const Theme = ({ theme, onChangeTheme }) => {
   const changeTheme = (isLightTheme) => {
     if (!isLightTheme) {
