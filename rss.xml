@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Howdy]]></title><description><![CDATA[Leon.D前端技术分享, 记录个人组件库API文档, 开源项目开发经验, 主要技术栈有Vue, Nodejs, PHP, Mysql, Nginx等]]></description><link>https://kongfandong.cn/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Dec 2021 14:28:19 GMT</lastBuildDate><item><title><![CDATA[使用Element.animate添加文字与图片动画]]></title><description><![CDATA[在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom…]]></description><link>https://kongfandong.cn/blog/element-animate/</link><guid isPermaLink="false">https://kongfandong.cn/blog/element-animate/</guid><pubDate>Wed, 01 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom添加动画。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Leon.D前端技术分享, 记录个人组件库API文档, 开源项目开发经验, 主要技术栈有Vue, Nodejs, PHP, Mysql, Nginx等]]></description><link>https://kongfandong.cn/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 03 Dec 2021 14:26:48 GMT</lastBuildDate><item><title><![CDATA[使用Element.animate添加文字与图片动画]]></title><description><![CDATA[在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom…]]></description><link>https://kongfandong.cn/blog/element-animate/</link><guid isPermaLink="false">https://kongfandong.cn/blog/element-animate/</guid><pubDate>Wed, 01 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom添加动画。&lt;/p&gt;
 &lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;为了增加网站的用户体验，在很多场景下一般可以为元素的切换添加一下转场动画。&lt;/p&gt;
 &lt;p&gt;最简单的方法，一般可以使用CSS的&lt;code class=&quot;language-text&quot;&gt;transition&lt;/code&gt;或者&lt;code class=&quot;language-text&quot;&gt;animation&lt;/code&gt;实现。当前也有很多CSS动画库，例如&lt;a href=&quot;https://animate.style/&quot;&gt;animate.css&lt;/a&gt;，它与&lt;a href=&quot;https://wowjs.uk/&quot;&gt;wow.js&lt;/a&gt;搭配使用经常用于很多产品宣传首页。&lt;/p&gt;
 &lt;p&gt;当然我们也可以使用一些主流的JS动画库操作某些元素的单独动画，例如：&lt;a href=&quot;https://github.com/julianshapiro/velocity&quot;&gt;Velocity&lt;/a&gt;、&lt;a href=&quot;https://github.com/juliangarnier/anime&quot;&gt;Anime.js&lt;/a&gt;等。或者更传统的&lt;code class=&quot;language-text&quot;&gt;Jquery&lt;/code&gt;也有提供&lt;a href=&quot;https://api.jquery.com/animate/&quot;&gt;.animate&lt;/a&gt;操作动画的方案。&lt;/p&gt;
 &lt;p&gt;而本文则介绍一下原生较新的Javascript Api: &lt;strong&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/animate&quot;&gt;Element.animate()&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;关于elementanimate&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B3%E4%BA%8Eelementanimate&quot; aria-label=&quot;关于elementanimate permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;关于Element.animate()&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/animate&quot;&gt;Element.animate()&lt;/a&gt;，是&lt;code class=&quot;language-text&quot;&gt;Web animation&lt;/code&gt;提供的解决方案。&lt;/p&gt;
+&lt;h2 id=&quot;关于elementanimate&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B3%E4%BA%8Eelementanimate&quot; aria-label=&quot;关于elementanimate permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;关于Element.animate&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/animate&quot;&gt;Element.animate()&lt;/a&gt;是&lt;code class=&quot;language-text&quot;&gt;Web Animations API&lt;/code&gt;提供的使用Javascript操作元素动画的解决方案。&lt;/p&gt;
 &lt;h3 id=&quot;参数&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E6%95%B0&quot; aria-label=&quot;参数 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参数&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Element.animate(keyframes, options)&lt;/code&gt;方法接收2个参数，第一个为&lt;code class=&quot;language-text&quot;&gt;keyframes&lt;/code&gt;，第二个为&lt;code class=&quot;language-text&quot;&gt;options&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;keyframes&lt;/code&gt;：与CSS3的keyframes的概念是一致的，代表关键帧的集合。它可以接收一个关键帧数组，也可以简写成一个对象。具体写法请参考&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API/Keyframe_Formats&quot;&gt;Keyframe Formats (MDN)&lt;/a&gt;与下文的案例使用。&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;options&lt;/code&gt;: 动画的相关配置。其接收&lt;code class=&quot;language-text&quot;&gt;delay&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;duration&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;easing&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;iterations&lt;/code&gt;等配置参数，其与CSS动画属性也保持一致，更多参数请参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect&quot;&gt;KeyframeEffect (MDN)&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Element.animate(keyframes, options)&lt;/code&gt;方法接收2个参数，第一个为&lt;code class=&quot;language-text&quot;&gt;keyframes&lt;/code&gt;，第二个为&lt;code class=&quot;language-text&quot;&gt;options&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;keyframes&lt;/code&gt;：与CSS3的keyframes的概念是一致的，代表关键帧的集合。它可以接收一个关键帧数组，也可以简写成一个对象。它支持所有CSS动画支持的属性，另简写写法添加&lt;code class=&quot;language-text&quot;&gt;offset&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;float&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;easing&lt;/code&gt;等关键字 。具体写法请参考&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API/Keyframe_Formats&quot;&gt;Keyframe Formats (MDN)&lt;/a&gt;或下文的案例使用。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;options&lt;/code&gt;: 动画的相关配置。其接收&lt;code class=&quot;language-text&quot;&gt;delay&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;duration&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;easing&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;iterations&lt;/code&gt;等配置参数，可配置动画的延迟执行时间、执行持续时间、缓动曲线、执行次数等，其与CSS动画属性也保持一致，更多参数请参考&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect&quot;&gt;KeyframeEffect (MDN)&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;这个方法会返回一个&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Animation&quot;&gt;Animation&lt;/a&gt;实例，通过这个实例我们可以对动画进行暂停、取消、读取执行状态等。或者通过&lt;code class=&quot;language-text&quot;&gt;.finished&lt;/code&gt;返回Promise来对执行完动画进行下一步操作。&lt;/p&gt;
 &lt;h3 id=&quot;兼容性&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%BC%E5%AE%B9%E6%80%A7&quot; aria-label=&quot;兼容性 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;兼容性&lt;/h3&gt;
 &lt;p&gt;因为该API较新，所以对传统的浏览器支持并不友好，所有IE浏览器都不支持。在&lt;a href=&quot;https://caniuse.com/?search=Element.animate&quot;&gt;Can I use&lt;/a&gt;上查询如下：&lt;/p&gt;
@@ -19,7 +19,7 @@
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACtUlEQVQozz2S/UtTYRTH97cVQUFIQVT0Bv1SBFERWKFZWWHQixWmOUW0yLQXLRtaSJmxtrvdvboXt7ntbvduc9u9m7My+vHT2Q374ct5zsN5vs853+9xaPFvFFNegceOumA96cbUglhGBLMYpl4I27GaD9g17bOdawFKWZVSPk6zpqEszeLQUwqFtB8t4SEXd8sDBWPVi5FWpDiIqUf4UU2yZaZpVeJUsgF+1lb5VU9hlqLU9BC1QkAQFsIZHGm/i5R3lrXwZ/JCWMn65eegdBPESC7TNKI24TZalcT/82Y7X0+wUY7x28oQ833EkVx4SPx1F6Woi3oxQDXnxSqqNIwwBe8LGgWVLSlud9RGu9Pt+FMIt+//NLPE/Z9wmEacjWqGur5CsxilKbGmiXYygiW5qYUoi06VNZV6Loie9lLO+GzoIpUu0hi2Bwrq8nsc2uo/DQvZEL7HXQTG+ijVchjGCmURfl1G1+RBIeGmnPhOMeMWAkHMjZYJ2kR6Yhlt1YP3s5hSzalYhRAtI8nM+Cmm7+0jPz1KfvIp+SknmVdOqmkPViUmrkel67bzEdus9ha070xddBajIl6XjCz6VOSH0O2zjA8dZ+DRXl5d28m7cwd413mQqRs7iFw6hfF6HMtM0RK9Nq01WvKuWYqJaSs0bMIUUWUBR/bFUz71X+TM/V0cHzrMydETXHEe4IjzCMeGD3FhsIOe7g7eTtzEEr1CEw9Qh/sIjt0lm1gin5V1ExmqmoJ78bm43H+dhd7TdM31cGj4MLulw90D+9nVv4ejI0fpne2h09XN+ORVMk9u8WTkPPdGzvJg9BwDH24xMN/H8PwdFue6mHl2WTTU/NKyyobmY0mZ5M2XQea+Onm5+Bi3f5pNWZtmTqEhqOc8opeKaQTs2DBCsoNRe8W26glWlHn+AucI2wrNrAWkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACvUlEQVQozz2S7WscZRTF529TChVKUSi2tFbwS0UoVYSqpEatlQjWxpb0JZtQUqWxaTWpMSSWUGNk3Jns7Nvs7uzOTOb92d3M7sxuNq0RP/5kR9oPh3Pv5XI43HMlv/EnoakQmvmMI1NhrymT+CVSUSUJK/SDSsaxV8x2xnXW+0XajkbbazDs+ahbK0iRqRJYBXwjj9uQCU0V0VIQlkrbKZFEVZ7FTQ4Ti1G3Qdcp8rzX4u++SdLW6UVlekGRXlBB3VpGsgprmMoKu5WneA2ZrlMg9kvEXgnR3GYo9EzwBUZd42V9MO73DPY7df5Jbeo7vyE1N76j8WiCtr5GPywSuwppqDEQFQLlPoNA4zC1M0djjJ2+4Odx8+X836FDo/AEKREN9mObflRjGOoMoxo9v0oSVEhDncQv03E0ursafbdEZCl07J0MkVUgslREloGKtv0Lkt/6/4aBU2bnxgTFu1O0ey5C1OiEFfa8Er6pEBgyHeMvQltGmDKiLuPbpUwoMrbxW3mUpytIsauRBmVGosnywjmWrr6OtzSPt3gH70EO+2GO2MqTduukQicNx8lXs7DGXzCeJZHOs16LqrKGlKQ2XWOb8lfnWbh9lpnrx3j42as8vnCCxxff5MEXr1D96Bzi0QJpYjLqmxyku4xSm2G7zlDUGGSCJrq6geTcv8OT6Q9579sjnL19infm3+aT3AlO507z1uxJPrh1nMlLx/n53peklkr53jW02SlKd7/BMbbwnDyuLRP7KvLmD0jN6c/ZuPwuE6uTnJw9xdHrxzg68wZHpl/jzNwZLq9McnHtEguLn2LfvMLNufe5Oneea/MXmPn1CjPrU8yuf83m6gTL33+MFPsFBpHGvr/DlrrIT7/fYvWPHD9u3kAuLHEQaAxdlYGr0nfzJJFGIooZD0SZ/Y6evdhh36CmrvMf5wjbCjE1aDAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -32,12 +32,13 @@
         sizes=&quot;(max-width: 1057px) 100vw, 1057px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;但是只要简单使用&lt;code class=&quot;language-text&quot;&gt;if (dom.animate) {}&lt;/code&gt;包裹即可向下兼容，对一些不支持的浏览器不执行动画就可以。&lt;/p&gt;
 &lt;h2 id=&quot;使用案例&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B&quot; aria-label=&quot;使用案例 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;使用案例&lt;/h2&gt;
 &lt;h3 id=&quot;文字动画特效&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%87%E5%AD%97%E5%8A%A8%E7%94%BB%E7%89%B9%E6%95%88&quot; aria-label=&quot;文字动画特效 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;文字动画特效&lt;/h3&gt;
-&lt;p&gt;简单写了三种文字动画特效&lt;/p&gt;
+&lt;p&gt;简单写了三种文字动画特效：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;FadeIn：渐变进入&lt;/li&gt;
 &lt;li&gt;FadeUpInOut: 旧文本先淡出新文本再淡入&lt;/li&gt;
@@ -63,7 +64,7 @@
     opacity&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     transform&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;translateY(0)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;translateY(-20px)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;finished&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerText &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; text&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerText &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; text&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 当旧文本动画执行完再开始替换文本&lt;/span&gt;
   target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       opacity&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -74,7 +75,7 @@
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;打字机&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Effect3&lt;/code&gt;实现了一个文字打字机特效，该特效需要确保文字是等宽字体，而且文本不能为多行文本。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Effect3&lt;/code&gt;实现了一个文字打字机特效，该特效需要确保文字是&lt;strong&gt;等宽字体&lt;/strong&gt;，而且文本不能为多行文本。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text-wrapper&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Effect3&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;
 &lt;span class=&quot;token comment&quot;&gt;// ...省略事件绑定等代码&lt;/span&gt;
@@ -110,11 +111,74 @@
   &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;easing&lt;/code&gt;属性中使用了&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/CSS/easing-function#the_steps_class_of_easing_functions&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;steps&lt;/code&gt;&lt;/a&gt;阶跃函数，它表示动画需要按多少步执行完，每一步状态里面是属性是一致的，每步属性变化是跳跃的，没有过渡。这里使得文本每次减少一个字符的宽度，构造出打字机的效果。&lt;/p&gt;
-&lt;p&gt;该文字特效的实现已上传到&lt;code class=&quot;language-text&quot;&gt;codepen&lt;/code&gt;，请参考此处: &lt;a href=&quot;https://codepen.io/leon-kfd/pen/vYJbodr&quot;&gt;https://codepen.io/leon-kfd/pen/vYJbodr&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;easing&lt;/code&gt;属性中使用了&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/CSS/easing-function#the_steps_class_of_easing_functions&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;steps&lt;/code&gt;&lt;/a&gt;&lt;strong&gt;阶跃函数&lt;/strong&gt;，它表示动画需要按多少步执行完，每一步状态里面是属性是一致的，每步属性变化是跳跃的，没有过渡。这里使得文本每次减少一个字符的宽度，构造出打字机的效果。&lt;/p&gt;
+&lt;p&gt;以上文字特效的实现已上传到&lt;code class=&quot;language-text&quot;&gt;codepen&lt;/code&gt;，请参考此处: &lt;a href=&quot;https://codepen.io/leon-kfd/pen/vYJbodr&quot;&gt;https://codepen.io/leon-kfd/pen/vYJbodr&lt;/a&gt;。&lt;/p&gt;
 &lt;h3 id=&quot;图片切换特效&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9B%BE%E7%89%87%E5%88%87%E6%8D%A2%E7%89%B9%E6%95%88&quot; aria-label=&quot;图片切换特效 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;图片切换特效&lt;/h3&gt;
-&lt;p&gt;unfinished…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Howdz起始页开发记录]]></title><description><![CDATA[前言 Howdz是基于 + 开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供网页在线访问、打包出浏览器插件、打包出桌面应用(Electron…]]></description><link>https://kongfandong.cn/blog/design-of-howdz/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-howdz/</guid><pubDate>Sun, 21 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://howdz.vercel.app&quot;&gt;Howdz&lt;/a&gt;&lt;/strong&gt;是基于&lt;code class=&quot;language-text&quot;&gt;Vue3&lt;/code&gt; + &lt;code class=&quot;language-text&quot;&gt;Typescript&lt;/code&gt;开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供&lt;a href=&quot;https://s.kongfandong.cn&quot;&gt;网页在线访问&lt;/a&gt;、打包出&lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd&quot;&gt;浏览器插件&lt;/a&gt;、打包出&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/releases&quot;&gt;桌面应用(Electron)&lt;/a&gt;等访问方式。&lt;/p&gt;
+&lt;p&gt;在使用CSS实现元素动画，一般通过添加类名、移出类名来实现。因为图片无法准确知道需要加载的时间，一般情况是监听图片的load事件回调进行判断，所以基本无法使用纯CSS来实现切换动画。&lt;/p&gt;
+&lt;p&gt;本次使用原生&lt;code class=&quot;language-text&quot;&gt;Element.animate()&lt;/code&gt;API实现了一个简单的图片切换特效。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/e1d85283052a975f92b0a85fbe685da4/img-effect.gif&quot;&gt;图片特效&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个特效主要原理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;点击切换时，调用函数切换图片路径，这时候图片会异步加载&lt;/li&gt;
+&lt;li&gt;在新图片加载过程中，旧图片执行一个&lt;strong&gt;高斯模糊&lt;/strong&gt;叠加的渐变淡出动画，并把这个Animation对象记录下来&lt;/li&gt;
+&lt;li&gt;为图片元素添加load事件监听，当图片加载完成，把旧图片淡出动画&lt;code class=&quot;language-text&quot;&gt;cancel&lt;/code&gt;（因为无法确保旧图片淡出动画执行完前新图片已经加载完成，需要&lt;strong&gt;Cancel&lt;/strong&gt;掉旧动画防止重复执行）&lt;/li&gt;
+&lt;li&gt;执行新图片的高斯模糊淡入动画，动画执行后修改元素CSS最终状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Demo代码如下:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;btn&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Random Img&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;img-wrapper&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;img&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; leaveAnimation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 用于记录Animation对象&lt;/span&gt;
+btn&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;click&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;randomPhoto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;randomPhoto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; target &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;https://source.unsplash.com/random/512x512/?nature,&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; target&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 切换图片路径后，执行图片淡出动画，此时新图片在后台加载&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;first&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      leaveAnimation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; filter&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blur(20px)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tarnsform&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;scale(1,1)&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; filter&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blur(60px)&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; leaveAnimation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;finished&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;filter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blur(60px)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Cancel animation&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;load&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;opacity &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 用于防止首次加载闪图&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;leaveAnimation&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; leaveAnimation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;cancel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// cancel掉淡出动画，防止重复执行&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; changeAnimation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; filter&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blur(20px)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tarnsform&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;scale(1,1)&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; filter&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blur(0)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tarnsform&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;scale(1)&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; changeAnimation&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;finished&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;filter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blur(0)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 等待动画执行完后更改最终状态&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;randomPhoto&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 页面加载立即执行一遍&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以上图片特效的实现已上传到&lt;code class=&quot;language-text&quot;&gt;codepen&lt;/code&gt;，请参考此处: &lt;a href=&quot;https://codepen.io/leon-kfd/pen/ZEXYKLR&quot;&gt;https://codepen.io/leon-kfd/pen/ZEXYKLR&lt;/a&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Demo中使用了unsplash的随机图片接口, &lt;code class=&quot;language-text&quot;&gt;https://source.unsplash.com/random&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另因当前&lt;code class=&quot;language-text&quot;&gt;Element.animate()&lt;/code&gt;仍属于实验特性，并不保证将来api会进行改动或添加新的特性。&lt;/p&gt;
+&lt;h2 id=&quot;links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#links&quot; aria-label=&quot;links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Element/animate&quot;&gt;Element.animate()&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://codepen.io/leon-kfd/pen/vYJbodr&quot;&gt;Text Effect Demo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://codepen.io/leon-kfd/pen/ZEXYKLR&quot;&gt;Img Effect Demo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Howdz起始页开发记录]]></title><description><![CDATA[前言 **Howdz**是基于 + 开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供网页在线访问、打包出浏览器插件、打包出桌面应用(Electron…]]></description><link>https://kongfandong.cn/blog/design-of-howdz/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-howdz/</guid><pubDate>Sun, 21 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;**&lt;a href=&quot;https://howdz.vercel.app&quot;&gt;Howdz&lt;/a&gt;**是基于&lt;code class=&quot;language-text&quot;&gt;Vue3&lt;/code&gt; + &lt;code class=&quot;language-text&quot;&gt;Typescript&lt;/code&gt;开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供&lt;a href=&quot;https://s.kongfandong.cn&quot;&gt;网页在线访问&lt;/a&gt;、打包出&lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd&quot;&gt;浏览器插件&lt;/a&gt;、打包出&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/releases&quot;&gt;桌面应用(Electron)&lt;/a&gt;等访问方式。&lt;/p&gt;
 &lt;p&gt;本文记录项目开发中使用的相关技术。&lt;/p&gt;
 &lt;h2 id=&quot;表单封装&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%A1%A8%E5%8D%95%E5%B0%81%E8%A3%85&quot; aria-label=&quot;表单封装 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;表单封装&lt;/h2&gt;
 &lt;p&gt;项目中运行自由添加各种物料组件，而每一个物料组件都含有自己的配置项表单，而其中又有部分相同的配置项，所以可以实现一个JS数据驱动的表单封装。&lt;/p&gt;
@@ -187,7 +251,7 @@
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 116.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABJ0AAASdAHeZh94AAADl0lEQVQ4y51VWW8bVRS+f4l3eEDihfKA+sADi7q8AJUqWgQt6UIU13JJs5iSpKQkNJuzFIeKJyAsFS0g5QlUUKASUqQsbux4PJ7FMx7PYn+ccxxPx6n7AFc6mrt+95zvO+eOeua5F9F/dQSpoTGxgcHr6Etdw4UrQ8jemMaN6XmMjk/h5kwOn80uYnRiCpfSw2IX00O4SPt4b+radbxw9A2oV06eweaWhl9/uYe7d3/En388wP9t6ZFxAjxxBruPKnj491/Y2NjAzs7OwXKTrBVbq9VEs9mkbysGiKJI5upeQ8aXMx9DHXvr3cQGWqy70E0P28UAuhWiUA5QroYIQgIiMM/zUC5rqNUcOcMXMCi39y5noHIrqzLJtzmuC8syYdUaqNoRbCdCsdIGDqOW7Gv4PqrVKhznMWCnLefvQH299n086RJgrVajEEI8+MeD60UJhhiwmzMesnd8hin5Zu07qHfO9ccbyloF+6U9FEoOJlZ18a7tRQKk1YoNB4C6rrc5JOXV8VPvyyJzw9Zo+LQpkvt9PxALw4hCDYTjJGin7wfti8/2XYF6+2wfHQhRKpWwu1sglXeF8CCI5Ou6dQINYdouHQyfAGQP+Sy38x+SKAMfjXSF00mNgC5hz1gs/h72qjv89vnRsUmoscnp+CZWr1gsSeg+qRkEPlHQkLB7hXp47tb8ItRw9pMnMp7XGdSotST/WP319XVRsxdwpz8+OQU1n8vFk83mYwU9yn637otI7CVbL5Bkf3HlNtS3az/0rEvmkNVmwZjHJM+HU6hD2U/37kN9PrNwoPK+5JNpWsIfe+Y4Ljz6up4PwzSpLOs9gQzDkH5+lSrl3IUB8UDXq8IVh8rjdqi+8MnpZ1k2vKcAspjcJj4lDjOD2TgEzrtKRRdBeKNt29jc3MTW1pZEcbhSksDclpbzUKnMcHwTFzx7ygKwlyaFub29jb29PRqHT30HO6BzC0tQr504FU+yZwwaUCm1lfWlrOp1T4y9DIJuazQC4tcWjIH0INSRo8cTXBgoFB6JGFxyum5AowejSIIZhtlV2wFZKKUYwLG19nv4QQrq9ZOn5Wbe1Hko+RHopAv3OT/bJRiK5ywQ82s7Hn57WMPPv1som0CGylhd6k//53+HpmkwdA30XuB01sLL5/eRvw/c+XIZ6tnnX8Jc7jbZF2Lzi/muftIWllbjtdmFFczMrSA7sYyr2Rxmc1/h1WNv4l93CZ2GRkd6bwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 116.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABJ0AAASdAHeZh94AAADl0lEQVQ4y51VSW9bVRS+f4k9LJDYAAvURRcM6rABKlW0CFrSgSiO5TbNYEqSkpJAJmcoDhErIAwVLSBlBSooUAkpUuK4sePn5zf4Tfe+4UPnOH61U3cBVzryfXf4zjnfd861eOa5F9F/bRSZ4XG2gaGb6MvcwKXBYeRvzeDWzALGJqZxe7aAT+eWMDY5jSvZEbbL2WFcHhzms5kbN/HCsTcgjp8+h+0dDb/+cg937/6IP/94gP87sqMTEMdPncPeozoe/v0Xtra2UCqVDrdjAElqSRIjjmMkSZICRFHEa54f8PfV3EcQJ956t+NADM9zoZs+disKuhWiXFOoNUKoMAGSBL7vo1bT0Gw6fIccECiN967mIAqra7xI3hzXhWWZsJoBGnYE24lQqbeAwyjhc4GUaDQacJzHgO2xUlyH+Hrj+3TRdV00m014fogH//hw/aiDIQLs5ow+KTq6Q5R8s/EdxDsX+tMDNa2Og+o+ylUHk2s6R9eKogMkSVLDIaCu6y0OsyMQJ8+8z5vEDVkQSMRxxP6lVGxhGCGQijnuBG3PpWo5Pt83CPH2+T6EYYhqtYq9vTJKpT0mXKmIf13Xg5QhTNuFVOETgBQh3aVx8cMcxMD10a502qWhwpAjI7Ho92hU3em37o+NT0GMT82knki9SqXKqUspoZREEAScdq9Uj659vrAEMZL/+ImKp30CNZoJ1x+pv7m5yWr2Am7PJ6amIRYKhXQxjh8r6PsBXE+ySBQlWS+QzvnS6h2Ibzd+6NmXxCGpTYIRj508Hy2hNmU/3bsP8dns4qHKB1xPpmkxfxSZ47jwAwnXlzBME57n9QQyDIPnxbV1iAuXBjgCXW8wV5QqfbdSlcwnlZ9l2fCfAkhi0pj8ZBoiN5RPU6C6q9d1FoQO2raN7e1t7OzscBZHO6UTmMbyShEikxtJPVHDU6QkAEVpmiZ2d3exv7+PKAqf+g62QecXlyFeO3UmXaTICFQpdais5LbyPJ+NolSq24JAwTBtxhjIDkG8dOxkBxcGyuVHLAa1nK4b0LQ6KtUDGIbZ1dsqjBByKyo4ttZ6Dz/IQLx++ix7pkPth5IegXa50Jzqs9WCIUdOAhG/tuPjt4dN/Py7hZoJ5K6PQlzpz/7n/w5N02DoGmwXOJu38MrFAxTvA+tfrkA8+/zLmC/cwXzhC7aFpWLXvNMWl9fSvbnFVczOryI/uYJr+QLmCl/h1RNv4l93CZ2GDvfUBgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -199,6 +263,7 @@
         sizes=&quot;(max-width: 592px) 100vw, 592px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;右键菜单&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95&quot; aria-label=&quot;右键菜单 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;右键菜单&lt;/h2&gt;
@@ -356,8 +421,7 @@
 &lt;p&gt;原理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;首先需要基于&lt;code class=&quot;language-text&quot;&gt;AudioContext.createAnalyser()&lt;/code&gt;创建一个&lt;code class=&quot;language-text&quot;&gt;Analyser&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为&lt;code class=&quot;language-text&quot;&gt;Analyser&lt;/code&gt;关联音频源，目前常用的音频源方式一般为以下两个&lt;/p&gt;
+&lt;li&gt;为&lt;code class=&quot;language-text&quot;&gt;Analyser&lt;/code&gt;关联音频源，目前常用的音频源方式一般为以下两个
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;createMediaElementSource()&lt;/code&gt;: 关联到&lt;code class=&quot;language-text&quot;&gt;audio&lt;/code&gt;或&lt;code class=&quot;language-text&quot;&gt;video&lt;/code&gt;标签中（当前方案选择了这个）&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;createMediaStreamSource()&lt;/code&gt;: 关联到本地计算机或网络音频媒体流对象&lt;/li&gt;
@@ -519,7 +583,8 @@
     shape&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pauseAnimate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; shape
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;在圆上的点&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9C%A8%E5%9C%86%E4%B8%8A%E7%9A%84%E7%82%B9&quot; aria-label=&quot;在圆上的点 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;在圆上的点&lt;/h3&gt;
 &lt;p&gt;示例中经常要计算的就是在圆上的点，以柱状条特效（示例一）为例，首先就是要出围绕着圆的平均64个点作为初始坐标。&lt;/p&gt;
 &lt;p&gt;可通过利用当前点与圆心的夹角结合简单三角函数运算出x,y的偏移量。&lt;/p&gt;
@@ -542,6 +607,7 @@
         sizes=&quot;(max-width: 473px) 100vw, 473px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// POINT_NUM = 64 柱状条数&lt;/span&gt;
@@ -849,6 +915,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
         sizes=&quot;(max-width: 564px) 100vw, 564px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&quot;自定义样式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F&quot; aria-label=&quot;自定义样式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;自定义样式&lt;/h3&gt;
@@ -1237,6 +1304,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
         sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;布局模式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%B8%83%E5%B1%80%E6%A8%A1%E5%BC%8F&quot; aria-label=&quot;布局模式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;💫布局模式&lt;/h4&gt;
@@ -1270,6 +1338,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
         sizes=&quot;(max-width: 1080px) 100vw, 1080px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;物料组件&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%89%A9%E6%96%99%E7%BB%84%E4%BB%B6&quot; aria-label=&quot;物料组件 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;物料组件&lt;/h2&gt;
@@ -1468,7 +1537,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
   &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;emmet&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#emmet&quot; aria-label=&quot;emmet permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Emmet&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;emmet&lt;/code&gt;技术，可以让开发者速写html代码。官方文档参考：&lt;a href=&quot;https://docs.emmet.io/&quot; target=&quot;_blank&quot;&gt;https://docs.emmet.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;emmet&lt;/code&gt;技术，可以让开发者速写html代码。官方文档参考：&lt;a href=&quot;https://docs.emmet.io/&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://docs.emmet.io/&quot;&gt;https://docs.emmet.io/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;emmet有提供npm包，可以让我们在浏览器中使用其API。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; expand &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;emmet&apos;&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;// 传入word与模式即可获取到速写后的代码&lt;/span&gt;
@@ -1541,7 +1610,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isHashMode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;VUE_APP_ROUTER_MODE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hash&apos;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; publicPath &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; isHashMode &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/coder&apos;&lt;/span&gt;
 module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  pages&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    index&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;src/main.ts&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    iframe&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;src/iframe.ts&apos;&lt;/span&gt;&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  pages&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    index&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;src/main.ts&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;    iframe&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;src/iframe.ts&apos;&lt;/span&gt;&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token function-variable function&quot;&gt;chainWebpack&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;html-index&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cdn &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; assetsCDN
@@ -1550,7 +1619,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   css&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     loaderOptions&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;      scss&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        prependData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@import &quot;~@/assets/variable.scss&quot;;&apos;&lt;/span&gt;&lt;/span&gt;      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;      scss&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;        prependData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@import &quot;~@/assets/variable.scss&quot;;&apos;&lt;/span&gt;&lt;/span&gt;      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   productionSourceMap&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isProduction&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -1589,14 +1658,15 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
         &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;GITHUB_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.GITHUB_TOKEN &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;BRANCH&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; gh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;pages
-          &lt;span class=&quot;token key atrule&quot;&gt;FOLDER&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;FOLDER&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dist
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;需要注意github page目前不支持&lt;code class=&quot;language-text&quot;&gt;history&lt;/code&gt;的路由模式&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;todo&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#todo&quot; aria-label=&quot;todo permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Todo&lt;/h2&gt;
 &lt;p&gt;😴 Javascript Babel模式&lt;br&gt;
 😴 引入账号系统同步代码&lt;br&gt;
-😴 线上代码展示模式  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Howdyjs组件库迁移Vue3设计与总结]]></title><description><![CDATA[将个人组件库Howdyjs使用Vue + Typescript进行重构，使用Vite构建开发站点，Rollup进行组件打包并分包发布NPM。 Link ⚡Github 📖Document 💾NPM 主要变更 新版全面采用 Vue组件部分将使用重构，不向下兼容，有Vue2.X…]]></description><link>https://kongfandong.cn/blog/design-of-howdy-next/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-howdy-next/</guid><pubDate>Sat, 30 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;将个人组件库Howdyjs使用Vue + Typescript进行重构，使用Vite构建开发站点，Rollup进行组件打包并分包发布NPM。&lt;/p&gt;
+😴 线上代码展示模式&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Howdyjs组件库迁移Vue3设计与总结]]></title><description><![CDATA[将个人组件库Howdyjs使用Vue + Typescript进行重构，使用Vite构建开发站点，Rollup进行组件打包并分包发布NPM。 Link ⚡Github 📖Document 💾NPM 主要变更 新版全面采用 Vue组件部分将使用重构，不向下兼容，有Vue2.X…]]></description><link>https://kongfandong.cn/blog/design-of-howdy-next/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-howdy-next/</guid><pubDate>Sat, 30 Jan 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;将个人组件库Howdyjs使用Vue + Typescript进行重构，使用Vite构建开发站点，Rollup进行组件打包并分包发布NPM。&lt;/p&gt;
 &lt;h2 id=&quot;link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#link&quot; aria-label=&quot;link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Link&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/leon-kfd/howdyjs&quot; target=&quot;_blank&quot;&gt;⚡Github&lt;/a&gt;&lt;/li&gt;
@@ -1646,7 +1716,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Vite新版文档地址: &lt;a href=&quot;https://vitejs.dev/&quot; target=&quot;_blank&quot;&gt;https://vitejs.dev/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vite新版文档地址: &lt;a href=&quot;https://vitejs.dev/&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://vitejs.dev/&quot;&gt;https://vitejs.dev/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;lerna&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lerna&quot; aria-label=&quot;lerna permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Lerna&lt;/h3&gt;
 &lt;p&gt;Lerna是一个项目内包管理工具，虽然当前项目内的组件关联性不强，但也提前先引入了Lerna进行分包管理。&lt;/p&gt;
 &lt;ul&gt;
@@ -1726,10 +1796,10 @@ fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&
 &lt;li&gt;新版地址: &lt;a href=&quot;https://kongfandong.cn/howdy&quot;&gt;Howdy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;旧版地址: &lt;a href=&quot;https://kongfandong.cn/howdy-old&quot;&gt;Howdy-old&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;使用的是同一个github仓库，新版参考&lt;a href=&quot;https://github.com/leon-kfd/howdyjs&quot;&gt;master分支&lt;/a&gt;，旧版参考&lt;a href=&quot;https://github.com/leon-kfd/howdyjs/tree/howdy&quot;&gt;howdy分支&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[使用D3.js将离散的点形成平滑曲线及其应用]]></title><description><![CDATA[前言 之前遇到了一个场景，需要将多个离散的点使用一条平滑的曲线连起来。在网上找了很多方案，一般都是说使用实现。自己参考网上算法写了下，发现效果不太理想。然后看到D3js…]]></description><link>https://kongfandong.cn/blog/d3-mulitpoint-connection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/d3-mulitpoint-connection/</guid><pubDate>Sun, 16 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;之前遇到了一个场景，需要将多个离散的点使用一条平滑的曲线连起来。在网上找了很多方案，一般都是说使用&lt;strong&gt;&lt;code class=&quot;language-text&quot;&gt;三次样条插值&lt;/code&gt;&lt;/strong&gt;实现。自己参考网上算法写了下，发现效果不太理想。然后看到D3js官方原来直接内置了多种相关算法，但官方并没有提供效果展示，于是就编写了一个简单的可以快速看到各种连线算法的效果图的DEMO。&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[使用D3.js将离散的点形成平滑曲线及其应用]]></title><description><![CDATA[前言 之前遇到了一个场景，需要将多个离散的点使用一条平滑的曲线连起来。在网上找了很多方案，一般都是说使用****实现。自己参考网上算法写了下，发现效果不太理想。然后看到D3js…]]></description><link>https://kongfandong.cn/blog/d3-mulitpoint-connection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/d3-mulitpoint-connection/</guid><pubDate>Sun, 16 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;之前遇到了一个场景，需要将多个离散的点使用一条平滑的曲线连起来。在网上找了很多方案，一般都是说使用**&lt;code class=&quot;language-text&quot;&gt;三次样条插值&lt;/code&gt;**实现。自己参考网上算法写了下，发现效果不太理想。然后看到D3js官方原来直接内置了多种相关算法，但官方并没有提供效果展示，于是就编写了一个简单的可以快速看到各种连线算法的效果图的DEMO。&lt;/p&gt;
 &lt;h2 id=&quot;多点连线demo&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A4%9A%E7%82%B9%E8%BF%9E%E7%BA%BFdemo&quot; aria-label=&quot;多点连线demo permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;多点连线Demo&lt;/h2&gt;
-&lt;p&gt;Demo访问地址: &lt;a href=&quot;https://kongfandong.cn/demo/d3-multipoint-connection/index.html&quot; target=&quot;_blank&quot;&gt;https://kongfandong.cn/demo/d3-multipoint-connection/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Demo访问地址: &lt;a href=&quot;https://kongfandong.cn/demo/d3-multipoint-connection/index.html&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://kongfandong.cn/demo/d3-multipoint-connection/index.html&quot;&gt;https://kongfandong.cn/demo/d3-multipoint-connection/index.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;iframe src=&quot;https://kongfandong.cn/demo/d3-multipoint-connection/index.html&quot; width=&quot;100%&quot; height=&quot;750px&quot; style=&quot;border: none;outline:none;box-shadow: 0 0 5px #888&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;&lt;em&gt;PS:PC端支持拖拽更改点位置，移动端暂不支持&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1740,7 +1810,7 @@ fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&
 &lt;/ul&gt;
 &lt;p&gt;利用D3js的这个连线算法，实现了一个简单的曲线自动校正的Canvas画板，参考下面的Demo&lt;/p&gt;
 &lt;h2 id=&quot;曲线自动校正demo&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%9B%B2%E7%BA%BF%E8%87%AA%E5%8A%A8%E6%A0%A1%E6%AD%A3demo&quot; aria-label=&quot;曲线自动校正demo permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;曲线自动校正Demo&lt;/h2&gt;
-&lt;p&gt;Demo访问地址: &lt;a href=&quot;https://kongfandong.cn/demo/d3-adjust-line/index.html&quot; target=&quot;_blank&quot;&gt;https://kongfandong.cn/demo/d3-adjust-line/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Demo访问地址: &lt;a href=&quot;https://kongfandong.cn/demo/d3-adjust-line/index.html&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://kongfandong.cn/demo/d3-adjust-line/index.html&quot;&gt;https://kongfandong.cn/demo/d3-adjust-line/index.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;iframe src=&quot;https://kongfandong.cn/demo/d3-adjust-line/index.html&quot; width=&quot;100%&quot; height=&quot;750px&quot; style=&quot;border: none;outline:none;box-shadow: 0 0 5px #888&quot;&gt;&lt;/iframe&gt;
 &lt;ul&gt;
 &lt;li&gt;Canvas简易画板&lt;/li&gt;
@@ -1749,8 +1819,8 @@ fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&
 &lt;/ul&gt;
 &lt;h2 id=&quot;总结&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%80%BB%E7%BB%93&quot; aria-label=&quot;总结 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;总结&lt;/h2&gt;
 &lt;p&gt;实现平滑的曲线，可以通过D3js内置的几种曲线算法生成一个插值曲线，该曲线原则上是&lt;code class=&quot;language-text&quot;&gt;贝塞尔曲线&lt;/code&gt;，所以可以在SVG和Canvas中都可以应用上。若要研究各种曲线算法的原理请参考官方源码。&lt;/p&gt;
-&lt;p&gt;官方文档：&lt;a href=&quot;https://d3js.org.cn/document/d3-shape/#curves&quot; target=&quot;_blank&quot;&gt;https://d3js.org.cn/document/d3-shape/#curves&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用Taro-next将个人网盘功能扩展到微信小程序]]></title><description><![CDATA[前言 笔者之前实现了一个PC端的个人网盘功能，包含断点续传、文件秒传的文件管理系统，具体请参考文章《断点续传与个人网盘系统的前后端设计》 于是构思想将个人网盘功能扩展到小程序，沿用之前的后端（接口基本不需要改动），只需要完成移动端的UI实现即可。又由于PC端是基于Vue…]]></description><link>https://kongfandong.cn/blog/design-of-weapp-file-system/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-weapp-file-system/</guid><pubDate>Sun, 31 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;笔者之前实现了一个PC端的个人网盘功能，包含断点续传、文件秒传的文件管理系统，具体请参考文章&lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/blog/design-of-file-system/&quot;&gt;《断点续传与个人网盘系统的前后端设计》&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;官方文档：&lt;a href=&quot;https://d3js.org.cn/document/d3-shape/#curves&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://d3js.org.cn/document/d3-shape/#curves&quot;&gt;https://d3js.org.cn/document/d3-shape/#curves&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用Taro-next将个人网盘功能扩展到微信小程序]]></title><description><![CDATA[前言 笔者之前实现了一个PC端的个人网盘功能，包含断点续传、文件秒传的文件管理系统，具体请参考文章**《断点续传与个人网盘系统的前后端设计》** 于是构思想将个人网盘功能扩展到小程序，沿用之前的后端（接口基本不需要改动），只需要完成移动端的UI实现即可。又由于PC端是基于Vue…]]></description><link>https://kongfandong.cn/blog/design-of-weapp-file-system/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-weapp-file-system/</guid><pubDate>Sun, 31 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;笔者之前实现了一个PC端的个人网盘功能，包含断点续传、文件秒传的文件管理系统，具体请参考文章**&lt;a href=&quot;https://kongfandong.cn/blog/design-of-file-system/&quot;&gt;《断点续传与个人网盘系统的前后端设计》&lt;/a&gt;**&lt;/p&gt;
 &lt;p&gt;于是构思想将个人网盘功能扩展到小程序，沿用之前的后端（接口基本不需要改动），只需要完成移动端的UI实现即可。又由于PC端是基于Vue实现的，为了方便开发所以想直接采用跨平台框架，将vue代码转成小程序，而且这样还可以考虑后续转出H5或原生手机客户端等。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;基于功能的原因，该小程序原则上不可能通过审核，所以只会作为个人练手项目。&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;跨平台框架选型&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B&quot; aria-label=&quot;跨平台框架选型 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;跨平台框架选型&lt;/h2&gt;
@@ -1780,7 +1850,7 @@ fs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&
     &lt;span class=&quot;token string&quot;&gt;&quot;van-toast&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;../../components/vant/toast/index&quot;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;具体请参考: &lt;/p&gt;
+&lt;p&gt;具体请参考:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://taro-docs.jd.com/taro/docs/3.0.0-beta.5/mini-third-party#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6&quot; target=&quot;_blank&quot;&gt;Taro-使用小程序原生第三方组件和插件&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://youzan.github.io/vant-weapp/#/quickstart&quot; target=&quot;_blank&quot;&gt;Vant-weapp官方文档&lt;/a&gt;&lt;/li&gt;
@@ -1928,14 +1998,14 @@ Taro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 375px; &quot;&gt;
       &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.99999999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAECAwUGBP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAZFqlLQ4AiXSTmXNODmgPAP/xAAbEAACAgMBAAAAAAAAAAAAAAAAAQIQERIUBP/aAAgBAQABBQLskdkhep2rRjBrE1iYRGv/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAaEAADAQADAAAAAAAAAAAAAAAAATEyAhAg/9oACAEBAAY/AscTKML3CIiJ3//EACAQAAICAgAHAAAAAAAAAAAAAAABMZEQESFBUWGB4fH/2gAIAQEAAT8h0RYdO8Y22NCI48kRo3BaPgD9UbuSiDXfH//aAAwDAQACAAMAAAAQswI8cA//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EF//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EF//xAAfEAEAAgEEAwEAAAAAAAAAAAABABEhMUFhgVFxodH/2gAIAQEAAT8QHYXaUDq+ctxq7r4mK9nmLayuCanuXjV+Qq/1GWzvM3eCxbBCxzgRDl+sVWq+UTHEAYABR1Gf/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;upload mode&quot; title=&quot;upload mode&quot; src=&quot;/blog/static/41492f098cf7bcb54bf1b3f200ead006/8a6f5/upload-mode.jpg&quot; srcset=&quot;/blog/static/41492f098cf7bcb54bf1b3f200ead006/0cdb7/upload-mode.jpg 300w,
-/blog/static/41492f098cf7bcb54bf1b3f200ead006/8a6f5/upload-mode.jpg 375w&quot; sizes=&quot;(max-width: 375px) 100vw, 375px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+/blog/static/41492f098cf7bcb54bf1b3f200ead006/8a6f5/upload-mode.jpg 375w&quot; sizes=&quot;(max-width: 375px) 100vw, 375px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
     &lt;/span&gt;
 &lt;/div&gt;
 &lt;div style=&quot;width:45%;display:inline-block&quot;&gt;
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 371px; &quot;&gt;
       &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 179%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIDAQQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAH12x5JHQJNpvdUMBMAcCP/xAAcEAACAgIDAAAAAAAAAAAAAAAAAQIQESIjMUH/2gAIAQEAAQUC3OQxOk7VMUlXqioi6//EABcRAAMBAAAAAAAAAAAAAAAAAAAREiD/2gAIAQMBAT8BkWf/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAcEAACAgIDAAAAAAAAAAAAAAAAQQEQAjERIUL/2gAIAQEABj8C1ieTWAhUx0juYueHNf/EACAQAAIBAwQDAAAAAAAAAAAAAAABERAhMUFhcZGhwdH/2gAIAQEAAT8hUR4dhvct3JK7vRsvQvCl+72JT7UgleN3ln1KkDK2TImo/9oADAMBAAIAAwAAABCo6EwEP//EABgRAQEBAQEAAAAAAAAAAAAAAAERACBx/9oACAEDAQE/EGGV3ty1vH//xAAXEQEBAQEAAAAAAAAAAAAAAAABEQAQ/9oACAECAQE/EA00nBY8/8QAHhABAAICAgMBAAAAAAAAAAAAAQARIUFRsTFhkXH/2gAIAQEAAT8QVWNvlIOdZ3lFCd2lepYN6X6O4VGA6GRq3xAY9bbqEmyvsJM3uNGVcXO4AfhjDnH2UGZq/EETLZVOfUuClebn/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
   &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;upload success&quot; title=&quot;upload success&quot; src=&quot;/blog/static/880ca971dd7f44c868f46635f5fdc67a/bfbf0/upload-success.jpg&quot; srcset=&quot;/blog/static/880ca971dd7f44c868f46635f5fdc67a/0cdb7/upload-success.jpg 300w,
-/blog/static/880ca971dd7f44c868f46635f5fdc67a/bfbf0/upload-success.jpg 371w&quot; sizes=&quot;(max-width: 371px) 100vw, 371px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+/blog/static/880ca971dd7f44c868f46635f5fdc67a/bfbf0/upload-success.jpg 371w&quot; sizes=&quot;(max-width: 371px) 100vw, 371px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
     &lt;/span&gt;
 &lt;/div&gt;
 &lt;br&gt;
@@ -2060,8 +2130,8 @@ Taro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;p&gt;该功能对应PC端上的移动，可以选择文件仅移动或者是复制，PC端是使用一个树形组件进行选择文件夹。但发现Vant等并没有相关树形组件，可能需要自己封装一个，然后直接采用了用户点击移动操作后，记录选择的文件信息，然后用户需要进入到相应目录下进行粘贴操作。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/cd5c4fd8fbe7b140686edcaaebbdad43/%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6.gif&quot; alt=&quot;移动文件&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;关于打包发布&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B3%E4%BA%8E%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83&quot; aria-label=&quot;关于打包发布 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;关于打包发布&lt;/h2&gt;
-&lt;p&gt;执行命令&lt;code class=&quot;language-text&quot;&gt;npm run build:weapp&lt;/code&gt;后，其余操作与正常小程序一样。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Vue3上手: 使用vite实现一个简单的todolist应用]]></title><description><![CDATA[Git仓库: https://github.com/leon-kfd/TodoListVitePratice 在线Demo: https://kongfandong.cn/todo Vite Vite is an opinionated web dev build tool…]]></description><link>https://kongfandong.cn/blog/vite-pratice-todolist/</link><guid isPermaLink="false">https://kongfandong.cn/blog/vite-pratice-todolist/</guid><pubDate>Sat, 16 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Git仓库: &lt;a href=&quot;https://github.com/leon-kfd/TodoListVitePratice&quot; target=&quot;_blank&quot; style=&quot;display:inline-block&quot;&gt;https://github.com/leon-kfd/TodoListVitePratice&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;在线Demo: &lt;a href=&quot;https://kongfandong.cn/todo&quot; target=&quot;_blank&quot; style=&quot;display:inline-block&quot;&gt;https://kongfandong.cn/todo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;执行命令&lt;code class=&quot;language-text&quot;&gt;npm run build:weapp&lt;/code&gt;后，其余操作与正常小程序一样。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Vue3上手: 使用vite实现一个简单的todolist应用]]></title><description><![CDATA[Git仓库: https://github.com/leon-kfd/TodoListVitePratice 在线Demo: https://kongfandong.cn/todo Vite Vite is an opinionated web dev build tool…]]></description><link>https://kongfandong.cn/blog/vite-pratice-todolist/</link><guid isPermaLink="false">https://kongfandong.cn/blog/vite-pratice-todolist/</guid><pubDate>Sat, 16 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Git仓库: &lt;a href=&quot;https://github.com/leon-kfd/TodoListVitePratice&quot; target=&quot;_blank&quot; style=&quot;display:inline-block&quot;&gt;&lt;a href=&quot;https://github.com/leon-kfd/TodoListVitePratice&quot;&gt;https://github.com/leon-kfd/TodoListVitePratice&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在线Demo: &lt;a href=&quot;https://kongfandong.cn/todo&quot; target=&quot;_blank&quot; style=&quot;display:inline-block&quot;&gt;&lt;a href=&quot;https://kongfandong.cn/todo&quot;&gt;https://kongfandong.cn/todo&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;vite&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vite&quot; aria-label=&quot;vite permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vite&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Vite is an opinionated web dev build tool that serves your code via native ES Module imports during dev and bundles it with Rollup for production.&lt;/p&gt;
@@ -2074,7 +2144,7 @@ Taro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 $ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;project-name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
 $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;
 $ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;具体参考官方仓库: &lt;a href=&quot;https://github.com/vuejs/vite#getting-started&quot; target=&quot;_blank&quot;&gt;https://github.com/vuejs/vite#getting-started&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;具体参考官方仓库: &lt;a href=&quot;https://github.com/vuejs/vite#getting-started&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://github.com/vuejs/vite#getting-started&quot;&gt;https://github.com/vuejs/vite#getting-started&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;typescript&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#typescript&quot; aria-label=&quot;typescript permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Typescript&lt;/h3&gt;
 &lt;p&gt;vite最新版默认已经可以直接对typescript进行解析编译，直接在vue文件中的&lt;code class=&quot;language-text&quot;&gt;script&lt;/code&gt;标签下加入&lt;code class=&quot;language-text&quot;&gt;lang=&quot;ts&quot;&lt;/code&gt;即可。&lt;/p&gt;
 &lt;h3 id=&quot;sass&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sass&quot; aria-label=&quot;sass permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sass&lt;/h3&gt;
@@ -2100,7 +2170,7 @@ Vuex的新语法进行了一些变更，你需要使用Vuex.createStore来创建
 &lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; store &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./store/index.js&apos;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./assets/base.css&apos;&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;createApp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;App&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;store&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;mount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;#app&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;vue-compostion-api&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vue-compostion-api&quot; aria-label=&quot;vue compostion api permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vue Compostion Api&lt;/h2&gt;
-&lt;p&gt;Vue3最大的一个变化就是使用&lt;code class=&quot;language-text&quot;&gt;Vue Compostion Api&lt;/code&gt;， 现在官方已经提供了 &lt;strong&gt;&lt;a href=&quot;https://vue-composition-api-rfc.netlify.app/zh/api.html#setup&quot;&gt;中文文档&lt;/a&gt;&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;Vue3最大的一个变化就是使用&lt;code class=&quot;language-text&quot;&gt;Vue Compostion Api&lt;/code&gt;， 现在官方已经提供了 &lt;strong&gt;&lt;a href=&quot;https://vue-composition-api-rfc.netlify.app/zh/api.html#setup&quot;&gt;中文文档&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本次只用到了其中很少一部分的API，而且可能使用方式不一定准确，仅供参考，望见谅。&lt;/p&gt;
 &lt;h2 id=&quot;功能设计&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1&quot; aria-label=&quot;功能设计 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;功能设计&lt;/h2&gt;
 &lt;ul&gt;
@@ -2219,7 +2289,7 @@ Vuex的新语法进行了一些变更，你需要使用Vuex.createStore来创建
 module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   base&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/todo&apos;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Vite还提供了很多其他的配置，具体请参考: &lt;a href=&quot;https://github.com/vuejs/vite/blob/master/src/node/config.ts&quot; target=&quot;_blank&quot;&gt;https://github.com/vuejs/vite/blob/master/src/node/config.ts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vite还提供了很多其他的配置，具体请参考: &lt;a href=&quot;https://github.com/vuejs/vite/blob/master/src/node/config.ts&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://github.com/vuejs/vite/blob/master/src/node/config.ts&quot;&gt;https://github.com/vuejs/vite/blob/master/src/node/config.ts&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;一个插曲&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%80%E4%B8%AA%E6%8F%92%E6%9B%B2&quot; aria-label=&quot;一个插曲 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;一个插曲&lt;/h2&gt;
 &lt;p&gt;一开始，我使用vuex是使用&lt;code class=&quot;language-text&quot;&gt;getCurrentInstance&lt;/code&gt;获取vue的实例想像vue2那样类似&lt;code class=&quot;language-text&quot;&gt;this.$store.state&lt;/code&gt;来使用vuex的，就像下面的代码&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; computed&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; getCurrentInstance &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;vue&apos;&lt;/span&gt;
@@ -2260,7 +2330,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;报错state没找到，程序上的vuex的$store是undefined。然后我查了好久也没找到解决办法，于是只能在github上提个issue。&lt;/p&gt;
 &lt;p&gt;最后得到了解答，&lt;strong&gt;原来在&lt;code class=&quot;language-text&quot;&gt;setup()&lt;/code&gt;中是不能使用&lt;code class=&quot;language-text&quot;&gt;getCurrentInstance&lt;/code&gt;的!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;具体Issue: &lt;a href=&quot;https://github.com/vuejs/vite/issues/156&quot; target=&quot;_blank&quot;&gt;https://github.com/vuejs/vite/issues/156&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;具体Issue: &lt;a href=&quot;https://github.com/vuejs/vite/issues/156&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://github.com/vuejs/vite/issues/156&quot;&gt;https://github.com/vuejs/vite/issues/156&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最终的解决办法，引入vuex的useStore方法，就可以在setup中使用vuex了。&lt;/p&gt;
 &lt;p&gt;最后代码改为:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; computed &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;vue&apos;&lt;/span&gt;
@@ -2286,7 +2356,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;技术选型&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B&quot; aria-label=&quot;技术选型 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;技术选型&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;前端：使用Vue构建，使用ElementUI构建UI，使用vue-simple-uploader插件实现上传的断点续传、文件秒传功能。  &lt;/li&gt;
+&lt;li&gt;前端：使用Vue构建，使用ElementUI构建UI，使用vue-simple-uploader插件实现上传的断点续传、文件秒传功能。&lt;/li&gt;
 &lt;li&gt;后端：使用Koa实现，直接使用Koa搭建静态资源服务器（即个人网盘资源目录），加入静态资源鉴权，使用原生Nodejs处理文件管理与上传功能。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;问题与思考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%97%AE%E9%A2%98%E4%B8%8E%E6%80%9D%E8%80%83&quot; aria-label=&quot;问题与思考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;问题与思考&lt;/h2&gt;
@@ -2367,6 +2437,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 961px) 100vw, 961px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;登录后在访问&lt;/strong&gt;
@@ -2389,6 +2460,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 961px) 100vw, 961px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&quot;断点续传与文件秒传&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0%E4%B8%8E%E6%96%87%E4%BB%B6%E7%A7%92%E4%BC%A0&quot; aria-label=&quot;断点续传与文件秒传 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;断点续传与文件秒传&lt;/h3&gt;
@@ -2491,6 +2563,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1154px) 100vw, 1154px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;断点续传&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0&quot; aria-label=&quot;断点续传 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;断点续传&lt;/h4&gt;
@@ -2518,6 +2591,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;前端处理&lt;/strong&gt;&lt;/p&gt;
@@ -2625,6 +2699,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1010px) 100vw, 1010px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;当上传一个本地已经存在的文件时，由于数据库记录了该md5文件是已经完成的，所以预探请求会返回全部切片数组，前端就不会再发送upload请求从而实现了文件秒传。即使上传的目标目录与本地已存在文件处在不同目录，在预探请求时识别到时，也会进行复制操作，前端也不需要再传。&lt;/p&gt;
@@ -2636,7 +2711,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;p&gt;上传上面演示的同一个文件，由于发现是已经存在的文件，则会直接返回成功。&lt;/p&gt;
 &lt;p&gt;至此，一个断点续传、秒传功能的前后端都实现完了。&lt;/p&gt;
 &lt;p&gt;另外该系统还有一些对文件进行移动、删除、下载的功能都是比较简单的，基本都是使用nodejs的fs模块就能实现，这里就不细说了。&lt;/p&gt;
-&lt;p&gt;该系统前端Git: &lt;a href=&quot;https://github.com/leon-kfd/FileSystem&quot; target=&quot;_blank&quot;&gt;https://github.com/leon-kfd/FileSystem&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;该系统前端Git: &lt;a href=&quot;https://github.com/leon-kfd/FileSystem&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://github.com/leon-kfd/FileSystem&quot;&gt;https://github.com/leon-kfd/FileSystem&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;由于目前该后端是嵌入到了本人的其他系统里面，还未能开源，等有空会整理出一份。同时系统部分功能由于时间问题也还没有空去完善，望见谅。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[个人组件库展示站点搭建总结]]></title><description><![CDATA[在线预览个人组件库: Howdy 目录 Markdown-loader 将Vue文件转为Markdown 路由生成优化 关于部署 Markdown-loader 使用 Markdown-loader 可以将markdown文件转为Html代码，直接在中加入webpack…]]></description><link>https://kongfandong.cn/blog/build-component-cabinet/</link><guid isPermaLink="false">https://kongfandong.cn/blog/build-component-cabinet/</guid><pubDate>Fri, 01 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在线预览个人组件库: &lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/howdy&quot; target=&quot;_blank&quot;&gt;Howdy&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
@@ -2727,6 +2802,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
         sizes=&quot;(max-width: 1161px) 100vw, 1161px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;将vue文件转为markdown&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%B0%86vue%E6%96%87%E4%BB%B6%E8%BD%AC%E4%B8%BAmarkdown&quot; aria-label=&quot;将vue文件转为markdown permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;将Vue文件转为Markdown&lt;/h2&gt;
@@ -2853,7 +2929,7 @@ Vue&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;其实还有一种更好的办法，就是编写一个nodejs脚本，&lt;strong&gt;读取文件目录自动生成路由文件&lt;/strong&gt;，这样就能完全不需要手动配置任何路由，这种方法类似&lt;code class=&quot;language-text&quot;&gt;Nuxtjs&lt;/code&gt;的路由自动生成。&lt;/p&gt;
 &lt;h2 id=&quot;关于部署&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B3%E4%BA%8E%E9%83%A8%E7%BD%B2&quot; aria-label=&quot;关于部署 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;关于部署&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;由于最终的访问地址为 &lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/howdy&quot; target=&quot;_blank&quot;&gt;https://kongfandong.cn/howdy&lt;/a&gt;&lt;/strong&gt; ，所以需要配置publicPath为howdy，不然会出现资源404&lt;/li&gt;
+&lt;li&gt;由于最终的访问地址为 &lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/howdy&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://kongfandong.cn/howdy&quot;&gt;https://kongfandong.cn/howdy&lt;/a&gt;&lt;/a&gt;&lt;/strong&gt; ，所以需要配置publicPath为howdy，不然会出现资源404&lt;/li&gt;
 &lt;li&gt;路由使用了&lt;code class=&quot;language-text&quot;&gt;History&lt;/code&gt;模式，所以服务器端需要加入相关配置。该组件库展示站点最终是放在了&lt;code class=&quot;language-text&quot;&gt;Koa2&lt;/code&gt;的静态资源里面（因为Example里面涉及了一些Mock接口数据，为了方便把它们合在了同一个后端服务里面）。Koa2中可以使用 &lt;strong&gt;&lt;a href=&quot;https://www.npmjs.com/package/koa2-connect-history-api-fallback&quot; target=&quot;_blank&quot;&gt;koa2-connect-history-api-fallback&lt;/a&gt;&lt;/strong&gt; 中间件实现History路由模式。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
@@ -2880,14 +2956,15 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;目前主流的自动化构建部署工具可以选择 &lt;strong&gt;&lt;a href=&quot;https://jenkins.io/zh/&quot; target=&quot;_blank&quot;&gt;Jenkins&lt;/a&gt;&lt;/strong&gt;，Jenkins是一个持续集成管理平台，提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要。但由于Jenkins是基于&lt;strong&gt;Java&lt;/strong&gt;环境，而且功能过于强大，对于个人的项目来说有点大材小用，而且加重个人服务器资源的压力。所以没有采用Jenkins进行自动化构建部署，而是采用自己编写的&lt;strong&gt;Koa2&lt;/strong&gt;服务来接收Github Webhook来实现简单自动化构建。&lt;/p&gt;
 &lt;h2 id=&quot;配置webhooks&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%85%8D%E7%BD%AEwebhooks&quot; aria-label=&quot;配置webhooks permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;配置Webhooks&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;进入自己需要监听Push请求的Github仓库，点击Settings =&gt; Webhooks =&gt; Add webhook
-&lt;span
+&lt;li&gt;进入自己需要监听Push请求的Github仓库，点击Settings =&gt; Webhooks =&gt; Add webhook&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1079px; &quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABI0lEQVQoz5VSy07DMBDM//8SoJIceu8J0ZK0aVGBksZ2sl4/12WdqghViMccVjvyzL7kYlZWs/vy5vbu4XEZKfkQQ6RzzEmkGEnIoe8Fat1LBWjUCM551hTtdrfZ7ppN+3Z4B36xTqNBtCMgE2DivHw9HNdPw3OrhXSUnA9+alCcLkiUjDFojHeeu4UQY24biSiiIUTSeDLWg+bWATRRKnqILqSzHxF5PGvdmcYLsj9MSQim6/r9i5eKBYXolEeTrD0ZA8PYNE1d18vVar1puZAQUmTITsJRat5C827DyCNl82G3d0x4KqUQYD6fV1VVluVisYiT4gp8CD0Az5zNR+mti7wxfSf9GYUEPl0uQ2mKX/C7WemQJvxFfW3mj/GJ/5o/ANVQRAexOxKxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 48.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABIElEQVQoz5WOy07DQAxF8/+/BKgki+67QrQ0bVpUoKTzSDz2POwJSqoiVCEeZ2HZ0j22i1lZze7Lm9u7h8clS46JE8u5jg0Ls2jTKaXROWUsINkeQogxcdHs9tvdvt42b8d3ACQfHBKi7wGRPDikEM3r8bR56p4bp02QHGKK04FiuJAlExESxRCZJSXm8SyLCCMJojgcyEdwZPsETiQXCjikfPYRUSntfTiPfGH009SkRG2rDi/R2GEYCt3aiJS9H4ig6+u6Xq/Xy9Vqs22U0lobPWJaAyfjwKEDwK4X5lE+7g+h68evrEWA+XxeVVVZlovFgqfEFUjedSAyPlucTPSBhyzyXfRnCgMp8rhG8lS/8LtsXcoTf0lfyyz5k//KH9VQRAeLq4fOAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2900,16 +2977,17 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
         sizes=&quot;(max-width: 1079px) 100vw, 1079px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;填写自己服务器请求地址，配置Secret(用于后面的Sha1解码验证)，并选择要监听的事件，本次只监听push
+    &lt;/span&gt;
+2. 填写自己服务器请求地址，配置Secret(用于后面的Sha1解码验证)，并选择要监听的事件，本次只监听push
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1056px; &quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 68.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABR0lEQVQoz41Su07EMBDM//8KFRUVBQ0FDT0FV4CEBFzi59rrx4axE0W6kEOMRuuN5dkdrzNEjoDzFCI757Eii8iJvG95IwVPZKxNKedSNw4ulMB17hCZrfVKm6/zaKyPnEJMFJmYkUTOLQdRLrKIDIYKWCtyQVTKfp/VNCmFGhrNHCKIT62MMRZ7oyZLjGbDOE7Oh962wXo2HlXnC8j+azkwaBeVT4sS7V2DjxGGeb1hLiBwoZfGwXbba190tm6adBPV2hTLfToOxIYy8SrGyTZwT00lUmorMR9hFVMsucgmhlkoGssaYTnB+aHtZdm2Qn9VCqHFRsKb12u2d36cdRqPZEzuSH1oV23vtvDDWe8gToll/2J/i8Eoc54xJ2buw66HMzu2/fDxdHO6e5leJQv0uDAq/Ff8+Pl8+3Z/su/diGznfhP4AZ1FNlbWa5jPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 68.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABUklEQVQoz42SMW8eIQyG7///lUydOmXo0iFL9g7J0EqVkuYObDA22KaBO31SvlyivHrFcYgHXgwLCzNzylRYUsqZChVmlkSU8+gPU8lEgFhra2oXL6loEetT7h0xhwjPLytgZqmFK7GQSOHK0kafZSzH4u4LkAKpmbu7mYeA/17CtoUQIkRATBABIoQQYwAAjIBrJCTpvS/ruqVc5rZDmAWyuPc38uu/fcISE4dcd9Lc01BmroXlOGHT1lRV3/A+vOCMfezrjpi2LQ7IbBD7eaZOYKBGcsBmPgqeaVDuamOJfqYDJtamfoFZqtqAVI+2qdam7TT2/rkMlXmrVMpoh4lZ7KPYV3kSphgiALSpOov2YeyrIRbGnACgVvHrG/sc7t3Ze+tmJiKz2HZas/PYP/7e3Tx+/7U9eHMRYRbVL8M/n+6//b59xD8ziF/mvffrC/sPnUU2VmM06osAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2922,16 +3000,17 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
         sizes=&quot;(max-width: 1056px) 100vw, 1056px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;进入到对应Webhooks详情，下方可以查看到每个请求记录，点击Redeliver可以重新发送该请求。
+    &lt;/span&gt;
+3. 进入到对应Webhooks详情，下方可以查看到每个请求记录，点击Redeliver可以重新发送该请求。
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 921px; &quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 92.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABzUlEQVQ4y41TWVLbQBDl6pwhxQXymaSM+SP3gMAHiWXZQsvs+yZZ6bHxIkKMn3qqWqV63a9fj67GccSSVrShlhtnfMiw1vV9P36EzRa7/ArO12J+/fDl+vHmoX5yLeUtijGO/8GEDBk3gmhOFNfW9jEBhs0neCODPM64gIcxKeSw/3AJsmyXEjdeaCu048pSqaXxp0J3AXZ4n2MYhiNZeY+lxULvAvE8wKlECFC0ZXrn/YRsY8TSEGm48lTZjiumzObgT0xjSpu+jzGBkSHECVkbI+Fo99i9NBqn2PuD285pxljTBi6cD855iCMZSlPKwGNowpzwfTguJLeNQUhLaDImxDec7nnTdV3dtPf3P398+343v5vNZvPbW4QQ7AzmzEKhRDxiIruqqrJcNU3bIUwIM9ZmYw+xNekUE3JRFL+enpeLxerPoirKdl2RtiVQq64t515rf4aMMS7X66YoupffeLmi5QoXJVos0bIki8ISElLK+93jSIaMc57fwYcUBxgp7CPnoYfbOsXkx1BKYUIRFRiuh1R5wunM52QLqZZVXXfstaP6nwnPkUGDc67GpGwoE+qjTp+RV68tItw6fwnek6sGKaXDJX1PyH8BuOVJTrzvxXMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 92.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB0UlEQVQ4y42TSW7bQBBFfXWfIcgFskwCWd4597DjLJyIokRz6nnu6imgZMmi48h6qEU3iIf6VQ1elVKQIA3piGHaaucnjLExxvIeecf+fFVK+VItr+8/XT98vm8fbU9YPwJA+Q8zOefMNMeKYcmUMRFCCCHlD3iRY4yMMs44o1RwkQ4fLmGKbUNg2nFluLJMGiKU0O406L6c985NlVJ6laVzSBjE1b5GNg1wGjGXknLemc46N5MNABIaC82kI9IMTFKp83E/EEoIOUaAAADew0xWWgultbIPw1OnUIDojtu2VlFKu94zbp231ll70jnnTAiFEErO1HIX/euDTG3Bc2EwCVp7eOH0nfMwDG3X3939+P712+3ydrFYLG9uxnEMITjnp6AARxNgHrtpmrredF0/jAhjqo2ZFnus3ZJOmclVVf18/LVerTZ/Vk1V99sG9z3u+qFtDWNOKXdGRgjV221XVcPTb7TekHqDqnpcrcd1jVeVwdiHML3vgVc5pcQYm+455wAJIPlDTWcfQ0hzZj+GlBJhMhKOmGRCThPOZz4Xmwu5btp2oM8DUf9MeE7OOVtrW4TrjlAu3+v0kbx57kfMjHWX8FZuulFK5S/peyL/BbjlSU5HnHSTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2944,9 +3023,9 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
         sizes=&quot;(max-width: 921px) 100vw, 921px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;/ol&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;后端koa2服务&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%90%8E%E7%AB%AFkoa2%E6%9C%8D%E5%8A%A1&quot; aria-label=&quot;后端koa2服务 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;后端Koa2服务&lt;/h2&gt;
 &lt;p&gt;后端的Koa2服务是本功能的最重要的环节。其处理流程：&lt;/p&gt;
 &lt;ol&gt;
@@ -3033,7 +3112,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;li&gt;这种方式适合将网站自动部署到自己的个人服务器，如果没有服务器可以采用&lt;code class=&quot;language-text&quot;&gt;Github Page&lt;/code&gt;方式部署，这时候可以利用&lt;code class=&quot;language-text&quot;&gt;Github Action&lt;/code&gt;去实现，具体后面再写一篇文章说明。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[浏览器导航首页设计]]></title><description><![CDATA[一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能 系统半成品已部署与线上，在线访问：http://s.kongfandong.cn…]]></description><link>https://kongfandong.cn/blog/design-of-nav-tab/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-nav-tab/</guid><pubDate>Sat, 04 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能&lt;/p&gt;
-&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;http://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;http://s.kongfandong.cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;http://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://s.kongfandong.cn&quot;&gt;http://s.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%88%87%E6%8D%A2%E5%8A%9F%E8%83%BD&quot;&gt;搜索引擎切换功能&lt;/a&gt;&lt;/li&gt;
@@ -3319,19 +3398,17 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;li&gt;Unsplash提供的图片api接口，可以判断当前用户的设备，例如区分手机端和PC端，然后更改请求部分参数使其返回不同大小的图片。&lt;/li&gt;
 &lt;li&gt;将图片缓存到浏览器中。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;http://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;http://s.kongfandong.cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;http://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://s.kongfandong.cn&quot;&gt;http://s.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[CSS实现判断鼠标进入方向]]></title><description><![CDATA[使用纯CSS判断鼠标进入方向执行不一样的方向动画，或搭配JS实现同时记录进入方向与移出方向 目录 纯CSS实现 Clip-path Transform JS实现 Demo展示 判断方向算法 移入方向判断 移出方向判断 总结 纯CSS实现 实现纯CSS…]]></description><link>https://kongfandong.cn/blog/judge-direction-css-js/</link><guid isPermaLink="false">https://kongfandong.cn/blog/judge-direction-css-js/</guid><pubDate>Sat, 21 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;使用纯CSS判断鼠标进入方向执行不一样的方向动画，或搭配JS实现同时记录进入方向与移出方向&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;#%E7%BA%AFcss%E5%AE%9E%E7%8E%B0&quot;&gt;纯CSS实现&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href=&quot;#%E7%BA%AFcss%E5%AE%9E%E7%8E%B0&quot;&gt;纯CSS实现&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#clip-path&quot;&gt;Clip-path&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#transform&quot;&gt;Transform&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;#js%E5%AE%9E%E7%8E%B0&quot;&gt;JS实现&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;a href=&quot;#js%E5%AE%9E%E7%8E%B0&quot;&gt;JS实现&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#Demo%E5%B1%95%E7%A4%BA&quot;&gt;Demo展示&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%88%A4%E6%96%AD%E6%96%B9%E5%90%91%E7%AE%97%E6%B3%95&quot;&gt;判断方向算法&lt;/a&gt;&lt;/li&gt;
@@ -3349,7 +3426,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACoElEQVQ4y62US08TURhA+YeyMEjRamlBWmhpi4K60MRHotGgIhprYkzUaIyJC1mBFCwdQEOCoCAxQkTlJZRCH3NnOp22x2+qCw2KLLzJmW/uzJ0z333W8J9KpVK9UlMuWbz5skJ8Ic/4YorRxTSaMLobn5y4WSUxn+f92qrIylVpjWlkmVo8x5mJSfb1F3HFMzTEt6mPZ4XMH8hKG3k/mMM1YFE/85zurz1QcvIToa4U2UwHlh3k8cIL3MkyRzSb5jED72hhBz7nebKCbzxPaPU+bbi5uXkNbEcoXVZKZ33zBKbVSrl4lFdrd2gbT+NKlPFpOo2aQWPSlKiqeF5C0+QCocxZoiUv/mITvevXfxdupDtRVpCcEaFsN7OUPcOFqTkOyMeO0CtiT9LCIz9p+TBM2AwRtpuISPQXffRu7BB2YVht6GY7OTOCZQUwCiEezfdzMGHjFrFPy9G6ck9EXsKWn/ZCGxHhn0IlorwZRsm9k+3rVIz26Rn86jTRorcqai+0ijSwd6GuwtUhULTwbeABg6fmOT97iQCSnSMzRbpXoa4imBU/+XwH72MaQ3VltLoSSbfJrb6nBCvNhEotRIzgbsJOGbMguhGmQDOp+YtMnFxkeH+F5BGdEY8uQoNxqT+5OsHxrWO0SrZR4y+Tsp6SZWMHMKWLnwcfojXmeFlvk/TkSR5WVUaEhNQdaX90RYbgiqxBLwFHuN7zi1BXpPUohooyFxsjUSdZHSqgeRTaYXMHI42KMZeN5i4Q63smKXi4sdUNxZ9Co5BlYfIyr7rmGKi1GDq0xdDBbeINGWH7D2QYdNq4Mmi1Re52D3H7Y8zZytVSUyoXWZ5N8eV1juV3KZam0ntgi6VpiW83WZUtuCaHRMUxOocD/+38+tHl7x97MzuoJIZoAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 77.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACoklEQVQ4y62UW2sTQRSA8w/1QWpTTc2lNUlz2cS7DwpeQFHqXYwggooigg/61NrUprs2SqHWSy1ii1FrW2uSNsnu7CWb3U929UGplz544JsDM8PHmRnmBPhP4br+SMDpWDz/uEhxXqVcqfKkUkep1P38R957ueZTmlN5s7wEOL40YOhNpitHOTw5xaahNsFig57iGt3FJt3Fxm9oEvTWR1oEhy26Xz9g8NN56Hj1QUATgmZjF5ad5s78I0Kyww7Fpn9CJ/rEXEfMm5ddYmWVzNINUoS4VDsLtid0CQihsVLbj2EN4LR38nT5KqlynWDJIaZoRBSdiGwQUYRPeAz6pubJNI6Q70RJtPu4uHLuV+HX+l6Elaal53Dsfhaahzk+PcvWMXxhVNEIyxbhkkP87WMkI4Nk95EzMiTaMS5+XSfch26l0IwsLSOHZSXRzQy354bYVrIJjUFMaTGweB3JjiJZCbJmipyZ+rdQmBlUQ0IYWb/aZ9UC2RevSYhD5NtRX5Q1B5Cs5MaFmpD8KxDE+TJ8k5GDcxybOUmSKJInM1JkNyrURA7DTaCqu3hTUBjtclC6Osghg8sP75F2+8l04uT09N+Ee9HNNJouYdJPde4EkwcqPN7iIu/QGA9ryCGd8haXu2cm2bO6mwGi5PU/PMpKdT+GncQgzoeRWyiRFmPdNnJYRe4VPuO9glJY9aVD+UWOzZwmRZSkJ1w5/5NQE9S1PLrIM1uYoNTlIm83UcICpddYx3hEMBG0UUImhYf3iRPmwuogtH8IdbPJ/NQpnu6bZXizxej2VUa3rVHsaVDsWfsNDUa8PcEGyuY21wZHufKu4H1lPwIdp83nmSofn7X4/KrKwnR9A6yy8KLOwssaS2WV5UoN1zN6zYH/1r++H/kbH3szO7bSWu8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -3361,6 +3438,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
         sizes=&quot;(max-width: 498px) 100vw, 498px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;目前可以通过2种CSS3的方式实现&lt;/p&gt;
@@ -3468,7 +3546,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 74.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB7UlEQVQ4y22UiXLaMBCGef8XylBiDmMoZyhtYJqQEogTc4RCuW2D9qtsbsea+UeHV592V1onuGoicu4vYxX7neM42hKxxqc1b4Z81pDV2w30wJPYPRfgNTTQykYNLS0TNcghszai/Fs7iUZ1BJ5COBvM2zDMoEZF5CQNDrzFm4cA35XYVCTi8raaTljb5RDqO3l2jqllsXcyGp5j0l/QKoDz8jW/iWgOhp+C1QCztMB5quLbSTZ9A9f+xrqXpVPq8yO955cpNDOKblPwtjEeKt0/94RMWZGvKlIFT8ul0+rg99P8e67QsmZUkj4/c3se86LnSsMV7eIFGnq4WAkPbQ0raVgtkGAUt9xbLklzR61r0yjOqd3tqRvrENiyDh4GsNnokv8Q+PquAd8PoABo1fU87+m1DWlnTGpnk1l8UK0vqN+5NLM7DRP+NLRnm9s7OIc8/isU6oeQs2Uh1VhiTN8xdq8Y2x733kHW7wmPWcXw5ep2lZzfeeL6dtf6tIeW8NQV2mqGgY25dzCVc+5zfFDfTHHZx1ZXIvpklLrceF9W5BlgahUYhsrKgAojluKHFSDIbaXEldDp1QcbpuJSlrEGOaHaMmMX1PcRhsTUclwJXZ/s6fAemfLG8vKQkZv+Sy3f/HWujKIborDo9/8FF30rBB9cUAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 74.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB7ElEQVQ4y22UiW7aQBCGef8XiigxBmMIZwgtoCakBOLEGEKh3L52vgpzO15ptCt79vNcv1NcLRE575ezSnzP8RxfqUTn0zNvjnzVkfX7DfTAk8Q7F+A1dG9rC+WYKMdAjfLIvIso/9ZP4lkdgacUzg6LLjg6alxCTuYYUbR4iwjgu5JYilRS3dazKRurEkF9u0BgGwS2SWjryDjPdLikUwT79Xt9U/EaOF+C2QSjvMR+ruFbabZDDdf6wWaQo1ce8pQN+WUILV3RbwneLiFCJcLLQNArikJNkSl6ZIouvU4Pf5jl30uVjjmnmvb5mQ9pF4SOqXjKKrqlCzSKcLkWHruCXlYU6nsTtNKOe9MlbQTU+xbN0oL6XUhD20TAjnmIcA+bjy/1j4BvH4L2cADtgWZD0Aoe2sOWrD0hE1joy09qjSWNO5dWLqClC3+agre97cE55clfodg4pJyrCJnmCm32gRa8oe0G3HsHM39PaecUzutVd5Wc5zx13d3NVnjsCM99oavmaFgYoY2h7POe55PGdoZLmKiuVHxklLp0fChrCowwGFHEiSwnI6qMWYkfKUCQW6UkSeg09fsLM3GpyISc2JF1ZU6w1/cRhiRoOUlC11/2CGkz453VZZCRm/2blm/+OldO8QtxWBz4HwUXfSu1rdEBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -3481,6 +3559,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
         sizes=&quot;(max-width: 659px) 100vw, 659px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;transform方式实现主要代码逻辑&lt;/strong&gt; &lt;em&gt;(仅列举与clip-path不一样的代码)&lt;/em&gt;&lt;/p&gt;
@@ -3532,7 +3611,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 40.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA40lEQVQoz5VS226DMAzN///VVPEBKw0aEdL6xPWBSxKCCHAqW0pFWdk0R5Yj+9ixjyNwkG3b2HrvsSzLi4/sXvexIOJYbF1XvmdZhiRJYK19m3jmE8dXg1JhYwz6vn+Ch2FAWZZI0xTzPL/tWuAfMk0Tuq5D0zSnGEE8OecYHOw4jtzN3sf30TEFWmvoQcMay1ijDdzkmHNBCUVR8CikdV0zf1JK7oRipFVV4f59R/wZ4/Jxwe16g7xKyFhCfSnkec7Ff4zcti2UUr+OTp1EUQQ/+7+XQt+FCD9bVlgY4bZwdrEH+8FvwaSRqMwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 40.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA5ElEQVQoz5VS226DMAzN///VVPEBKw0aEdL6xPWBSxKCCHAqW0pFWdk0R5Yt59ixjyNwkG3b2HrvsSzLS4zsXvd3QcSx2Lqu7GdZhiRJYK19m3gWE8dXg1JhYwz6vn+Ch2FAWZZI0xTzPL/tWuAfMk0Tuq5D0zSnGEE8OecYHOw4jtzNPsb+6JgCrTX0oGGNZazRBm5yzLmghKIoeBTSuq6ZPykld0J3pFVV4f59R/wZ4/Jxwe16g7xKyFhCfSnkec7Ff4zcti2UUr+OTp1EUQQ/+7+XQt+FCD9bVlgY4bZwdkt5APvBb8Hmx0U6AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -3544,6 +3623,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
         sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;以下提供一个函数判断点P和点O是否在直线AB的同一侧&lt;/p&gt;
@@ -3565,7 +3645,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 64.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAABmUlEQVQ4y51Ty4rCQBDM/3/A7kW8Bf0G8aAHD2tEiCRiMr7xnUTxAboxSe1Wy7hZURa2oDPdY09Z3dNjZFmGPJ7Fj3uvcgmDn/1+D9d1cTqdZDOOY1yvVyRJck9knDfm6LO73Q6NRgPH4/FG2O/3USwWxdrtNkajEZRS8DwP9XodlUoF4/FY9nzfx3A4lJxWq4VCoYBarYZqtSrkRpqmIn25XCKKIsznc0kOgkDI+M8ky+N8PosIngnDUFZdvqEd/SNxOBzQ6/VEiW4DwRbMZjMMBgMpj1iv12IExT0l1FitVqKEamn0HccRUo08IbmeElKJ3md5pmmiXC7LZViWhWaz+TfhYrH4pZD77B0vQd8qfbaCcZ6QldxL5odgSdvtVvzNZoNutyvrI8IolNvnKvG3iCAMfhTSIZFt26JyMplgOp2+HOQszRB/xlCeuo+P8pX09XK53AjZE84TjcpYKi+Ac5dfqaxjd+A6LnzPh/Vh4f3tHSWzJA+DvTd0iRwPPZP6pTwaDyRpIitj5tN4Vo+R8eqd/gfk+gJDMdjQsniSlgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 64.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAABmElEQVQ4y51Ty4rCQBDM/3/AehFvQb9BPOjBwxoRIomYxDe+M1F8gG5MUku1jJsVZWELOtM99pTVPT1GlmXI41X8vPculzD4ORwOcF0X5/NZNuM4xu12Q5Ikj0TGeWOOPrvf79FsNnE6ne6Eg8EApVJJrNPpYDweIwgCeJ6HRqOBarWKyWQie77vYzQaSU673UaxWES9XketVhNyI01Tkb5arRBFERaLhSSHYShk/GeS5XG5XEQEzyilZNXlG9rRPxLH4xH9fl+U6DYQbMF8PsdwOJTyiM1mI0ZQ3EtCjfV6LUqolkbfcRwh1cgTkuslIZXofZZnmiYqlYpchmVZaLVafxMul8tfCrnP3vES9K3SZysY5wlZyaNkfgiWtNvtxN9ut+j1erI+Q0VKbp+rxEohVOGPQjoksm1bVE6nU8xms7eDnKUZ4q8YgRc8xifwA+nr9Xq9E7InnCcalbFUXgDnLr9SWdfuwnVc+J4P69NC4aOAslmWh8HeG7pEjoeeSf1Sno0HkjSRlTHzaTyrx8h4907/A/bwG0Mx2NDjOJAmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -3577,6 +3657,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
         sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;如图，点P为鼠标事件移入获取到的点，当点P与点O在直线AB同一侧、点P与点A在直线OB同一侧、点P与点B在直线AO同一侧，即可判断出点P在三角形AOB内，即鼠标从上方进入。转换为代码即可写成:&lt;/p&gt;
@@ -3647,7 +3728,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;p&gt;使用纯CSS实现判断方向会有一个比较大的缺点，就是浏览器鼠标移动事件含有&lt;strong&gt;一定延迟&lt;/strong&gt;，当鼠标速度很快的进入div时，有可能:hover会延迟执行到后面的元素。
 同时纯CSS方式只可判断移入方向，还未能实现可以同时判断&lt;strong&gt;移入和移出&lt;/strong&gt;。需要在记录移入方向的同时，再记录移出方向目前想到的只可使用JS去辅助实现了。&lt;/p&gt;
 &lt;p&gt;使用JS实现最主要是要运用到判断两点位于直线同侧的算法，这个算法只涉及四则运算，也比较简洁。获取DIV四个顶点和中心的坐标可以用&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect&quot; target=&quot;_blank&quot;&gt;getBoundingClientRect()&lt;/a&gt;来获取元素的top,left,width,height计算出来。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[常用NPM全局包记录]]></title><description><![CDATA[NPM全局安装的包默认会安装在 C:\Users\当前用户\AppData\Roaming\npm 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问 目录 pm2 cnpm rimraf nodemon…]]></description><link>https://kongfandong.cn/blog/personal-npm-collection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/personal-npm-collection/</guid><pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;NPM全局安装的包默认会安装在 &lt;strong&gt;C:\Users\[当前用户]\AppData\Roaming\npm&lt;/strong&gt; 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[常用NPM全局包记录]]></title><description><![CDATA[NPM全局安装的包默认会安装在 C:\Users\[当前用户]\AppData\Roaming\npm 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问 目录 pm2 cnpm rimraf nodemon…]]></description><link>https://kongfandong.cn/blog/personal-npm-collection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/personal-npm-collection/</guid><pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;NPM全局安装的包默认会安装在 &lt;strong&gt;C:\Users\[当前用户]\AppData\Roaming\npm&lt;/strong&gt; 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#pm2&quot;&gt;pm2&lt;/a&gt;&lt;/li&gt;
@@ -3663,8 +3744,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;/blockquote&gt;
 &lt;p&gt;以下为pm2常用命令&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;启动 pm2 start main.js&lt;/p&gt;
+&lt;li&gt;启动 pm2 start main.js
 &lt;ul&gt;
 &lt;li&gt;—name 指定进程名&lt;/li&gt;
 &lt;li&gt;—watch 监听代码变化进行热重启&lt;/li&gt;
@@ -3703,8 +3783,8 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;blockquote&gt;
 &lt;p&gt;可搭建本地NPM仓库、内网NPM私服&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;官网：&lt;strong&gt;&lt;a href=&quot;https://verdaccio.org/&quot; target=&quot;_blank&quot;&gt;https://verdaccio.org/&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
-本人私服：&lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/npm/&quot; target=&quot;_blank&quot;&gt;https://kongfandong.cn/npm/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;官网：&lt;strong&gt;&lt;a href=&quot;https://verdaccio.org/&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://verdaccio.org/&quot;&gt;https://verdaccio.org/&lt;/a&gt;&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+本人私服：&lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/npm/&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://kongfandong.cn/npm/&quot;&gt;https://kongfandong.cn/npm/&lt;/a&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;使用 &lt;strong&gt;npm i verdaccio -g&lt;/strong&gt; 后，执行verdaccio即可启动本地NPM服务。启动后在 &lt;strong&gt;C:\Users\[当前用户]\AppData\Roaming\verdaccio&lt;/strong&gt; 生成其配置。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;storage&lt;/strong&gt;：npm包缓存文件夹，若搭建内网NPM时，可把对应依赖复制到该文件夹，然后使用npm install —registry=[服务访问地址]便可离线安装NPM包&lt;/li&gt;
@@ -3735,7 +3815,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;blockquote&gt;
 &lt;p&gt;基于 React 与 GraphQL 的开箱即用的网站快速构建框架&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;官网：&lt;strong&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot; target=&quot;_blank&quot;&gt;https://www.gatsbyjs.org/&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;官网：&lt;strong&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;https://www.gatsbyjs.org/&lt;/a&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;使用gatbsy搭建静态站点服务时，有部分依赖资源需要访问国外站点下载&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;若为 gatsby-starter-blog项目安装依赖时，有可能出现 libvips无法下载的问题，可以访问其站点将资源下载到本地的 C:\Users\[当前用户]\AppData\Roaming\npm-cache\_libvips\ 目录下后再重试&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[个人常用代码收藏]]></title><description><![CDATA[记录个人开发常用CSS、JS代码 目录 CSS全局默认样式base.css, 下载base.css JS个人常用工具函数helper.js, 下载helper.js Nodejs返回数据模板response.js, 下载response.js Nodejs连接Mysql…]]></description><link>https://kongfandong.cn/blog/personal-code-collection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/personal-code-collection/</guid><pubDate>Thu, 30 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;记录个人开发常用CSS、JS代码&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
@@ -4164,7 +4244,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
     &lt;span class=&quot;token property&quot;&gt;&quot;parser&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;babel-eslint&quot;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[简易电商系统开发记录(Nuxtjs+Koa)]]></title><description><![CDATA[使用Nuxtjs + Koa + Mysql实现的极简风格电商系统，此为个人大学课余期间(2018)的练手项目，部分功能未完全实现。 DEMO系统在线预览地址: http://eidea.kongfandong.cn…]]></description><link>https://kongfandong.cn/blog/design-of-electricity-system/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-electricity-system/</guid><pubDate>Wed, 30 Jan 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;使用Nuxtjs + Koa + Mysql实现的极简风格电商系统，此为个人大学课余期间(2018)的练手项目，部分功能未完全实现。&lt;/p&gt;
-&lt;p&gt;DEMO系统在线预览地址: &lt;a href=&quot;http://eidea.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;http://eidea.kongfandong.cn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;DEMO系统在线预览地址: &lt;a href=&quot;http://eidea.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://eidea.kongfandong.cn&quot;&gt;http://eidea.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;系统功能&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD&quot; aria-label=&quot;系统功能 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;系统功能&lt;/h2&gt;
 &lt;p&gt;✅ 登录注销&lt;br&gt;
 ✅ 首页商品轮播&lt;br&gt;
@@ -4176,7 +4256,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 ✅ 生成订单&lt;br&gt;
 ❌ 个人资料/地址管理&lt;br&gt;
 ❌ 商品规格模块&lt;br&gt;
-❌ 支付模块  &lt;/p&gt;
+❌ 支付模块&lt;/p&gt;
 &lt;h2 id=&quot;nuxtjs相关&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nuxtjs%E7%9B%B8%E5%85%B3&quot; aria-label=&quot;nuxtjs相关 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nuxtjs相关&lt;/h2&gt;
 &lt;h3 id=&quot;axios封装&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#axios%E5%B0%81%E8%A3%85&quot; aria-label=&quot;axios封装 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;axios封装&lt;/h3&gt;
 &lt;p&gt;封装axios，加入拦截器，统一处理接口返回的错误请求，只有&lt;code class=&quot;language-text&quot;&gt;code&lt;/code&gt;为200才为正确请求，其余统一弹窗错误&lt;code class=&quot;language-text&quot;&gt;message&lt;/code&gt;。&lt;/p&gt;
@@ -4324,8 +4404,9 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;网站截图&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BD%91%E7%AB%99%E6%88%AA%E5%9B%BE&quot; aria-label=&quot;网站截图 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;网站截图&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;首页&lt;/strong&gt;
-&lt;span
+&lt;li&gt;&lt;strong&gt;首页&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
@@ -4345,9 +4426,10 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;搜索页&lt;/strong&gt;
+    &lt;/span&gt;
+2. &lt;strong&gt;搜索页&lt;/strong&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -4368,9 +4450,10 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;购物车&lt;/strong&gt;
+    &lt;/span&gt;
+3. &lt;strong&gt;购物车&lt;/strong&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -4391,9 +4474,10 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;订单&lt;/strong&gt;
+    &lt;/span&gt;
+4. &lt;strong&gt;订单&lt;/strong&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -4414,9 +4498,10 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;个人中心&lt;/strong&gt;
+    &lt;/span&gt;
+5. &lt;strong&gt;个人中心&lt;/strong&gt;
 &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -4437,23 +4522,21 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
-    &lt;/span&gt;&lt;/li&gt;
-&lt;/ol&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;PS: 该项目仅作学习交流所用，不可作商业用途，所有图片来源于网上&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;DEMO系统在线预览地址: &lt;a href=&quot;http://eidea.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;http://eidea.kongfandong.cn&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[考试系统设计总结]]></title><description><![CDATA[该系统成品已部署与线上，在线访问：ExamSystem 系统线上环境部分功能已锁定 学生端登录 测试账号1: user1  密码: 7gzt9i0lkh 测试账号2: user2  密码: lyufmklxy 教师端登录 测试账号: admin1  密码: qrmeke4p7…]]></description><link>https://kongfandong.cn/blog/design-of-exam-system/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-exam-system/</guid><pubDate>Sat, 01 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;p&gt;DEMO系统在线预览地址: &lt;a href=&quot;http://eidea.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://eidea.kongfandong.cn&quot;&gt;http://eidea.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[考试系统设计总结]]></title><description><![CDATA[该系统成品已部署与线上，在线访问：ExamSystem 系统线上环境部分功能已锁定 学生端登录 测试账号1: user1  密码: 7gzt9i0lkh 测试账号2: user2  密码: lyufmklxy 教师端登录 测试账号: admin1  密码: qrmeke4p7…]]></description><link>https://kongfandong.cn/blog/design-of-exam-system/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-exam-system/</guid><pubDate>Sat, 01 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
 &lt;li&gt;该系统成品已部署与线上，在线访问：&lt;a href=&quot;https://kongfandong.cn/exam/index.html&quot; target=&quot;_blank&quot;&gt;ExamSystem&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;系统线上环境部分功能已锁定&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;学生端登录&lt;/p&gt;
+&lt;li&gt;学生端登录
 &lt;ul&gt;
 &lt;li&gt;测试账号1: user1  密码: 7gzt9i0lkh&lt;/li&gt;
 &lt;li&gt;测试账号2: user2  密码: lyufmklxy&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;教师端登录&lt;/p&gt;
+&lt;li&gt;教师端登录
 &lt;ul&gt;
 &lt;li&gt;测试账号: admin1  密码: qrmeke4p75&lt;/li&gt;
 &lt;/ul&gt;
@@ -4478,7 +4561,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 91.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAERklEQVQ4y11UeUibdxj++SXTsLWx1baOMnHDKbVgbDQeW0x0GWxqddY/piJShrAxNsqGk7V0Uruj2DKpzgyGZ4KNN7ZzGq/EO6Lifd+3ouKtE5WC2fN+VRkNvPk+fsfzPs/zvu/HysvLWWlpKevs7OSOj48tzGazRU1NDYc1bmtri1VXV9u0trbaNzQ0XM3NzRVin7W3twsmJiYEeOcWFxcFU1NTHK1TsJSUFFZRUcFwia2trTH8BBQODg5v0oGFhYUXy8vL5tXV1X/r6uq8TvYtTgEARmfYGWBycjLLzs7m+vv7nYxGozQnJ+fDmZkZFyR4Z2RkhCEUYHMbEYF3MV1aWVlRAuQzJIja3t6+OTk5KTsDpL/4+Hh7yNvY3d01Q8LLg4MDYqSlPbBjh4eH/LmoqChSINzY2JhcX183I8lLujM7O2vE+jnG7wqFXGhoqHhubs5zdHTUs7m52W18fNwL3l4lkIyMDJafn8/UajXr7e3lgfE8BzCbxsZG6/39fbuBgYFLTk5OF/R6PWO+vr6CoKAgWzrY19cXu7OzUzM8PKwDs0oweVZSUuJZVVWlQkGkXV1dN7FvAthz2PIcqqqKi4t9yVOVSmXn5+fHmLu7uyA4ONiaAAH0OUAe9fT0aMD4Cby6o9Pp3kVmR61WewXVlQLwIZSkwk/15uZmQn19/XUCVCgUtm5ubozJZDJBSEjIJSxyg4OD94ghClQNhhWouiYzM/N8QUEBgywGKxQohhH7BoQR73qw/wh3Lf39/e08PDwYw58gMDCQrx4Ag5D1R0h7Oj8/fx8Mv9BoNBLIlickJLyFdUeAxkLJV2NjY1/j/U5tbe17xFAul9v4+Pi8YgjJxFCArPfhjQGm1+JwNRhoUBxrNPnbWVlZfiaTKRQdoEWydFQ2Y29vLxuN700M4d8VYL1iGBAQwDME4KfIfhfxDSIWLL4EO2FhYSHr6Ohg3d3d7ktLS38ODQ09wdnf0WLJBoNBQgyVSqUNL/nEQ1taRIN+f3R09DeyP0N/FaMl/igqKrqBSfoAxbmGYqnA6gWAqAvy4HcRCiY/8fDymYdoG54hLtyCnF8w1/cwUg8A/C0K4lhZWXk9Ly/Pvq2tTQagx6jyQyT/GWwfoSh8lSH5Ii+ZGIaFhV0gQEj8Dgz+wSUdilOMKv8FIFF6ejqDTAYgJfZNSKRHW1VChbGsrOxjAIrQh5fRgmce8pLh221cUOPwY4zWU4DGJyUliWNiYixpqqDgGmb3p+np6R8AGof9uy0tLe8TGQCe5wGlUinn6upqHR4eLjod8P8HWD1A+6zTDx+DsNf3qTsgVyyRSMSngMzLy4tzdnYWxsXFWaalpVklJiZawTsRsUZDfwI2v8HbX5uamm7QGqZGlJqaaoU5t4qIiHjDxcVF6O3tbUFYNHo8KD1pdMCWj+joaP7jQd862MDQf/Rh5dciIyP5868H4fwHlqISGdEXxXcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 91.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE20lEQVQ4y12Uf0wTZxjHH9pOyKbg8NdiZtziMGICSKngxo9zXbJpxTH+GBhizGKyZdlitjgyjSPifhg1M+JgyQJFaLTUCqmuoy0tlPoLU4nU1itcr3etvfZKrqbtlfZGqjGxy3sqWbzkuTd5nuf95vM87/u8YDKZwGg0wszMjOTZs2d5uVwub3x8XGI0GiWpVApsNlux0+nccOPGjfVDQ0OyXC4H09PTUpqmpblcThKNRqXBYFCC/Mjg/PnzYLFYwOl0QjweBwCQItu4cePrKIFl2Wscx+UePXr0r8PhqH4Rz3spEAwGUQ4sCXZ1dcHAwIAEx/ESu91eefHixQ9CoVCp0+l82+fzgc/nq6dp+gBN060+n68QbYrFYg0sy37qcDjaFhYW9gQCAcWSIPp1dHRsSKVSyUwmk4tGo0+z2Swi0qAYx3Hw+PFjMa+trQ1VIEsmk4FEIpGjafop2sMwjB0AloMYlckkTU1NheFweDtJkttv375dQVFUtclkWo9E1Go1XL58GXp6esDj8YjCHo9nOU3TxTdv3ixaXFxc5/V6V5eUlKw0m80AdXV1UpVKtQolPnjw4HA6nR4nCELLcdxYMpm8ZDAYtlutVuXQ0FCly+Xak06np2iavhoKha6mUinryMhIHeqpUqlch2EYgFwulzY2NhYhQYIgPk8mkyfdbvdgOBw+E4vFDmm12nfMZvMmjUazdnp6ujKdTp8gSbLb5/P18Dzfef369a1IsL6+flVFRQWAQqGQ7t27dzUASGZnZ48iQhzHbRzHWeLx+GB/f/8KvV4PXq8XKIqqZ1nWjuP4BI7jdpZlzVar9UMAWLZz5851VVVVAFVVVdLdu3eLpzc7O6vief5Hl8t1LhKJHIvFYl8MDg6WGwyG2s7OzjdcLtcmiqIOEwTxld/v/5qiqEOTk5PvIsLa2triHTt2PCdsbGxEhFIcx4+FQqEJj8czSVGUjWXZQZPJVGQ0Gt+6cOECNjU11ZTNZjWRSKSPYRi1IAgDNputBhFiGLZWoVA8J9y1a5dIiOP4JwRBHCEI4huCIA77/f4vDQaD7MqVK3Dv3j24f/++fH5+/s+5ubkzOI7/Ho1GuyYmJsoRYUNDQ7FY8oserkLOQCDw/ZMnT/5mGOZSJpMZWVxc/GN4eHibxWJ5X6vVbnG73UpBEK5Fo1F0C3TpdHrYbDbXvujhmqUeqlQqkdDtdn8WiUR+mZmZORoMBo8zDPOtXq/fNDY2tlWn0224e/euguO40yRJnggEAj/Pz8+ftFqt4iljGPamWDIibG5uXokE/X7/d4Ig/MNxnJbn+ZF4PP6XTqcr6Ovrg7m5OSBJskEQhCmGYczhcHgsk8nYR0dHPwKAAqVSuUYuly/1UCyZIIgDgiD0hMPh04lE4hzP8x1nz54tPHjw4DI0VW63e8vCwsJPDx8+/IFhmHae54/cuXPnPQSjVCpXiIKVlZWSsrKyopaWloKXA/5/I0nyeCwWS6DP4XA0vxpHtwPDsMLy8vLCl4JQXV0t2bx5s6y9vX1Zb29v/qlTp/L1en0BovZ6vR8zDPNbJBL59datW9uQT6PRFHR3d+er1er81tbW10pLS2U1NTV5SAuNniiKVjQ6ZWVlou3fv198PNBbJwgCZLNZ9LCKvn379on5rxoS/A+WohIZfWJiIgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4491,6 +4574,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 782px) 100vw, 782px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;系统技术架构&lt;/strong&gt;&lt;/p&gt;
@@ -4500,7 +4584,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaklEQVQoz5VSO2haYRj9jFcyNNB3ttIuLbTQwZBFEEfXgu6lZhAcYguWFuxg6dB2ElMzxAaSQDc1ZkjiC0JUQhOf9RGjxldIfFaNkuia9PzXRrpk6IWf+/33P/d855zvp8vLS/p3XT0KhWJUW61W6nQ6VK/XyefzTebz+cf7+/tPUN9Pp9OUyWRILBYPwXa7XVStVpfa7fZPAHV/iYXHx8fc7u6uYHNzU9BqtYRnZ2cidhaJRL6CoJZMJn+j/nRycsIajddqtTFe0Pr6Olcqlb7hozORSGjRQxCNRgkEtLe3R06nk05PT6nX69HGxgbvQiqVPgTuNqsZYbfbJQgaOoRsrlAoLEDlNgjfAHin0Wh8bjabjkAgIAHJNJotYn13uVzTfr//Oc6t2Jv1ev1NOHmH/TKIVTwhLHMgW0SHwMHBwVsQ3sXhawBNOzs707A8dXR09IEtt9s9BcJniGYJ64tarb6F96tyufyxWCy+4AkdDgdXqVQMkL2cy+Veso9QSoPBgILBIG+Z2T8/Pyev10tbW1skl8sn0ZhbWVnhcSwOhuEJU6mUCBn+QKgRhP3+aihQKQyFQgIQCvr9vhAKRVDIcnwKHH5LeUwm0wQbLP7lgBkO5bprI5PJSCKR0OrqKr/HVMfYFYHFR9lstoRrsw28iA3l8PCQRUeI7npCpVI5qhmY3TV2DtsPPB6PCm8F8r3HYmCxjB6tVktms5ksFgvNzc2RzWajtbU1MhgMIwzLDWSCi4sLisfjJtj9BcWpcDisQU2xWExI//NgmnwDnU5HGo1mfH5+fsJoNN6YmZkRqVQqmp2dHWH/AHWu3N1gNdm+AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACl0lEQVQoz5VSTUgbQRR+MRs8VOi/t9JeWmihh4iXgHjMtRDvpfEQyMG0kNKCPaT00PYksfGgFVToLcZ4MLsmC+ImSP1brbsTs+roGnbdnbWuRmK8umXWGnrx0AcP3sx8fG++7z1wHAf+zasIhULNOp1Ow/HxMRBCQBCEdozx43K5/EQQhPubm5ugKAr4/f5LcCaT8RmGMWbb9k+McfwvsVfTNGZxcdHDsqzn6OjIW6/XffRNFMWviqKYsiz/FkXxk67rtFGraZot7odmZmYYVVW/EUI4SZJiAOBZW1uDer0OS0tLwHEcnJycwOnpKeRyOVdFV1fXQwC4TWtKWKvVwLbtS4WCIDC7u7vDhmHMS5L0BgDuWJb1+fDwMFsqlQK5XK6TEDJKCPk+OzvbWSwWn1uWlSaEpPr7+29qmvbOsqxxXdfDLmEmk2EMwxi1bbtUqVTeAsBdXddfa5qWXFhY6GRZtqNarX6gmc/nO4rF4jOM8RjG+EskErmFMX61v7//cW9v74VLmM1mmYODg0StVhvf3t5+SS8lSYLz83NYXl52JVP5Z2dnwPM8zM3NQTAYbAcAZmJiwsVROyjGJUQI+VRV/WGapqgoyvuroei67l1ZWfFwHOdpNBrearXqy+fz1MeniqIghFAhmUy20cGapsk0Go3LoVy3Nt3d3RAIBGBqaso9y7LcQlcEY/xoa2tLLZfL847j+OhQdnZ2qHVgGMb1hD09Pc2agumu0Xee5x8UCoUwz/MhlmXvURuoLc2IxWKQSqVgZGQEBgcHYXJyEqanpyGRSDQx1DfHcTwXFxewsbGRRAj9kmUZra6uRhFCsL6+7oX/iUgk4jaIx+MQjUZbh4aG2gYGBm709vb6wuEw9PX1NcF/AHWu3N1oQxNbAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4513,6 +4597,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 906px) 100vw, 906px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&quot;技术选型&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B&quot; aria-label=&quot;技术选型 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;技术选型&lt;/h3&gt;
@@ -4759,6 +4844,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;创建考试&lt;/strong&gt;
@@ -4768,7 +4854,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABuUlEQVQoz22TyXLbMBBE+f8/40/I3eVDDvGWpZIcFMkKCYIEsQ7ATgMmZaVKrOoaEQQeZml12J5SCubFYZgsJhvhZUXIQBC0eOtZ14KwBojvMf/4BKeP6FJKqFoJtDytXcFoBcokDCa2qBhTTIgXxRZD8FB+hD6/YHq6w9L/RBdThou5AZXSOJ2OEIlUQsnyriJIfBeR/5SpIgW5MFtm3PN8yzCEgJxzu9V5x5JHTE6zbAuXFixhhs+OezxS/4y8nFBcj2LPyPaNOpMoGAbFDJm+974BKzzGAEOAXgi1GjYaGD81cBL2S/9C+POAePqMeP6C+PcZafhKYMagRnQVdgHufTEDZkJaZswyFMcMLaJ4An8jHO4JeyTssUGT+v4OrBnWcq9Lrr9dcAgponBTVS4UY51qNscGSMO3Lb5C5gOBdIkx6KpdqkQyhCVPS8Domie4vm7+uPjktn3ap7VNv9sX69QSF6aFJbtbnlsvB6/1cRv9Gghct1trlsOocXjj9Li0e63GOqwdik37uczNkX+CzAoj2/UBpJkmp3Cce+h5gRo5GMOhcEiBky/s0d7TayX23qXNIQT+A+H8WckwgSJkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABrUlEQVQoz22SSY4UMRBF8/6X4QjsEQsWNM0oYNFUdZFzpu2wI+wHdg0UUlv6CitTfvHt+B2XlXNm3T3D4lhcJGhBDERp9aVVSkaKoKFn/fYaPx/oUkpUlZxxosw+Mzll3BLDFlsdt0iKiXhTbFUkMIaJ+fSR5cMr9v47XUyGj9aA4zhzPB5QjagmsulZWUmaUNX/ZKpkzViGAvTjfHYoIphZ6+qDZ3ETi58J6vBpZ5eVYB6zQOofsf1I9j3ZnTD3jLkTFGUYRrpqP4TQgBUeo7DJyrxPLG7GxY0tLA2cVND5B/LrLfH4jnh6T/z9SBo+QzGGcaKrsBvw+i7bwBqWszN1SPYEc0QN6PwTeXpDPD0Qfz80aBq/noHVYb3u/ZXr3otHUiQXa7JsWLE2VdsODZCGL5f6CV2foGTWbaOrcalSNTQlll2YfMsEOZdLPm45eTk+7Vdp0++uH+vUUowse2D0L2Wu3A7e6183EIl05dK1uhymmafnnmrsmrVa67CuUC66nrNciFowNaLIHdAyix85rD3zujNOA+u2EiQgUcgl3970XskMny4J+Qv8A+H8WclREHTpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4782,6 +4868,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;成绩管理&lt;/strong&gt;
@@ -4791,7 +4878,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABoUlEQVQoz1VTWa4cIQyc+98sn7nB+4mivJmeXtiMWSploEd6LVnQtimXy/DA+kopOM8Lx3HiuhxEMlQLsipynqa2X/bZD39FPJ/YtxceuoKttQFga+9A5SoiH5/98xxj/Yc1S+4Nv/4Av79OPHLOiDHOQ3WCWmKtlazr8BfulR14H0bMummtj4L3vxV77+dkaIEJWEerZYFZoq1W1MwAtSiCupEjRDESXhoyAY/jmAxTSpMJwRPZKn06QGSswriZ9x6SE5wc7ITnhs6KK7JIbmS4E5DsLLmbRqUhJDLWtows6EssH6XABUGkJFcmMJlH6650nKnD62p5jw1PV0cFR+rPS2G+d5i2x47NV7xcwfeRsYWCf2T6Zs7L64j/vTq+A/DcCBgTtQmJmtwaytJvajiHU4aGKSbkkpeGjK24l4pUgH2nhgYgslpmOzbx+97NYVDXJMNsKKahl5N3MA958tCwLA0JeE+3/mBY5lX4THmC+xA4uIyqYQzDhpkZd2J6AtubgPdLMbDJMH2Y2TpexLo2BiCcvFsMbX8z9BxaCBH/AabaXAmvbJ6GAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABlklEQVQoz1VTSY7cMAz0/3+WY34wlyDIdHvXwk2qgJTcwBgoaCFdKhalBfNTVZznheM4cV03iBgiChYB84D4fOIzj31DOV/Y1zcWmcHWWhD42DtgrYGIPnu+FgN67z/QPLk3/PoD/P46sTAzSinjJxuknmhmULXYVzOIKlLKEfNqWutx4LP2w7b9HAo9MAgtStVJ5ok++qEOJxQVZLkjh8RCRKIGNuA4jqGw1jqUiKCWAmEOMFOMVGsgpQTiipsOiDBq+Cy4iiBzw7bvWJgokrt7pA25CkjahIG0obKhkOLOhCKKixNIDcWr046zdiSZJe+l4XVbnHBTw+sS+N6WB/bSsSbD+1Z8H4w1K/6lhK00vJNE/O/V8Z2B13piKZWRcoXa4yFN/4aHozkaHtZSwcrTQ4XNeCJDVWDfDyxOQDRLFo2OP/duNENQKwW8Ke5hohMsHPZweKjTwwPL0137oVDHVfh0eZCnnKHCMMnRDG8mq+Em9xNYtwPL81KcbCisH2U+xouY18YJiAn3VOjzR2EiRc4F/wGm2lwJaG9+uQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4805,6 +4892,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;考试管理&lt;/strong&gt;
@@ -4814,7 +4902,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABNklEQVQoz51SW26EMAzk/jfrJfrVH3a3CyGQtzO1DWFhkaqqlkbgxDOeJO6wRc4Zo5kwjgbWzkgpMfKOnIt+Y0yI6QDOZa+/3fF4GnQrMaESwUWBEKMWlkIMzpkQ5xkUAio3l9paK4hRFYSPL+Dzm9DFGOGc0w3vA/97EBOGYVRRWUvs/nl/gLixRq24RtXmnXT37Eq6hCDiq6jh4zdB7zmfrDpa9eoFEiqoJBZqDq1dsCwO42B2Qcn7/qbOfxfkI3vvIJBFERCXIbGwm7ZHiFsjuxPPYjg7DHzRAqKqjyNdcmFn2end5VQQsoeNZiO+HB3Fd4dyjIYkZHY4zyyWSAtCSFj4TmXv6LDQut9y4cv4dK2TjofO23n23iF18tWrYbR1nU9Gdzz/+qJ/QxN8X78ItsL/4geooV/hKqmymQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABNElEQVQoz51S7W7DIAzM+7/ZXmK/9qcfa0NIwDaYm+wkNG2laRrSCWH7zgd4wLZKKRjDhHEMiHGGiECkdJRSfWcWsBzA4rnT+YLrLWBYiYKmisQGI7IX1qqotUJKBc8zlAgN8NrWGrQ131tTfHwBn9+KgZmRUvJEzoSUMlQV9/voohaTUnC7XKEi63Vaw/tq3nyw7pmrdyEy8VU0hKkL5pwRpuiOVr32Blsu6CTi7jDGBcuSMN5DF7Tz6XR2578LKoacEwwWNAFzSUKIado+gbdGsROfxfDskIhgUG3+OdalVEEuyd+uSAWVjMhhIz4cHcW7Q7vGDjEyMeY5QUS9gEiwpOy5o8Oqa34/G9/GZ9g7+Xj4vD3P3iusznZ/GuIe9/lkwXC8//qjf8Mu+Bp/E9wL/4sfqKFf4V0XxO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4828,6 +4916,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;考试&lt;/strong&gt;
@@ -4837,7 +4926,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABtUlEQVQoz3WSO28bMRCE7/83afInArhPlSpVmgBBCtuKXbiwJNyLPL7fk11KF8tATGCwPB7xcYfDIcWElDJeRoPDOSGkBu8clmWBlBKR/pdSUHLpNefcFUKkfxleCzijOoP3DsZYaBJ/vD5+h9/OkJvGz9+PuH84YJ4XGOuglKZ1hVwqGgBLh55OR0zjBKUNLO1h1mCt7RMe9z++Yjk+o9J8dQ3TIvF6HnGeCOoTLCnkhlTIBXW3mgTtAnUbOpA17GTvQ4d6+sndpJQghYAgee/RWkOtrNqVcyUwaJ1EBzDjAqSJ6XSPTBDnfLfPQL5HtswdMKwQqNTSD/6z/sKXwyfcPX3Gt5e7i2VyO+xkIRWFsOF4PGGjDme6hU27HoxzFxccBnfEw3mLeZuwqBlCrW93uAO5clLjOGIVG1YPGBdpXZMMjNao5dIdD3bhyJWzodc3y1cYV7bFIUllMOqKSVCy2mNV9IwkJRkKfEYXPxvTr8vitql3wF5JLiQIm7AZh0SR7+KEd/krcE/3X8rvYNfKdiKFEmJEbXsY9Zpy64nH+AHwFnb7hPakOQi+21vxGu/5H/Av2FxSB+cJoM4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABs0lEQVQoz3WSu27bQBBF9f9NmvxEAPepUqVKEyBI4VhOCheWBUokl9z38wSzEm0ZSBa4GC6xODt37u5STKSUeRoM+2MipIZ3jnEcUUoRY6KUQsml15xzVwiRGDNezzizdoac3Rlj0cb2zfPDV/xyRC2a7z8fuP+153weMdaxrhq1rORSaYB1jpeXA6fhxKoN1jqEtbPW9g9Z998+Mx7+UIHJNU6j4vk4cDyNGJ+wPhFyI5WGj5nJJLQLhBA6ULTbyN6HDvUh9G5SSqh5Zp5nvPe01qhVVLtyrqQCrUErrTMuQGO7JWs9OSWc892+AGWOYlk6EFiplVJLv/hx+sGn/Qfufn/ky9PdxbK1lxnKZlYrSi0cDi8sq+ZsYdGuB+PcxYWEIR3Jct5yXk6M65l5nd5muAGlSlLDMDDNC5MH4yLGaIwxGK2p5dKdLHHhrMfZ0Oub5StMqtiSkNRqGHTlNGuU9kyrY1QGGwo+0yXPxvRxWW6begfs1VhcSMw2sRhHqrxKEt7kr8At3deU38GuVezElAgxUtsWRr2m3HriMf4HeAu7fUJb0hKEzPZW8k/O/Av4F9hcUgckUTQLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4851,6 +4940,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;考试结果&lt;/strong&gt;
@@ -4860,7 +4950,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABKElEQVQoz5WS227DIBBE8/8fWPUtUZ2Lgx1MTDDmOt0lkXsRlltL52FhPAy77Jzz8N7jJB3eThZmDgjhufZFqOARYoIZJYy+Ux3BXrvHw8CYCfdRo5MjJjvj+5czk+ukXDQpJbAPUwyttbiIHu/7Iw6HPUQnoNQAOUgSadCvSDlVyUSMsYRiloQhBXRDj7Y7ozl/QN5v8HGGI3xagfZCcovhkpALXhTXK5qmgRCiXGPze964aH8YTlxYh3bQaNsL+q6H1ppEpvQKaz3MuW7IxewdXPKlX0VE4q2Ur4CVhBM1dHK4KYtRKSgpcet7qGFgNU1zHd5P8XdCMgw0adVe4en50NiRaW0TMsmkrQ4l0GPlROXUV9/+BHK9h845jJSOT2PBfwghLIafheJcbRjjJBAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABJElEQVQoz5WR2W7CMBRE+f8PrPoGKgVCEpIQx3a83VPZoHRRKK2l83Dt0Xg83jjn8d5z6BwvB4ueAyHc9j4JK3hCTOixQ6sr3key12aaNFobrqOi6UaMnfm6RDKyTpKiSSmRfTLF0FrLqW553b6z222pm5ph6On6jmlSCEKStIpIIsZYQmWWhCEFmr6lao7sj2901ws+zrg449MD4kxIbjFcEuYhb9bnM/v9nrquyzOertuLi/abocmDdVS9oqpOtE2LUgqtdemKRx2KrBvmYfYOl3zpq4hEnqa8B1xJaAzaOC6DZRwGhq7j0rYMfZ/VyC/k8xR/JjSGYC1DdcaPCqxFjHmONoi1658SfCiJyq333v4Est6hc45xVOW2LPgPIYTF8AOF4lxtXMXTlgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -4874,6 +4964,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;由于时间仓促，本次开发的系统虽然基本功能已经完成，但仍有很大的提升空间。&lt;/p&gt;
