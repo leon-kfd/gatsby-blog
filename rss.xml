@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Leon.D前端技术分享, 记录个人组件库API文档, 开源项目开发经验, 主要技术栈有Vue, Nodejs, PHP, Mysql, Nginx等]]></description><link>https://kongfandong.cn/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 03 Dec 2021 14:33:14 GMT</lastBuildDate><item><title><![CDATA[使用Element.animate添加文字与图片动画]]></title><description><![CDATA[在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom…]]></description><link>https://kongfandong.cn/blog/element-animate/</link><guid isPermaLink="false">https://kongfandong.cn/blog/element-animate/</guid><pubDate>Wed, 01 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom添加动画。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Leon.D前端技术分享, 记录Howdz起始页、Howdyjs组件库等开源项目开发经验, 主要技术栈有Vue, Vite, Typescript, Nodejs, PHP, Mysql, Nginx等]]></description><link>https://kongfandong.cn/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 04 Dec 2021 06:43:45 GMT</lastBuildDate><item><title><![CDATA[使用Element.animate添加文字与图片动画]]></title><description><![CDATA[在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom…]]></description><link>https://kongfandong.cn/blog/element-animate/</link><guid isPermaLink="false">https://kongfandong.cn/blog/element-animate/</guid><pubDate>Wed, 01 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在网页添加一些简单的切换动画一般使用CSS3的animation或者transition实现，而Element.animate是新的原生Javascript Api，能使用JS快速为Dom添加动画。&lt;/p&gt;
 &lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;为了增加网站的用户体验，在很多场景下一般可以为元素的切换添加一下转场动画。&lt;/p&gt;
 &lt;p&gt;最简单的方法，一般可以使用CSS的&lt;code class=&quot;language-text&quot;&gt;transition&lt;/code&gt;或者&lt;code class=&quot;language-text&quot;&gt;animation&lt;/code&gt;实现。当前也有很多CSS动画库，例如&lt;a href=&quot;https://animate.style/&quot;&gt;animate.css&lt;/a&gt;，它与&lt;a href=&quot;https://wowjs.uk/&quot;&gt;wow.js&lt;/a&gt;搭配使用经常用于很多产品宣传首页。&lt;/p&gt;
@@ -13,28 +13,7 @@
 &lt;p&gt;这个方法会返回一个&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Animation&quot;&gt;Animation&lt;/a&gt;实例，通过这个实例我们可以对动画进行暂停、取消、读取执行状态等。或者通过&lt;code class=&quot;language-text&quot;&gt;.finished&lt;/code&gt;返回Promise来对执行完动画进行下一步操作。&lt;/p&gt;
 &lt;h3 id=&quot;兼容性&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%BC%E5%AE%B9%E6%80%A7&quot; aria-label=&quot;兼容性 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;兼容性&lt;/h3&gt;
 &lt;p&gt;因为该API较新，所以对传统的浏览器支持并不友好，所有IE浏览器都不支持。在&lt;a href=&quot;https://caniuse.com/?search=Element.animate&quot;&gt;Can I use&lt;/a&gt;上查询如下：&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1057px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACvUlEQVQozz2S7WscZRTF529TChVKUSi2tFbwS0UoVYSqpEatlQjWxpb0JZtQUqWxaTWpMSSWUGNk3Jns7Nvs7uzOTOb92d3M7sxuNq0RP/5kR9oPh3Pv5XI43HMlv/EnoakQmvmMI1NhrymT+CVSUSUJK/SDSsaxV8x2xnXW+0XajkbbazDs+ahbK0iRqRJYBXwjj9uQCU0V0VIQlkrbKZFEVZ7FTQ4Ti1G3Qdcp8rzX4u++SdLW6UVlekGRXlBB3VpGsgprmMoKu5WneA2ZrlMg9kvEXgnR3GYo9EzwBUZd42V9MO73DPY7df5Jbeo7vyE1N76j8WiCtr5GPywSuwppqDEQFQLlPoNA4zC1M0djjJ2+4Odx8+X836FDo/AEKREN9mObflRjGOoMoxo9v0oSVEhDncQv03E0ursafbdEZCl07J0MkVUgslREloGKtv0Lkt/6/4aBU2bnxgTFu1O0ey5C1OiEFfa8Er6pEBgyHeMvQltGmDKiLuPbpUwoMrbxW3mUpytIsauRBmVGosnywjmWrr6OtzSPt3gH70EO+2GO2MqTduukQicNx8lXs7DGXzCeJZHOs16LqrKGlKQ2XWOb8lfnWbh9lpnrx3j42as8vnCCxxff5MEXr1D96Bzi0QJpYjLqmxyku4xSm2G7zlDUGGSCJrq6geTcv8OT6Q9579sjnL19infm3+aT3AlO507z1uxJPrh1nMlLx/n53peklkr53jW02SlKd7/BMbbwnDyuLRP7KvLmD0jN6c/ZuPwuE6uTnJw9xdHrxzg68wZHpl/jzNwZLq9McnHtEguLn2LfvMLNufe5Oneea/MXmPn1CjPrU8yuf83m6gTL33+MFPsFBpHGvr/DlrrIT7/fYvWPHD9u3kAuLHEQaAxdlYGr0nfzJJFGIooZD0SZ/Y6evdhh36CmrvMf5wjbCjE1aDAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;兼容性&quot;
-        title=&quot;兼容性&quot;
-        src=&quot;/blog/static/8bf2a1bc37af28bb31edb0a171ef5f29/c3ac1/caniuse.png&quot;
-        srcset=&quot;/blog/static/8bf2a1bc37af28bb31edb0a171ef5f29/a8a0d/caniuse.png 300w,
-/blog/static/8bf2a1bc37af28bb31edb0a171ef5f29/dface/caniuse.png 600w,
-/blog/static/8bf2a1bc37af28bb31edb0a171ef5f29/c3ac1/caniuse.png 1057w&quot;
-        sizes=&quot;(max-width: 1057px) 100vw, 1057px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/2xKyCauonPReYEH.png&quot; alt=&quot;兼容性&quot;&gt;&lt;/p&gt;
 &lt;p&gt;但是只要简单使用&lt;code class=&quot;language-text&quot;&gt;if (dom.animate) {}&lt;/code&gt;包裹即可向下兼容，对一些不支持的浏览器不执行动画就可以。&lt;/p&gt;
 &lt;h2 id=&quot;使用案例&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B&quot; aria-label=&quot;使用案例 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;使用案例&lt;/h2&gt;
 &lt;h3 id=&quot;文字动画特效&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%87%E5%AD%97%E5%8A%A8%E7%94%BB%E7%89%B9%E6%95%88&quot; aria-label=&quot;文字动画特效 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;文字动画特效&lt;/h3&gt;
@@ -44,7 +23,7 @@
 &lt;li&gt;FadeUpInOut: 旧文本先淡出新文本再淡入&lt;/li&gt;
 &lt;li&gt;Typewriter: 打字机特效&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/f8821923e068730dcbb8c75ab9bb2145/text.gif&quot; alt=&quot;文字特效&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/TKxs5kXyDIz8EPO.gif&quot; alt=&quot;文字切换特效&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;淡入淡出&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Effect1&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;Effect2&lt;/code&gt;是更改&lt;code class=&quot;language-text&quot;&gt;opactity&lt;/code&gt;与&lt;code class=&quot;language-text&quot;&gt;translate&lt;/code&gt;属性实现的文字淡入淡出动画。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text-wrapper&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Effect1&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -116,7 +95,7 @@
 &lt;h3 id=&quot;图片切换特效&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9B%BE%E7%89%87%E5%88%87%E6%8D%A2%E7%89%B9%E6%95%88&quot; aria-label=&quot;图片切换特效 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;图片切换特效&lt;/h3&gt;
 &lt;p&gt;在使用CSS实现元素动画，一般通过添加类名、移出类名来实现。因为图片无法准确知道需要加载的时间，一般情况是监听图片的load事件回调进行判断，所以基本无法使用纯CSS来实现切换动画。&lt;/p&gt;
 &lt;p&gt;本次使用原生&lt;code class=&quot;language-text&quot;&gt;Element.animate()&lt;/code&gt;API实现了一个简单的图片切换特效。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/e1d85283052a975f92b0a85fbe685da4/img-effect.gif&quot; alt=&quot;图片特效&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/1s6NA9winbcuPaM.gif&quot; alt=&quot;图片切换动画特效&quot;&gt;&lt;/p&gt;
 &lt;p&gt;这个特效主要原理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;点击切换时，调用函数切换图片路径，这时候图片会异步加载&lt;/li&gt;
@@ -177,8 +156,8 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Element/animate&quot;&gt;Element.animate()&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://codepen.io/leon-kfd/pen/vYJbodr&quot;&gt;Text Effect Demo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://codepen.io/leon-kfd/pen/ZEXYKLR&quot;&gt;Img Effect Demo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Howdz起始页开发记录]]></title><description><![CDATA[前言 **Howdz**是基于 + 开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供网页在线访问、打包出浏览器插件、打包出桌面应用(Electron…]]></description><link>https://kongfandong.cn/blog/design-of-howdz/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-howdz/</guid><pubDate>Sun, 21 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
-&lt;p&gt;**&lt;a href=&quot;https://howdz.vercel.app&quot;&gt;Howdz&lt;/a&gt;**是基于&lt;code class=&quot;language-text&quot;&gt;Vue3&lt;/code&gt; + &lt;code class=&quot;language-text&quot;&gt;Typescript&lt;/code&gt;开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供&lt;a href=&quot;https://s.kongfandong.cn&quot;&gt;网页在线访问&lt;/a&gt;、打包出&lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd&quot;&gt;浏览器插件&lt;/a&gt;、打包出&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/releases&quot;&gt;桌面应用(Electron)&lt;/a&gt;等访问方式。&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Howdz起始页开发记录]]></title><description><![CDATA[前言 Howdz是基于 + 开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供网页在线访问、打包出浏览器插件、打包出桌面应用(Electron…]]></description><link>https://kongfandong.cn/blog/design-of-howdz/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-howdz/</guid><pubDate>Sun, 21 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://howdz.vercel.app&quot;&gt;Howdz&lt;/a&gt;是基于&lt;code class=&quot;language-text&quot;&gt;Vue3&lt;/code&gt; + &lt;code class=&quot;language-text&quot;&gt;Typescript&lt;/code&gt;开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供&lt;a href=&quot;https://s.kongfandong.cn&quot;&gt;网页在线访问&lt;/a&gt;、打包出&lt;a href=&quot;https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd&quot;&gt;浏览器插件&lt;/a&gt;、打包出&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/releases&quot;&gt;桌面应用(Electron)&lt;/a&gt;等访问方式。&lt;/p&gt;
 &lt;p&gt;本文记录项目开发中使用的相关技术。&lt;/p&gt;
 &lt;h2 id=&quot;表单封装&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%A1%A8%E5%8D%95%E5%B0%81%E8%A3%85&quot; aria-label=&quot;表单封装 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;表单封装&lt;/h2&gt;
 &lt;p&gt;项目中运行自由添加各种物料组件，而每一个物料组件都含有自己的配置项表单，而其中又有部分相同的配置项，所以可以实现一个JS数据驱动的表单封装。&lt;/p&gt;
@@ -245,27 +224,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 592px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 116.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABJ0AAASdAHeZh94AAADl0lEQVQ4y51VSW9bVRS+f4k9LJDYAAvURRcM6rABKlW0CFrSgSiO5TbNYEqSkpJAJmcoDhErIAwVLSBlBSooUAkpUuK4sePn5zf4Tfe+4UPnOH61U3cBVzryfXf4zjnfd861eOa5F9F/bRSZ4XG2gaGb6MvcwKXBYeRvzeDWzALGJqZxe7aAT+eWMDY5jSvZEbbL2WFcHhzms5kbN/HCsTcgjp8+h+0dDb/+cg937/6IP/94gP87sqMTEMdPncPeozoe/v0Xtra2UCqVDrdjAElqSRIjjmMkSZICRFHEa54f8PfV3EcQJ956t+NADM9zoZs+disKuhWiXFOoNUKoMAGSBL7vo1bT0Gw6fIccECiN967mIAqra7xI3hzXhWWZsJoBGnYE24lQqbeAwyjhc4GUaDQacJzHgO2xUlyH+Hrj+3TRdV00m014fogH//hw/aiDIQLs5ow+KTq6Q5R8s/EdxDsX+tMDNa2Og+o+ylUHk2s6R9eKogMkSVLDIaCu6y0OsyMQJ8+8z5vEDVkQSMRxxP6lVGxhGCGQijnuBG3PpWo5Pt83CPH2+T6EYYhqtYq9vTJKpT0mXKmIf13Xg5QhTNuFVOETgBQh3aVx8cMcxMD10a502qWhwpAjI7Ho92hU3em37o+NT0GMT82knki9SqXKqUspoZREEAScdq9Uj659vrAEMZL/+ImKp30CNZoJ1x+pv7m5yWr2Am7PJ6amIRYKhXQxjh8r6PsBXE+ySBQlWS+QzvnS6h2Ibzd+6NmXxCGpTYIRj508Hy2hNmU/3bsP8dns4qHKB1xPpmkxfxSZ47jwAwnXlzBME57n9QQyDIPnxbV1iAuXBjgCXW8wV5QqfbdSlcwnlZ9l2fCfAkhi0pj8ZBoiN5RPU6C6q9d1FoQO2raN7e1t7OzscBZHO6UTmMbyShEikxtJPVHDU6QkAEVpmiZ2d3exv7+PKAqf+g62QecXlyFeO3UmXaTICFQpdais5LbyPJ+NolSq24JAwTBtxhjIDkG8dOxkBxcGyuVHLAa1nK4b0LQ6KtUDGIbZ1dsqjBByKyo4ttZ6Dz/IQLx++ix7pkPth5IegXa50Jzqs9WCIUdOAhG/tuPjt4dN/Py7hZoJ5K6PQlzpz/7n/w5N02DoGmwXOJu38MrFAxTvA+tfrkA8+/zLmC/cwXzhC7aFpWLXvNMWl9fSvbnFVczOryI/uYJr+QLmCl/h1RNv4l93CZ2GDvfUBgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;JSX生成的表单&quot;
-        title=&quot;JSX生成的表单&quot;
-        src=&quot;/blog/static/2ca61fd721ccc8c1437b8e8d80dfdaa1/d9142/standard-form.png&quot;
-        srcset=&quot;/blog/static/2ca61fd721ccc8c1437b8e8d80dfdaa1/a8a0d/standard-form.png 300w,
-/blog/static/2ca61fd721ccc8c1437b8e8d80dfdaa1/d9142/standard-form.png 592w&quot;
-        sizes=&quot;(max-width: 592px) 100vw, 592px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/OboPiN3ZfDayq9s.png&quot; alt=&quot;JSX生成的表单&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;右键菜单&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95&quot; aria-label=&quot;右键菜单 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;右键菜单&lt;/h2&gt;
 &lt;p&gt;物料组件添加后，在编辑模式下可以右键弹出菜单更改配置或删除等。右键菜单的实现来源与笔者开源的&lt;code class=&quot;language-text&quot;&gt;@howdjs/mouse-menu&lt;/code&gt;。同时在本项目中，为了兼容移动端，对插件进行了二次封装，为其添加了长按弹出菜单的功能。二次封装代码&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/blob/main/src/plugins/mouse-menu.ts&quot;&gt;参考此处&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;项目中采用的是&lt;code class=&quot;language-text&quot;&gt;vue指令&lt;/code&gt;的方式使用，菜单插件可以接收任意参数进行回调，所以可以把点击的物料组件数据传到回调中进行各种操作。&lt;/p&gt;
@@ -286,7 +245,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 	&lt;span class=&quot;token comment&quot;&gt;// fn中的params为组件数据&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/4f3b49b6fbaff2502f66eff536421b1d/mouse-menu.gif&quot; alt=&quot;右键菜单&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/fYIsvFn7xXAZOac.gif&quot; alt=&quot;右键菜单&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;物料组件布局&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%89%A9%E6%96%99%E7%BB%84%E4%BB%B6%E5%B8%83%E5%B1%80&quot; aria-label=&quot;物料组件布局 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;物料组件布局&lt;/h2&gt;
 &lt;p&gt;当前提供2中布局方式，一种是基于类文件流的栅格布局，这种布局会让组件一个接一个排列，另外一个是Fixed布局，可以让组件固定与页面任意位置。&lt;/p&gt;
 &lt;h3 id=&quot;栅格模式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%A0%85%E6%A0%BC%E6%A8%A1%E5%BC%8F&quot; aria-label=&quot;栅格模式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;栅格模式&lt;/h3&gt;
@@ -308,7 +267,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;使用&lt;code class=&quot;language-text&quot;&gt;v-model:layout&lt;/code&gt;双向绑定栅格模式物料组件列表数据，因为物料数组存在vuex中，这里用&lt;code class=&quot;language-text&quot;&gt;computed&lt;/code&gt;的setter进行更新。&lt;code class=&quot;language-text&quot;&gt;isLock&lt;/code&gt;是用于判断当前是否处于编辑模式，在锁定状态下禁用拖拽与大小更改。当前使用的栅格数为12，即将屏幕宽度分割为12份。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/4372ba7d6128741e1d884a7195678069/vue-grid-layout1.gif&quot; alt=&quot;栅格模式&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/OIGFoR6zrCN8cE1.gif&quot; alt=&quot;栅格模式&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;fixed模式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#fixed%E6%A8%A1%E5%BC%8F&quot; aria-label=&quot;fixed模式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fixed模式&lt;/h3&gt;
 &lt;p&gt;Fixed模式使用笔者自己开源的&lt;a href=&quot;https://kongfandong.cn/howdy/to-control&quot;&gt;@howdjs/to-control&lt;/a&gt;插件完成，可以让物料组件固定在页面的任何位置中，也支持拖拽右下角更改大小。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;template&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -346,7 +305,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;与栅格模式不同，这里是使用事件回调函数对组件的Vuex数据进行更新。也是使用&lt;code class=&quot;language-text&quot;&gt;isLock&lt;/code&gt;判断组件是否锁定。插件支持更改定位方向，记录在右上角、右下角等，这样对响应式布局很有效。更多用法可参考: &lt;a href=&quot;https://kongfandong.cn/howdy/to-control/example3&quot;&gt;@howdjs/to-control&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/579e9870838e6eceed2409aaf329eabc/to-control.gif&quot; alt=&quot;Fixed模式&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/7hEy1qkxtocZwRg.gif&quot; alt=&quot;Fixed模式&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;交互弹窗popover&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%BA%A4%E4%BA%92%E5%BC%B9%E7%AA%97popover&quot; aria-label=&quot;交互弹窗popover permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;交互弹窗Popover&lt;/h2&gt;
 &lt;p&gt;系统提供一种配置交互行为的功能，可以配置点击一个组件时弹窗另外一个组件，并配置组件弹出的方向。经过调研后发现&lt;code class=&quot;language-text&quot;&gt;Element-plus&lt;/code&gt;的&lt;code class=&quot;language-text&quot;&gt;Popover&lt;/code&gt;并不太适合用于这种情况，因为弹出的组件时动态的。于是就自己封装了一个组件，不仅支持配置&lt;code class=&quot;language-text&quot;&gt;Popover&lt;/code&gt;的各个方向，还另外扩展了一个&lt;code class=&quot;language-text&quot;&gt;ScreenCenter&lt;/code&gt;的弹出，让组件可以在屏幕中间弹出（类似&lt;code class=&quot;language-text&quot;&gt;dialog&lt;/code&gt;）。&lt;/p&gt;
 &lt;p&gt;通过传入点击的元素、目标弹窗的宽高和弹窗方向，返回出目标弹窗的&lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;y&lt;/code&gt;。核心代码如下：&lt;/p&gt;
@@ -383,7 +342,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;activePointMap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;direction&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;fromPoint&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;fromPoint&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;另外，使用&lt;code class=&quot;language-text&quot;&gt;transform-origin&lt;/code&gt;这个属性可以实现弹窗从点击元素过渡展开的动画。最后配置弹窗的方向与弹出的组件类型即可。代码参考：&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/blob/main/src/components/Action/ActionPopover.vue&quot;&gt;ActionPopover.vue&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/99c491d75659251d0d9cca1c591aca6f/popover.gif&quot; alt=&quot;不同方向的Popover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/zFgUIwukiKxc5Xh.gif&quot; alt=&quot;不同方向的Popover&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;获取任意网站favicon&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%8E%B7%E5%8F%96%E4%BB%BB%E6%84%8F%E7%BD%91%E7%AB%99favicon&quot; aria-label=&quot;获取任意网站favicon permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;获取任意网站Favicon&lt;/h2&gt;
 &lt;p&gt;在&lt;code class=&quot;language-text&quot;&gt;Collection&lt;/code&gt;与&lt;code class=&quot;language-text&quot;&gt;Search&lt;/code&gt;组件中，都有用到一个功能，就是由用户输入网址后能自动获取到网站的Favicon。在初版实现是直接使用网址origin + /favicon.ico获取，但经过大量尝试后发现，当前很多网站的icon并不是以这种标准形式存储的。所以后面就自己实现了一个后端接口来获取。&lt;/p&gt;
 &lt;p&gt;后端接口原理:&lt;/p&gt;
@@ -396,7 +355,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;/ol&gt;
 &lt;p&gt;同时接口接收&lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;参数，可由后端直接返回图片流，以解决一些网站的ICON资源做了CORS限制。因为在&lt;code class=&quot;language-text&quot;&gt;Collection&lt;/code&gt;组件中，为了减少初次访问请求加载数，前端读取到图标后会将图标转成BASE64格式存到本地存储中。这种方式需要使用Ajax获取图标，让接口直接返回文件流可以解决跨域问题。&lt;/p&gt;
 &lt;p&gt;另读取图标时，前端会使用Canvas通道法将图标的白色部分扣成透明，代码可&lt;a href=&quot;https://github.com/leon-kfd/Dashboard/blob/main/src/utils/images.ts#L40&quot;&gt;参考此处&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/c98266cb3f52d521eb21b0bb15e26b6b/favicon.gif&quot; alt=&quot;添加网站自动获取图标&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/QDbNksFeZ2VATKu.gif&quot; alt=&quot;添加网站自动获取图标&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;总结&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%80%BB%E7%BB%93&quot; aria-label=&quot;总结 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;总结&lt;/h2&gt;
 &lt;p&gt;项目仍在持续优化开发中，欢迎各种建议。由于篇幅问题，部分使用到的技术会不定时更新记录。若感谢的可以持续关注、Star，谢谢。&lt;/p&gt;
 &lt;h3 id=&quot;相关链接&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5&quot; aria-label=&quot;相关链接 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;相关链接&lt;/h3&gt;
@@ -519,7 +478,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[&apos;t&apos;, -x, -y],
 [&apos;r&apos;, 旋转角度],
 [&apos;t&apos;, x, y],&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/616ab3785ecbad63612e224e78cec9c8/play.gif&quot; alt=&quot;简单示例&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/gq5J82LKisQHxbI.gif&quot; alt=&quot;简单示例&quot;&gt;&lt;/p&gt;
 &lt;p&gt;代码参考如下:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Canvas &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;@antv/g-canvas&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; ext &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@antv/matrix-util&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -589,27 +548,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;示例中经常要计算的就是在圆上的点，以柱状条特效（示例一）为例，首先就是要出围绕着圆的平均64个点作为初始坐标。&lt;/p&gt;
 &lt;p&gt;可通过利用当前点与圆心的夹角结合简单三角函数运算出x,y的偏移量。&lt;/p&gt;
 &lt;p&gt;如下图, &lt;strong&gt;l = cos(θ) * r&lt;/strong&gt;, &lt;strong&gt;t = sin(θ) * r&lt;/strong&gt;, 通过圆心O坐标加上偏移量即可算出点A坐标。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 473px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd+LQwD/xAAXEAEAAwAAAAAAAAAAAAAAAAABABEg/9oACAEBAAEFAotZ/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGRAAAwADAAAAAAAAAAAAAAAAAAEQEVFh/9oACAEBAAE/IWbEZjin/9oADAMBAAIAAwAAABBDz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAAIDAAMAAAAAAAAAAAAAAAERABAxIVFx/9oACAEBAAE/ECWaZiQno0D9hfhD2v/Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;获取圆上的点&quot;
-        title=&quot;获取圆上的点&quot;
-        src=&quot;/blog/static/610120a7647305fa8fe646b96cabfa96/1df45/deg.jpg&quot;
-        srcset=&quot;/blog/static/610120a7647305fa8fe646b96cabfa96/0cdb7/deg.jpg 300w,
-/blog/static/610120a7647305fa8fe646b96cabfa96/1df45/deg.jpg 473w&quot;
-        sizes=&quot;(max-width: 473px) 100vw, 473px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/ePWZhx8tjOlBvuk.png&quot; alt=&quot;获取圆上的点&quot;&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// POINT_NUM = 64 柱状条数&lt;/span&gt;
 sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; length&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;POINT_NUM&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; deg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; index &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;360&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;POINT_NUM&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 当前角度&lt;/span&gt;
@@ -662,7 +601,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;d3&lt;/code&gt;其他平滑曲线算法示例可参考笔者在很久以前写的Demo: &lt;a href=&quot;https://kongfandong.cn/blog/d3-mulitpoint-connection/&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;在圆上的点跟随圆放大的同时做圆周运动&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9C%A8%E5%9C%86%E4%B8%8A%E7%9A%84%E7%82%B9%E8%B7%9F%E9%9A%8F%E5%9C%86%E6%94%BE%E5%A4%A7%E7%9A%84%E5%90%8C%E6%97%B6%E5%81%9A%E5%9C%86%E5%91%A8%E8%BF%90%E5%8A%A8&quot; aria-label=&quot;在圆上的点跟随圆放大的同时做圆周运动 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;在圆上的点跟随圆放大的同时做圆周运动&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/71f8b9f52452256829b8808f797586c6/circle.gif&quot; alt=&quot;圆周运动&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/Hu7aUsYVJ2oQyLK.gif&quot; alt=&quot;圆周运动&quot;&gt;&lt;/p&gt;
 &lt;p&gt;示例五中的动画会出现在圆上的点跟随圆放大的同时做圆周运动，这种动画在实现时有两种方案：&lt;/p&gt;
 &lt;p&gt;第一种，是大圆利用Path模拟，然后动画开始后在每帧动画中，利用&lt;code class=&quot;language-text&quot;&gt;Path.getPoint(ratio: number)&lt;/code&gt;获取当前大圆中点当前帧下某个对应点的坐标。&lt;/p&gt;
 &lt;p&gt;第二种，是直接计算出当前帧下这个点在圆上的位置，利用三角函数结合大圆的放大偏移系数与&lt;code class=&quot;language-text&quot;&gt;ratio&lt;/code&gt;即可计算出当前点坐标。&lt;/p&gt;
@@ -708,7 +647,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;p&gt;使用随机值生成粒子样点，这里可以使用样点当前角度再随机偏移一定量即可生成均匀的粒子。&lt;/p&gt;
 &lt;p&gt;粒子效果的比较难的在于动画上，要选择一个合适的漂浮动画函数。这次示例选择了&lt;code class=&quot;language-text&quot;&gt;正弦函数&lt;/code&gt;实现左右均匀漂浮，在加上利用&lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt;随机延迟粒子生成时间即可完成粒子按一定规律下漂浮的动画。&lt;/p&gt;
 &lt;p&gt;定义粒子动画时，通过正弦函数与ratio计算出每帧粒子的实际x,y坐标即可。因为这次还会结合当前音频数据，让某个样点的粒子飘得高一点，让粒子的偏移量加大，这时还需要进一步对动画进行更改。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/cb8e5d647e0a4441d6462280f3a5cad3/particle.gif&quot; alt=&quot;粒子特效&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/gjG5s4KiaP1vhVy.gif&quot; alt=&quot;粒子特效&quot;&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// POINT_NUM = 64 样点数&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;// PARTICLE_NUM = 12 样点周围粒子数&lt;/span&gt;
 &lt;span class=&quot;token builtin&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; length&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;POINT_NUM&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;point&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -897,27 +836,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;ul&gt;
 &lt;li&gt;Example: &lt;a href=&quot;https://leon-kfd.github.io/howdyjs/#/mouse-menu/example2&quot;&gt;二级菜单&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 564px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 99.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB9szL0QWC6Cf/xAAYEAACAwAAAAAAAAAAAAAAAAAAARARMf/aAAgBAQABBQLHYh6KKj//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAaEAACAwEBAAAAAAAAAAAAAAAAARAhMRFR/9oACAEBAAE/IdOUdejUaRkauCR//9oADAMBAAIAAwAAABAL50L/xAAYEQEBAAMAAAAAAAAAAAAAAAABABExQf/aAAgBAwEBPxDKcmJ3f//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EABwQAQEAAgIDAAAAAAAAAAAAAAEAMVERIUFxwf/aAAgBAQABPxBQD9CExEez5sr5Ajm27hU93DbEF//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;二级菜单&quot;
-        title=&quot;二级菜单&quot;
-        src=&quot;/blog/static/451aa6135d1b74c1d039605620417682/d80c3/children-menu.jpg&quot;
-        srcset=&quot;/blog/static/451aa6135d1b74c1d039605620417682/0cdb7/children-menu.jpg 300w,
-/blog/static/451aa6135d1b74c1d039605620417682/d80c3/children-menu.jpg 564w&quot;
-        sizes=&quot;(max-width: 564px) 100vw, 564px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/aPpE2L96XRtZiMF.png&quot; alt=&quot;二级菜单&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;自定义样式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F&quot; aria-label=&quot;自定义样式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;自定义样式&lt;/h3&gt;
 &lt;p&gt;菜单样式通过CSS3变量控制，通过&lt;code class=&quot;language-text&quot;&gt;menuWrapperCss&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;menuItemCss&lt;/code&gt;两个Props传入修改CSS变量。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; el &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MenuWrapper&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -1177,7 +1096,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;ul&gt;
 &lt;li&gt;Example in &lt;code class=&quot;language-text&quot;&gt;ElementPlusTable&lt;/code&gt;: &lt;a href=&quot;https://codepen.io/leon-kfd/pen/yLMKPOP&quot; target=&quot;_blank&quot;&gt;Demo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/ff40e3e8eef9b6ab4f6a86e2f09f7738/element-plus-table-mouse-menu.gif&quot; alt=&quot;ElementPlusTable&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/FYVwsc24dCEiSPH.gif&quot; alt=&quot;element-plus-table-mouse-menu.gif&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;其他说明&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B6%E4%BB%96%E8%AF%B4%E6%98%8E&quot; aria-label=&quot;其他说明 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;✨其他说明&lt;/h2&gt;
 &lt;p&gt;插件还支持其他配置，例如菜单图标，禁用模式等。&lt;/p&gt;
 &lt;p&gt;配置参数（Props/指令Value）：&lt;/p&gt;
@@ -1285,28 +1204,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;h2 id=&quot;功能特性&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7&quot; aria-label=&quot;功能特性 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;功能特性&lt;/h2&gt;
 &lt;h4 id=&quot;组件长度单位&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BB%84%E4%BB%B6%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D&quot; aria-label=&quot;组件长度单位 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;✨组件长度单位&lt;/h4&gt;
 &lt;p&gt;面板可基于响应式设计布局，添加组件时可选择&lt;code class=&quot;language-text&quot;&gt;FR&lt;/code&gt;单位，FR单位会基于当前屏幕宽度动态计算出组件宽度。当然也可以使用&lt;code class=&quot;language-text&quot;&gt;PX&lt;/code&gt;固定长度单位，一般建议是宽度使用&lt;code class=&quot;language-text&quot;&gt;FR&lt;/code&gt;而高度使用&lt;code class=&quot;language-text&quot;&gt;PX&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 97.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMEBQL/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAAB0dCUY5qhsnsCAn//xAAcEAACAgIDAAAAAAAAAAAAAAABAgMRABIEMTL/2gAIAQEAAQUCiUsqxinI24/gwyW7KGViBs2Hv//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EACEQAAIAAwkAAAAAAAAAAAAAAAABESEiAhASEzJhgYKR/9oACAEBAAY/AqMHZFSsx2Q4HJHNJkmzU/bv/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFRcRBBYf/aAAgBAQABPyE6rbOWVN/3wkNcxfEVpM/E2yF8seAXpJRRdMuC18L/2gAMAwEAAgADAAAAEHzA/v/EABYRAAMAAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPxAj/8QAFhEAAwAAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/ECv/xAAcEAEAAwEBAAMAAAAAAAAAAAABABEhMUFRgbH/2gAIAQEAAT8QXCpWXVHNgD9kD6BgF1MKVrkFqEdqEuj4g2toWAF87NeC1zFuOdh4St0p+QMCX6mba6s//9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;组件长度单位&quot;
-        title=&quot;组件长度单位&quot;
-        src=&quot;/blog/static/d054cff260b6d02a4400d6918b6e8483/40619/Unit.jpg&quot;
-        srcset=&quot;/blog/static/d054cff260b6d02a4400d6918b6e8483/0cdb7/Unit.jpg 300w,
-/blog/static/d054cff260b6d02a4400d6918b6e8483/e224a/Unit.jpg 600w,
-/blog/static/d054cff260b6d02a4400d6918b6e8483/40619/Unit.jpg 700w&quot;
-        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/VCLtW3Ad9hPGs6w.jpg&quot; alt=&quot;组件长度单位&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;布局模式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%B8%83%E5%B1%80%E6%A8%A1%E5%BC%8F&quot; aria-label=&quot;布局模式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;💫布局模式&lt;/h4&gt;
 &lt;p&gt;当前提供两种布局模式，默认布局是基于文档流的，使用&lt;code class=&quot;language-text&quot;&gt;vuedraggable&lt;/code&gt;可拖拽改变组件顺序。另一种是&lt;code class=&quot;language-text&quot;&gt;Fixed模式&lt;/code&gt;，是基于Fixed定位的，使用&lt;code class=&quot;language-text&quot;&gt;@howdyjs/to-drag&lt;/code&gt;拖拽改变位置。&lt;/p&gt;
 &lt;h4 id=&quot;编辑模式&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F&quot; aria-label=&quot;编辑模式 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🍭编辑模式&lt;/h4&gt;
@@ -1319,28 +1217,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
 &lt;p&gt;网站背景图与组件背景可以设置使用随机图片，图片来源于&lt;code class=&quot;language-text&quot;&gt;Unsplash&lt;/code&gt;的随机图片，可选自定义关键词，并提供了可选的国内镜像加速（由&lt;code class=&quot;language-text&quot;&gt;多吉&lt;/code&gt;提供，服务暂未稳定）。最新已加入动态壁纸的支持，选择背景图时选择网络图片后输入一个网络视频路径即会识别成动态壁纸。&lt;/p&gt;
 &lt;h4 id=&quot;多种物料组件&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A4%9A%E7%A7%8D%E7%89%A9%E6%96%99%E7%BB%84%E4%BB%B6&quot; aria-label=&quot;多种物料组件 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🌈多种物料组件&lt;/h4&gt;
 &lt;p&gt;当前提供了多种物料组件，例如时钟、天气、搜索栏等，后面会陆续添加更多的组件。组件引入采用按需加载，没有使用的组件不会在初始化时加载。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1080px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABRQgNs0c4f//EABsQAQEAAQUAAAAAAAAAAAAAAAIBAAMEEBIT/9oACAEBAAEFAtsY0tMQ9phVmejvH//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAEEAwEAAAAAAAAAAAAAAAEAAhEhEDGBkf/aAAgBAQAGPwIiB1SWtvW8UYVvPuP/xAAbEAEBAQACAwAAAAAAAAAAAAABEQAhMVFhwf/aAAgBAQABPyFEJA4r5psI6NdbyGTrr05NEmO//9oADAMBAAIAAwAAABCQD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/EEf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUGB/9oACAEBAAE/ECIrLAdphRZzskS48+zMtWvJl5OsMQohorY25//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;物料组件选择&quot;
-        title=&quot;物料组件选择&quot;
-        src=&quot;/blog/static/22c6594d8576c45b96a309b0a80b74ff/b37e7/Marterial.jpg&quot;
-        srcset=&quot;/blog/static/22c6594d8576c45b96a309b0a80b74ff/0cdb7/Marterial.jpg 300w,
-/blog/static/22c6594d8576c45b96a309b0a80b74ff/e224a/Marterial.jpg 600w,
-/blog/static/22c6594d8576c45b96a309b0a80b74ff/b37e7/Marterial.jpg 1080w&quot;
-        sizes=&quot;(max-width: 1080px) 100vw, 1080px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/MfEHxtZsjQu6Tr4.jpg&quot; alt=&quot;物料组件选择&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;物料组件&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%89%A9%E6%96%99%E7%BB%84%E4%BB%B6&quot; aria-label=&quot;物料组件 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;物料组件&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Empty&lt;/strong&gt;: 占位区块组件，支持一些简单配置与自定义文本&lt;/li&gt;
@@ -1563,7 +1440,7 @@ sArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current &lt;sp
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;当我们输入完关键词后，按&lt;code class=&quot;language-text&quot;&gt;Tab&lt;/code&gt;键时可快速匹配到相应代码块，当前支持&lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;与&lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;的速写。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/b07fc5a7368f55dbbd1b1c3a31923f31/emmet.gif&quot; alt=&quot;Emmet&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/3atBIHZYMW6fJyx.gif&quot; alt=&quot;emmet.gif&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;支持编写sass代码&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%94%AF%E6%8C%81%E7%BC%96%E5%86%99sass%E4%BB%A3%E7%A0%81&quot; aria-label=&quot;支持编写sass代码 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;支持编写SASS代码&lt;/h2&gt;
 &lt;p&gt;项目中支持切换到SCSS预编译器编写CSS。&lt;/p&gt;
 &lt;p&gt;由于SASS是一般基于&lt;code class=&quot;language-text&quot;&gt;node-sass&lt;/code&gt;或&lt;code class=&quot;language-text&quot;&gt;dart-sass&lt;/code&gt;，这两个可以通过某些技术让其在浏览器中运行，但是占用的文件大小会较大，所以此次仅采用了线上API实现。&lt;/p&gt;
@@ -1628,7 +1505,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;h2 id=&quot;兼容手机模式响应式设计&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%BC%E5%AE%B9%E6%89%8B%E6%9C%BA%E6%A8%A1%E5%BC%8F%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1&quot; aria-label=&quot;兼容手机模式响应式设计 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;兼容手机模式（响应式设计)&lt;/h2&gt;
 &lt;p&gt;项目中代码编辑器布局在PC端中支持自定义拉伸与折叠，使用了笔者开源插件&lt;code class=&quot;language-text&quot;&gt;@howdyjs/resize&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;实现响应式设计一般采用CSS3的媒体查询实现，但由于布局问题，手机端下不适用拉伸布局，需要额外添加一个手机端下的标签页，所以这次需要使用js辅助实现。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/b5a386f11071d0d3b739d2b4f2f84c7d/responsive.gif&quot; alt=&quot;响应式&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/jFqzUH3udXWkM2i.gif&quot; alt=&quot;响应式&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;利用github-workflows实现自动构建&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%88%A9%E7%94%A8github-workflows%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA&quot; aria-label=&quot;利用github workflows实现自动构建 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;利用Github Workflows实现自动构建&lt;/h2&gt;
 &lt;p&gt;由于该项目是纯前端项目，打包后直接部署就行，所以很适合使用github page部署。&lt;/p&gt;
 &lt;p&gt;使用Github workflows可以构建任务，让其在代码push时自动执行打包，并部署到github page分支。&lt;/p&gt;
@@ -1995,18 +1872,10 @@ Taro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;/ul&gt;
 &lt;p&gt;这几个接口都会返回一个含有选取路径的成功回调，能拿到文件路径进行上传&lt;/p&gt;
 &lt;div style=&quot;width:45%;display:inline-block;margin-right:5%&quot;&gt;
-  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 375px; &quot;&gt;
-      &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.99999999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAECAwUGBP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAZFqlLQ4AiXSTmXNODmgPAP/xAAbEAACAgMBAAAAAAAAAAAAAAAAAQIQERIUBP/aAAgBAQABBQLskdkhep2rRjBrE1iYRGv/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAaEAADAQADAAAAAAAAAAAAAAAAATEyAhAg/9oACAEBAAY/AscTKML3CIiJ3//EACAQAAICAgAHAAAAAAAAAAAAAAABMZEQESFBUWGB4fH/2gAIAQEAAT8h0RYdO8Y22NCI48kRo3BaPgD9UbuSiDXfH//aAAwDAQACAAMAAAAQswI8cA//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EF//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EF//xAAfEAEAAgEEAwEAAAAAAAAAAAABABEhMUFhgVFxodH/2gAIAQEAAT8QHYXaUDq+ctxq7r4mK9nmLayuCanuXjV+Qq/1GWzvM3eCxbBCxzgRDl+sVWq+UTHEAYABR1Gf/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;upload mode&quot; title=&quot;upload mode&quot; src=&quot;/blog/static/41492f098cf7bcb54bf1b3f200ead006/8a6f5/upload-mode.jpg&quot; srcset=&quot;/blog/static/41492f098cf7bcb54bf1b3f200ead006/0cdb7/upload-mode.jpg 300w,
-/blog/static/41492f098cf7bcb54bf1b3f200ead006/8a6f5/upload-mode.jpg 375w&quot; sizes=&quot;(max-width: 375px) 100vw, 375px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-    &lt;/span&gt;
+  &lt;img src=&quot;https://s2.loli.net/2021/12/04/f3C4Mj2gFIqTGxl.png&quot; alt=&quot;upload-mode.jpg&quot;&gt;
 &lt;/div&gt;
 &lt;div style=&quot;width:45%;display:inline-block&quot;&gt;
-  &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 371px; &quot;&gt;
-      &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 179%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIDAQQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAH12x5JHQJNpvdUMBMAcCP/xAAcEAACAgIDAAAAAAAAAAAAAAAAAQIQESIjMUH/2gAIAQEAAQUC3OQxOk7VMUlXqioi6//EABcRAAMBAAAAAAAAAAAAAAAAAAAREiD/2gAIAQMBAT8BkWf/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAcEAACAgIDAAAAAAAAAAAAAAAAQQEQAjERIUL/2gAIAQEABj8C1ieTWAhUx0juYueHNf/EACAQAAIBAwQDAAAAAAAAAAAAAAABERAhMUFhcZGhwdH/2gAIAQEAAT8hUR4dhvct3JK7vRsvQvCl+72JT7UgleN3ln1KkDK2TImo/9oADAMBAAIAAwAAABCo6EwEP//EABgRAQEBAQEAAAAAAAAAAAAAAAERACBx/9oACAEDAQE/EGGV3ty1vH//xAAXEQEBAQEAAAAAAAAAAAAAAAABEQAQ/9oACAECAQE/EA00nBY8/8QAHhABAAICAgMBAAAAAAAAAAAAAQARIUFRsTFhkXH/2gAIAQEAAT8QVWNvlIOdZ3lFCd2lepYN6X6O4VGA6GRq3xAY9bbqEmyvsJM3uNGVcXO4AfhjDnH2UGZq/EETLZVOfUuClebn/9k=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;upload success&quot; title=&quot;upload success&quot; src=&quot;/blog/static/880ca971dd7f44c868f46635f5fdc67a/bfbf0/upload-success.jpg&quot; srcset=&quot;/blog/static/880ca971dd7f44c868f46635f5fdc67a/0cdb7/upload-success.jpg 300w,
-/blog/static/880ca971dd7f44c868f46635f5fdc67a/bfbf0/upload-success.jpg 371w&quot; sizes=&quot;(max-width: 371px) 100vw, 371px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-    &lt;/span&gt;
+  &lt;img src=&quot;https://s2.loli.net/2021/12/04/mzP7kLYUpTNGVcD.png&quot; alt=&quot;upload-success.jpg&quot;&gt;
 &lt;/div&gt;
 &lt;br&gt;
 &lt;br&gt;
@@ -2085,7 +1954,7 @@ Taro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;li&gt;视频（mp4、mov、m4v、3gp、avi、m3u8）：直接将视频地址放到浮层的&lt;code class=&quot;language-text&quot;&gt;video&lt;/code&gt;组件中显示&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;以上，除了视频外，其余都是要先通过&lt;code class=&quot;language-text&quot;&gt;wx.downloadFile&lt;/code&gt;将文件下载到本地生成临时路径再执行相应预览操作，这时候可以添加下载进度条优化用户体验。而视频不会直接进行下载，需要后端将视频资源设为流视频（&lt;code class=&quot;language-text&quot;&gt;Accept-Range&lt;/code&gt;），这样视频可以一边下载一边播放。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/c63fea750458a812b85d84a293113404/%E6%96%87%E4%BB%B6%E9%A2%84%E8%A7%88.gif&quot; alt=&quot;图片预览&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/z8tFMCYWKPoQ94S.gif&quot; alt=&quot;文件预览.gif&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;进度条使用微信原生请求事件&lt;code class=&quot;language-text&quot;&gt;onProgressUpdate&lt;/code&gt;实现&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;主要代码&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;handleActionPreview&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -2125,10 +1994,10 @@ Taro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;h2 id=&quot;其余功能&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B6%E4%BD%99%E5%8A%9F%E8%83%BD&quot; aria-label=&quot;其余功能 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;其余功能&lt;/h2&gt;
 &lt;h3 id=&quot;批量操作&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C&quot; aria-label=&quot;批量操作 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;批量操作&lt;/h3&gt;
 &lt;p&gt;使用了van-checkgroup实现，直接更换当前文件列表，但尽量保持节点位置没发生改变，可防止界面回流影响性能。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/fa4c6894853af7269d7183045cf992b5/%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C.gif&quot; alt=&quot;批量操作&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/V8LEfZA6IrKzj4F.gif&quot; alt=&quot;批量操作.gif&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;移动文件&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6&quot; aria-label=&quot;移动文件 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;移动文件&lt;/h3&gt;
 &lt;p&gt;该功能对应PC端上的移动，可以选择文件仅移动或者是复制，PC端是使用一个树形组件进行选择文件夹。但发现Vant等并没有相关树形组件，可能需要自己封装一个，然后直接采用了用户点击移动操作后，记录选择的文件信息，然后用户需要进入到相应目录下进行粘贴操作。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/cd5c4fd8fbe7b140686edcaaebbdad43/%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6.gif&quot; alt=&quot;移动文件&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/juFimaRb3rPA7p4.gif&quot; alt=&quot;移动文件.gif&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;关于打包发布&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%85%B3%E4%BA%8E%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83&quot; aria-label=&quot;关于打包发布 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;关于打包发布&lt;/h2&gt;
 &lt;p&gt;执行命令&lt;code class=&quot;language-text&quot;&gt;npm run build:weapp&lt;/code&gt;后，其余操作与正常小程序一样。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Vue3上手: 使用vite实现一个简单的todolist应用]]></title><description><![CDATA[Git仓库: https://github.com/leon-kfd/TodoListVitePratice 在线Demo: https://kongfandong.cn/todo Vite Vite is an opinionated web dev build tool…]]></description><link>https://kongfandong.cn/blog/vite-pratice-todolist/</link><guid isPermaLink="false">https://kongfandong.cn/blog/vite-pratice-todolist/</guid><pubDate>Sat, 16 May 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Git仓库: &lt;a href=&quot;https://github.com/leon-kfd/TodoListVitePratice&quot; target=&quot;_blank&quot; style=&quot;display:inline-block&quot;&gt;&lt;a href=&quot;https://github.com/leon-kfd/TodoListVitePratice&quot;&gt;https://github.com/leon-kfd/TodoListVitePratice&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;在线Demo: &lt;a href=&quot;https://kongfandong.cn/todo&quot; target=&quot;_blank&quot; style=&quot;display:inline-block&quot;&gt;&lt;a href=&quot;https://kongfandong.cn/todo&quot;&gt;https://kongfandong.cn/todo&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
@@ -2418,51 +2287,9 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;p&gt;这里设置的文件系统接口为storage/*，静态资源服务器为public/storage，登录时前后端会把密码进行简单base64转码。&lt;/p&gt;
 &lt;p&gt;若未登录直接访问静态资源，则回返回错误信息。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;未登录直接访问&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 961px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 79.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe8oZqH/xAAXEAADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAEBAAEFAoiIi1n/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAWEAEBAQAAAAAAAAAAAAAAAAAAMSD/2gAIAQEABj8CRMf/xAAZEAACAwEAAAAAAAAAAAAAAAAAYQEQMVH/2gAIAQEAAT8hUKE8l6P/2gAMAwEAAgADAAAAEAMP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAgMcHx/9oACAEBAAE/EFMhnEhXRQ//2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;未登录&quot;
-        title=&quot;未登录&quot;
-        src=&quot;/blog/static/682a6fc4a02b6a7750ffb7b4679909a3/67200/%E6%9C%AA%E7%99%BB%E5%BD%95.jpg&quot;
-        srcset=&quot;/blog/static/682a6fc4a02b6a7750ffb7b4679909a3/0cdb7/%E6%9C%AA%E7%99%BB%E5%BD%95.jpg 300w,
-/blog/static/682a6fc4a02b6a7750ffb7b4679909a3/e224a/%E6%9C%AA%E7%99%BB%E5%BD%95.jpg 600w,
-/blog/static/682a6fc4a02b6a7750ffb7b4679909a3/67200/%E6%9C%AA%E7%99%BB%E5%BD%95.jpg 961w&quot;
-        sizes=&quot;(max-width: 961px) 100vw, 961px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/s7aVyTikBU3dGmt.png&quot; alt=&quot;未登录.jpg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;登录后在访问&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 961px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 79.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB7mqRgsH/xAAXEAEBAQEAAAAAAAAAAAAAAAABAAIS/9oACAEBAAEFAjpkS51GwDWLvN//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAYEAADAQEAAAAAAAAAAAAAAAAAATKRMf/aAAgBAQAGPwKmUzp1aUtKWn//xAAaEAADAQADAAAAAAAAAAAAAAAAARFxECHR/9oACAEBAAE/IVTxEJqtrTpl8FVb3gv4j//aAAwDAQACAAMAAAAQTD//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCn/8QAIBABAAIBAgcAAAAAAAAAAAAAAQARIVHRMUFxkaGx8P/aAAgBAQABPxC2PdNoLnp2bS+BPARfqUd9ue9DjWFweY5AnxrP/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;已登录&quot;
-        title=&quot;已登录&quot;
-        src=&quot;/blog/static/493278b6f836c859761a308364f7ebf6/67200/%E5%B7%B2%E7%99%BB%E5%BD%95.jpg&quot;
-        srcset=&quot;/blog/static/493278b6f836c859761a308364f7ebf6/0cdb7/%E5%B7%B2%E7%99%BB%E5%BD%95.jpg 300w,
-/blog/static/493278b6f836c859761a308364f7ebf6/e224a/%E5%B7%B2%E7%99%BB%E5%BD%95.jpg 600w,
-/blog/static/493278b6f836c859761a308364f7ebf6/67200/%E5%B7%B2%E7%99%BB%E5%BD%95.jpg 961w&quot;
-        sizes=&quot;(max-width: 961px) 100vw, 961px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/KE2a5xBTAkhNUnm.png&quot; alt=&quot;已登录.jpg&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;断点续传与文件秒传&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0%E4%B8%8E%E6%96%87%E4%BB%B6%E7%A7%92%E4%BC%A0&quot; aria-label=&quot;断点续传与文件秒传 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;断点续传与文件秒传&lt;/h3&gt;
 &lt;h4 id=&quot;文件md5计算&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%87%E4%BB%B6md5%E8%AE%A1%E7%AE%97&quot; aria-label=&quot;文件md5计算 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;文件md5计算&lt;/h4&gt;
 &lt;p&gt;实现断点续传与文件秒传的前提是需要确定出文件的唯一标识，最好的方式是计算出文件的md5值。&lt;/p&gt;
@@ -2544,56 +2371,13 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;将计算完的MD5直接替换到file对象的uniqueIdentifier属性上，最终发送的请求中的identifier将是文件的MD5，后端通过该字段进行识别。&lt;/p&gt;
 &lt;p&gt;Vue-simple-uploader文件列表状态需要加入计算MD5相关状态，可以通过css为原文件列表增加多一层md5状态层，然后通过相关事件进行显隐。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1154px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 59.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAbKspxBQ/8QAGhABAAIDAQAAAAAAAAAAAAAAAgADARATIf/aAAgBAQABBQKgFHjXF4sJGdHr/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQETIh/9oACAEBAAY/AnaMjOOjTj//xAAaEAEAAgMBAAAAAAAAAAAAAAABABEQMXHw/9oACAEBAAE/IVQmmeLAANDDKfjHKrbP/9oADAMBAAIAAwAAABAgD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFhMUGR0fH/2gAIAQEAAT8QYO0lqYrUswjz9wT6SBq44BLaLmfbiBFVtXuf/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;md5-status&quot;
-        title=&quot;md5-status&quot;
-        src=&quot;/blog/static/f110098d3099f3ca7af7d8bd75ca6877/009d8/md5-status.jpg&quot;
-        srcset=&quot;/blog/static/f110098d3099f3ca7af7d8bd75ca6877/0cdb7/md5-status.jpg 300w,
-/blog/static/f110098d3099f3ca7af7d8bd75ca6877/e224a/md5-status.jpg 600w,
-/blog/static/f110098d3099f3ca7af7d8bd75ca6877/009d8/md5-status.jpg 1154w&quot;
-        sizes=&quot;(max-width: 1154px) 100vw, 1154px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/xF1pgQ9WGhZ7X6i.png&quot; alt=&quot;md5-status.jpg&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;断点续传&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0&quot; aria-label=&quot;断点续传 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;断点续传&lt;/h4&gt;
 &lt;p&gt;默认Vue-simple-uploader提供了文件上传时的暂停/开始操作，你可以在上传过程中随时暂停。但是这个并不是真正的断点续传，因为页面刷新后，上传状态并没有保存下来，仍会重新从第一片重新上传。若将状态保留到localstorage中，仍是不太现实的，最好的方式是由后端返回是否需要当前这个切片，因为后端能知道当前该文件已上传的切片。&lt;/p&gt;
 &lt;p&gt;testChunks属性设为true（默认）时，每个切片会先发送一个不含文件流的预探get请求给后端，通过后端返回的http状态码（可更改）判断该切片是否需要发送。&lt;/p&gt;
 &lt;p&gt;默认每个切片都会发送一个预探请求，这样假如一个10个切片的文件就会产生20个请求，造成浪费。最理想的情况是预探请求只发送一个。新版simple-uplder也考虑到这点，并提供了checkChunkUploadedByResponse属性，可以将预探请求设置为一个，后端为这个预探请求直接返回当前已经有的切片数组，然后前端直接判断切片请求是否需要发送。&lt;/p&gt;
 &lt;p&gt;例：文件上传到一半，点了暂停，然后刷新网页，再重新上传。文件校验完Md5后，预探请求返回已存在的切片数组[1~25]，然后真正切片请求会直接从第26片开始上传。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 67%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAwT/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFpYmZG0kP/xAAbEAABBAMAAAAAAAAAAAAAAAABAAIDEQQQMv/aAAgBAQABBQIRR01oCrWLyv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAEQABIxcf/aAAgBAQAGPwLIa4z1f//EABgQAQEAAwAAAAAAAAAAAAAAAAERACCR/9oACAEBAAE/IYFPcfADUb//2gAMAwEAAgADAAAAEIDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAEDBQAAAAAAAAAAAAAAAQAQITERQWGx0f/aAAgBAQABPxBSLUN/sspUoOt4AM0xeHVP/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;续传&quot;
-        title=&quot;续传&quot;
-        src=&quot;/blog/static/87bfbb1b5c32e572ac512d24719006df/03ffe/%E7%BB%AD%E4%BC%A0.jpg&quot;
-        srcset=&quot;/blog/static/87bfbb1b5c32e572ac512d24719006df/0cdb7/%E7%BB%AD%E4%BC%A0.jpg 300w,
-/blog/static/87bfbb1b5c32e572ac512d24719006df/e224a/%E7%BB%AD%E4%BC%A0.jpg 600w,
-/blog/static/87bfbb1b5c32e572ac512d24719006df/03ffe/%E7%BB%AD%E4%BC%A0.jpg 1200w,
-/blog/static/87bfbb1b5c32e572ac512d24719006df/dc5e4/%E7%BB%AD%E4%BC%A0.jpg 1432w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/asoDtjuVrNLdFyX.png&quot; alt=&quot;续传.jpg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;前端处理&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 前端vue-simple-uploader配置项&lt;/span&gt;
 options&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -2680,34 +2464,13 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;在testUpload请求中，通过数据库与本地切片生成已存在的切片数组给前端，若从未传过还需要更新数据库记录。&lt;/p&gt;
 &lt;p&gt;在upload请求中，对每个切片使用nodejs管道流进行读写，将文件保留在chunk文件夹中，并以md5值为文件名，存放目标文件的切片。当遇到最后一个切片时，执行合并文件操作（需要注意，最后一个切片由于流未关闭，这个时刻最后一个切片文件是还没保存到本地，只是可以直接读取临时文件）。合并文件完成后，删除切片文件夹，并更新数据库信息，记录该文件已经完成。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1010px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 64%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7cig//xAAXEAEBAQEAAAAAAAAAAAAAAAABABEx/9oACAEBAAEFAjk25DLf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBITEQ/9oACAEBAAE/IcuaJRgx0WH/2gAMAwEAAgADAAAAEAMP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAICAgMAAAAAAAAAAAAAAQARITEQQWGBof/aAAgBAQABPxAjgNdQWngEU9LlsYV5lGn2f//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;切片存放&quot;
-        title=&quot;切片存放&quot;
-        src=&quot;/blog/static/e6de7471e249036e70d6b5ac844bafa8/dd784/%E5%88%87%E7%89%87%E5%AD%98%E6%94%BE.jpg&quot;
-        srcset=&quot;/blog/static/e6de7471e249036e70d6b5ac844bafa8/0cdb7/%E5%88%87%E7%89%87%E5%AD%98%E6%94%BE.jpg 300w,
-/blog/static/e6de7471e249036e70d6b5ac844bafa8/e224a/%E5%88%87%E7%89%87%E5%AD%98%E6%94%BE.jpg 600w,
-/blog/static/e6de7471e249036e70d6b5ac844bafa8/dd784/%E5%88%87%E7%89%87%E5%AD%98%E6%94%BE.jpg 1010w&quot;
-        sizes=&quot;(max-width: 1010px) 100vw, 1010px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/lLGko4FJcxUs1n8.png&quot; alt=&quot;切片存放.jpg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;当上传一个本地已经存在的文件时，由于数据库记录了该md5文件是已经完成的，所以预探请求会返回全部切片数组，前端就不会再发送upload请求从而实现了文件秒传。即使上传的目标目录与本地已存在文件处在不同目录，在预探请求时识别到时，也会进行复制操作，前端也不需要再传。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;断点续传演示&lt;/strong&gt;
-&lt;img src=&quot;/blog/4d932b6cd1d09a2e74523c86a8a8e96a/%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0.gif&quot; alt=&quot;断点续传&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/tXQRgNm752BCyY9.gif&quot; alt=&quot;断点续传.gif&quot;&gt;&lt;/p&gt;
 &lt;p&gt;上传过程暂停，然后刷新页面，重新上传同一个文件，可以发现文件是从上传暂停的地方重新开始。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;文件秒传演示&lt;/strong&gt;
-&lt;img src=&quot;/blog/2a82b7e1bd3be284af8fd6c201798e87/%E6%96%87%E4%BB%B6%E7%A7%92%E4%BC%A0.gif&quot; alt=&quot;文件秒传&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/Jznd2vTP87YC36S.gif&quot; alt=&quot;文件秒传.gif&quot;&gt;&lt;/p&gt;
 &lt;p&gt;上传上面演示的同一个文件，由于发现是已经存在的文件，则会直接返回成功。&lt;/p&gt;
 &lt;p&gt;至此，一个断点续传、秒传功能的前后端都实现完了。&lt;/p&gt;
 &lt;p&gt;另外该系统还有一些对文件进行移动、删除、下载的功能都是比较简单的，基本都是使用nodejs的fs模块就能实现，这里就不细说了。&lt;/p&gt;
@@ -2950,6 +2713,7 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;若是使用nginx搭建的静态资源服务器，可以参考官方推荐的 &lt;strong&gt;&lt;a href=&quot;https://router.vuejs.org/zh/guide/essentials/history-mode.html#nginx&quot; target=&quot;_blank&quot;&gt;Nginx配置&lt;/a&gt;&lt;/strong&gt; 实现History模式。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/mCQ9NYu7McxLXHl.png&quot; alt=&quot;左侧导航中间Demo右侧代码&quot;&gt;&lt;/p&gt;
 &lt;p&gt;在线预览个人组件库: &lt;strong&gt;&lt;a href=&quot;https://kongfandong.cn/howdy&quot; target=&quot;_blank&quot;&gt;Howdy&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Github Webhooks与Koa2实现简单的前端自动化部署]]></title><description><![CDATA[前言 因为博客使用 Gatsbyjs 进行搭建，Markdown文章写完之后会打包成静态HTML文件，文章是存在项目文件中并非数据库中，所以每次进行博客文章更新后，都需要重新进行打包构建。在进行git push后，我需要连到云服务器中，然后进入项目目录，执行git pull…]]></description><link>https://kongfandong.cn/blog/github-webhook-auto-build/</link><guid isPermaLink="false">https://kongfandong.cn/blog/github-webhook-auto-build/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;前言&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot; aria-label=&quot;前言 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前言&lt;/h2&gt;
 &lt;p&gt;因为博客使用 &lt;strong&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot; target=&quot;_blank&quot;&gt;Gatsbyjs&lt;/a&gt;&lt;/strong&gt; 进行搭建，Markdown文章写完之后会打包成静态HTML文件，文章是存在项目文件中并非数据库中，所以每次进行博客文章更新后，都需要重新进行打包构建。在进行git push后，我需要连到云服务器中，然后进入项目目录，执行git pull / npm run clean / npm run build 等命令。&lt;/p&gt;
 &lt;p&gt;为了简化该操作，通过使用Github的 &lt;strong&gt;&lt;a href=&quot;https://developer.github.com/webhooks/&quot; target=&quot;_blank&quot;&gt;Webhooks&lt;/a&gt;&lt;/strong&gt; 服务，在服务端监听git push事件，然后自动执行编写好的脚本从而实现自动化构建部署。以后Git push后就无需再进行后续操作，由脚本完成。&lt;/p&gt;
@@ -2958,74 +2722,11 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;ol&gt;
 &lt;li&gt;进入自己需要监听Push请求的Github仓库，点击Settings =&gt; Webhooks =&gt; Add webhook&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1079px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABIElEQVQoz5WOy07DQAxF8/+/BKgki+67QrQ0bVpUoKTzSDz2POwJSqoiVCEeZ2HZ0j22i1lZze7Lm9u7h8clS46JE8u5jg0Ls2jTKaXROWUsINkeQogxcdHs9tvdvt42b8d3ACQfHBKi7wGRPDikEM3r8bR56p4bp02QHGKK04FiuJAlExESxRCZJSXm8SyLCCMJojgcyEdwZPsETiQXCjikfPYRUSntfTiPfGH009SkRG2rDi/R2GEYCt3aiJS9H4ig6+u6Xq/Xy9Vqs22U0lobPWJaAyfjwKEDwK4X5lE+7g+h68evrEWA+XxeVVVZlovFgqfEFUjedSAyPlucTPSBhyzyXfRnCgMp8rhG8lS/8LtsXcoTf0lfyyz5k//KH9VQRAeLq4fOAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Create Webhook&quot;
-        title=&quot;Create Webhook&quot;
-        src=&quot;/blog/static/2ed0c810c7fb2c0378a7204f80c1805c/95234/create-webhook.png&quot;
-        srcset=&quot;/blog/static/2ed0c810c7fb2c0378a7204f80c1805c/a8a0d/create-webhook.png 300w,
-/blog/static/2ed0c810c7fb2c0378a7204f80c1805c/dface/create-webhook.png 600w,
-/blog/static/2ed0c810c7fb2c0378a7204f80c1805c/95234/create-webhook.png 1079w&quot;
-        sizes=&quot;(max-width: 1079px) 100vw, 1079px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/7mvAXfC5hNRlFZM.png&quot; alt=&quot;Create Webhook&quot;&gt;
 2. 填写自己服务器请求地址，配置Secret(用于后面的Sha1解码验证)，并选择要监听的事件，本次只监听push
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1056px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 68.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABUklEQVQoz42SMW8eIQyG7///lUydOmXo0iFL9g7J0EqVkuYObDA22KaBO31SvlyivHrFcYgHXgwLCzNzylRYUsqZChVmlkSU8+gPU8lEgFhra2oXL6loEetT7h0xhwjPLytgZqmFK7GQSOHK0kafZSzH4u4LkAKpmbu7mYeA/17CtoUQIkRATBABIoQQYwAAjIBrJCTpvS/ruqVc5rZDmAWyuPc38uu/fcISE4dcd9Lc01BmroXlOGHT1lRV3/A+vOCMfezrjpi2LQ7IbBD7eaZOYKBGcsBmPgqeaVDuamOJfqYDJtamfoFZqtqAVI+2qdam7TT2/rkMlXmrVMpoh4lZ7KPYV3kSphgiALSpOov2YeyrIRbGnACgVvHrG/sc7t3Ze+tmJiKz2HZas/PYP/7e3Tx+/7U9eHMRYRbVL8M/n+6//b59xD8ziF/mvffrC/sPnUU2VmM06osAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Webhook form&quot;
-        title=&quot;Webhook form&quot;
-        src=&quot;/blog/static/42873250cc948abd18e8992b7d466a1c/cb866/webhook-form.png&quot;
-        srcset=&quot;/blog/static/42873250cc948abd18e8992b7d466a1c/a8a0d/webhook-form.png 300w,
-/blog/static/42873250cc948abd18e8992b7d466a1c/dface/webhook-form.png 600w,
-/blog/static/42873250cc948abd18e8992b7d466a1c/cb866/webhook-form.png 1056w&quot;
-        sizes=&quot;(max-width: 1056px) 100vw, 1056px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/gPluNLOBHdbcwsK.png&quot; alt=&quot;Webhook form&quot;&gt;
 3. 进入到对应Webhooks详情，下方可以查看到每个请求记录，点击Redeliver可以重新发送该请求。
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 921px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 92.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB0UlEQVQ4y42TSW7bQBBFfXWfIcgFskwCWd4597DjLJyIokRz6nnu6imgZMmi48h6qEU3iIf6VQ1elVKQIA3piGHaaucnjLExxvIeecf+fFVK+VItr+8/XT98vm8fbU9YPwJA+Q8zOefMNMeKYcmUMRFCCCHlD3iRY4yMMs44o1RwkQ4fLmGKbUNg2nFluLJMGiKU0O406L6c985NlVJ6laVzSBjE1b5GNg1wGjGXknLemc46N5MNABIaC82kI9IMTFKp83E/EEoIOUaAAADew0xWWgultbIPw1OnUIDojtu2VlFKu94zbp231ll70jnnTAiFEErO1HIX/euDTG3Bc2EwCVp7eOH0nfMwDG3X3939+P712+3ydrFYLG9uxnEMITjnp6AARxNgHrtpmrredF0/jAhjqo2ZFnus3ZJOmclVVf18/LVerTZ/Vk1V99sG9z3u+qFtDWNOKXdGRgjV221XVcPTb7TekHqDqnpcrcd1jVeVwdiHML3vgVc5pcQYm+455wAJIPlDTWcfQ0hzZj+GlBJhMhKOmGRCThPOZz4Xmwu5btp2oM8DUf9MeE7OOVtrW4TrjlAu3+v0kbx57kfMjHWX8FZuulFK5S/peyL/BbjlSU5HnHSTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Redeliver&quot;
-        title=&quot;Redeliver&quot;
-        src=&quot;/blog/static/4d5758241c87a0cc338600de2909620c/24c26/redeliver.png&quot;
-        srcset=&quot;/blog/static/4d5758241c87a0cc338600de2909620c/a8a0d/redeliver.png 300w,
-/blog/static/4d5758241c87a0cc338600de2909620c/dface/redeliver.png 600w,
-/blog/static/4d5758241c87a0cc338600de2909620c/24c26/redeliver.png 921w&quot;
-        sizes=&quot;(max-width: 921px) 100vw, 921px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/KjZe4gN8RDJt7l9.png&quot; alt=&quot;Redeliver&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;后端koa2服务&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%90%8E%E7%AB%AFkoa2%E6%9C%8D%E5%8A%A1&quot; aria-label=&quot;后端koa2服务 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;后端Koa2服务&lt;/h2&gt;
 &lt;p&gt;后端的Koa2服务是本功能的最重要的环节。其处理流程：&lt;/p&gt;
 &lt;ol&gt;
@@ -3111,8 +2812,11 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;li&gt;脚本可使用Shell编写再由Nodejs的child_process去执行，也可以直接编写nodejs命令直接去执行文件操作。社区也提供很多类似&lt;code class=&quot;language-text&quot;&gt;shelljs&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;exec-sh&lt;/code&gt;等NPM包可以更优雅的编写脚本命令。&lt;/li&gt;
 &lt;li&gt;这种方式适合将网站自动部署到自己的个人服务器，如果没有服务器可以采用&lt;code class=&quot;language-text&quot;&gt;Github Page&lt;/code&gt;方式部署，这时候可以利用&lt;code class=&quot;language-text&quot;&gt;Github Action&lt;/code&gt;去实现，具体后面再写一篇文章说明。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[浏览器导航首页设计]]></title><description><![CDATA[一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能 系统半成品已部署与线上，在线访问：http://s.kongfandong.cn…]]></description><link>https://kongfandong.cn/blog/design-of-nav-tab/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-nav-tab/</guid><pubDate>Sat, 04 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能&lt;/p&gt;
-&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;http://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://s.kongfandong.cn&quot;&gt;http://s.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[浏览器导航首页设计]]></title><description><![CDATA[2021/11/01更新: 以下内容为旧版网站的记录，站点地址已更新为Howdz…]]></description><link>https://kongfandong.cn/blog/design-of-nav-tab/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-nav-tab/</guid><pubDate>Sat, 04 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;2021/11/01更新: 以下内容为旧版网站的记录，站点地址已更新为Howdz起始页项目地址&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能&lt;/p&gt;
+&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;https://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://s.kongfandong.cn&quot;&gt;https://s.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%88%87%E6%8D%A2%E5%8A%9F%E8%83%BD&quot;&gt;搜索引擎切换功能&lt;/a&gt;&lt;/li&gt;
@@ -3190,7 +2894,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
       &lt;span class=&quot;token attr-name&quot;&gt;@load&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;hanldeImgLoad&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
       &lt;span class=&quot;token attr-name&quot;&gt;@error&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;handleImgError&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;no-icon&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;{{userSettingKeyMap[key].remark.slice(0,1)}}&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/884012d4e81dafa3470cff25fe987993/keyboardDemo.gif&quot; alt=&quot;添加展示&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/kcrP38wJedoSsqT.gif&quot; alt=&quot;添加展示&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;背景图切换功能&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%83%8C%E6%99%AF%E5%9B%BE%E5%88%87%E6%8D%A2%E5%8A%9F%E8%83%BD&quot; aria-label=&quot;背景图切换功能 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;背景图切换功能&lt;/h2&gt;
 &lt;p&gt;背景图使用的图片来自免费无版权图片壁纸网站&lt;a href=&quot;https://unsplash.com/&quot; target=&quot;_blank&quot;&gt;Unplash&lt;/a&gt;，并使用其提供的&lt;a href=&quot;https://unsplash.com/documentation&quot; target=&quot;_blank&quot;&gt;API服务&lt;/a&gt;获取JSON图片列表。其Api接口不可直接调用，需要注册获取到accessKey之后将其放在请求中才可使用接口服务，且普通用户每小时只可调用50次，因此不合适直接把获取unsplash图片的请求放在前端。&lt;/p&gt;
 &lt;h3 id=&quot;后端实现&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0&quot; aria-label=&quot;后端实现 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;后端实现&lt;/h3&gt;
@@ -3366,7 +3070,7 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     &lt;span class=&quot;token comment&quot;&gt;// ... //&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/fb7cb8e199a605e296f32a347325573a/backgroundDemo.gif&quot; alt=&quot;背景切换展示&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/leuj5U6YL7GzDZo.gif&quot; alt=&quot;背景切换展示&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;当前并未实现自定义图片上传功能，后续进行优化&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;配置同步功能&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%85%8D%E7%BD%AE%E5%90%8C%E6%AD%A5%E5%8A%9F%E8%83%BD&quot; aria-label=&quot;配置同步功能 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;配置同步功能&lt;/h2&gt;
 &lt;p&gt;该功能未在线上版本实现，但已有实现思路。&lt;/p&gt;
@@ -3398,7 +3102,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;li&gt;Unsplash提供的图片api接口，可以判断当前用户的设备，例如区分手机端和PC端，然后更改请求部分参数使其返回不同大小的图片。&lt;/li&gt;
 &lt;li&gt;将图片缓存到浏览器中。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;http://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://s.kongfandong.cn&quot;&gt;http://s.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;系统半成品已部署与线上，在线访问：&lt;a href=&quot;https://s.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;https://s.kongfandong.cn&quot;&gt;https://s.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[CSS实现判断鼠标进入方向]]></title><description><![CDATA[使用纯CSS判断鼠标进入方向执行不一样的方向动画，或搭配JS实现同时记录进入方向与移出方向 目录 纯CSS实现 Clip-path Transform JS实现 Demo展示 判断方向算法 移入方向判断 移出方向判断 总结 纯CSS实现 实现纯CSS…]]></description><link>https://kongfandong.cn/blog/judge-direction-css-js/</link><guid isPermaLink="false">https://kongfandong.cn/blog/judge-direction-css-js/</guid><pubDate>Sat, 21 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;使用纯CSS判断鼠标进入方向执行不一样的方向动画，或搭配JS实现同时记录进入方向与移出方向&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
@@ -3420,27 +3124,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;纯css实现&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%BA%AFcss%E5%AE%9E%E7%8E%B0&quot; aria-label=&quot;纯css实现 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;纯CSS实现&lt;/h2&gt;
 &lt;p&gt;实现纯CSS判断鼠标进入方向，主要是先通过将DIV以对角线切割为4个部分，然后即可为这4个部分写入:hover选择器执行不同方向的动画。如果DIV是正方形的话，对角线切割就很简单，可以用伪元素通过rotate(45deg)就可以实现。但是当Div是长方形的时候，就需要使用以下的方法了。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 498px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACoklEQVQ4y62UW2sTQRSA8w/1QWpTTc2lNUlz2cS7DwpeQFHqXYwggooigg/61NrUprs2SqHWSy1ii1FrW2uSNsnu7CWb3U929UGplz544JsDM8PHmRnmBPhP4br+SMDpWDz/uEhxXqVcqfKkUkep1P38R957ueZTmlN5s7wEOL40YOhNpitHOTw5xaahNsFig57iGt3FJt3Fxm9oEvTWR1oEhy26Xz9g8NN56Hj1QUATgmZjF5ad5s78I0Kyww7Fpn9CJ/rEXEfMm5ddYmWVzNINUoS4VDsLtid0CQihsVLbj2EN4LR38nT5KqlynWDJIaZoRBSdiGwQUYRPeAz6pubJNI6Q70RJtPu4uHLuV+HX+l6Elaal53Dsfhaahzk+PcvWMXxhVNEIyxbhkkP87WMkI4Nk95EzMiTaMS5+XSfch26l0IwsLSOHZSXRzQy354bYVrIJjUFMaTGweB3JjiJZCbJmipyZ+rdQmBlUQ0IYWb/aZ9UC2RevSYhD5NtRX5Q1B5Cs5MaFmpD8KxDE+TJ8k5GDcxybOUmSKJInM1JkNyrURA7DTaCqu3hTUBjtclC6Osghg8sP75F2+8l04uT09N+Ee9HNNJouYdJPde4EkwcqPN7iIu/QGA9ryCGd8haXu2cm2bO6mwGi5PU/PMpKdT+GncQgzoeRWyiRFmPdNnJYRe4VPuO9glJY9aVD+UWOzZwmRZSkJ1w5/5NQE9S1PLrIM1uYoNTlIm83UcICpddYx3hEMBG0UUImhYf3iRPmwuogtH8IdbPJ/NQpnu6bZXizxej2VUa3rVHsaVDsWfsNDUa8PcEGyuY21wZHufKu4H1lPwIdp83nmSofn7X4/KrKwnR9A6yy8KLOwssaS2WV5UoN1zN6zYH/1r++H/kbH3szO7bSWu8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;对角线切割DIV&quot;
-        title=&quot;对角线切割DIV&quot;
-        src=&quot;/blog/static/ffd0723003cd13fb82980f85ec8ca39a/c365b/a.png&quot;
-        srcset=&quot;/blog/static/ffd0723003cd13fb82980f85ec8ca39a/a8a0d/a.png 300w,
-/blog/static/ffd0723003cd13fb82980f85ec8ca39a/c365b/a.png 498w&quot;
-        sizes=&quot;(max-width: 498px) 100vw, 498px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/Afdp2u1U4S6oVWL.png&quot; alt=&quot;对角线切割DIV&quot;&gt;&lt;/p&gt;
 &lt;p&gt;目前可以通过2种CSS3的方式实现&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;使用CSS3的 &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path&quot; target=&quot;_blank&quot;&gt;clip-path&lt;/a&gt; 属性定向裁剪区域&lt;/li&gt;
@@ -3540,28 +3224,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;p&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/p&gt;
 &lt;iframe src=&quot;https://kongfandong.cn/demo/judge-enter-direction-by-css-transform.html&quot; width=&quot;100%&quot; height=&quot;470px&quot; style=&quot;border: none;outline:none;box-shadow: 0 0 5px #888&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;transform实现方式与clip-path方式基本差不多，主要是先将伪类通过旋转加偏移变换成一个平行四边形，将变换顶点定位在中心，然后隐藏超出部分即可。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 659px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 74.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB7ElEQVQ4y22UiW7aQBCGef8XiigxBmMIZwgtoCakBOLEGEKh3L52vgpzO15ptCt79vNcv1NcLRE575ezSnzP8RxfqUTn0zNvjnzVkfX7DfTAk8Q7F+A1dG9rC+WYKMdAjfLIvIso/9ZP4lkdgacUzg6LLjg6alxCTuYYUbR4iwjgu5JYilRS3dazKRurEkF9u0BgGwS2SWjryDjPdLikUwT79Xt9U/EaOF+C2QSjvMR+ruFbabZDDdf6wWaQo1ce8pQN+WUILV3RbwneLiFCJcLLQNArikJNkSl6ZIouvU4Pf5jl30uVjjmnmvb5mQ9pF4SOqXjKKrqlCzSKcLkWHruCXlYU6nsTtNKOe9MlbQTU+xbN0oL6XUhD20TAjnmIcA+bjy/1j4BvH4L2cADtgWZD0Aoe2sOWrD0hE1joy09qjSWNO5dWLqClC3+agre97cE55clfodg4pJyrCJnmCm32gRa8oe0G3HsHM39PaecUzutVd5Wc5zx13d3NVnjsCM99oavmaFgYoY2h7POe55PGdoZLmKiuVHxklLp0fChrCowwGFHEiSwnI6qMWYkfKUCQW6UkSeg09fsLM3GpyISc2JF1ZU6w1/cRhiRoOUlC11/2CGkz453VZZCRm/2blm/+OldO8QtxWBz4HwUXfSu1rdEBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;transform变换DIV&quot;
-        title=&quot;transform变换DIV&quot;
-        src=&quot;/blog/static/723c7d9e6853e8b4ae87fe0ee69e58a8/4978c/b.png&quot;
-        srcset=&quot;/blog/static/723c7d9e6853e8b4ae87fe0ee69e58a8/a8a0d/b.png 300w,
-/blog/static/723c7d9e6853e8b4ae87fe0ee69e58a8/dface/b.png 600w,
-/blog/static/723c7d9e6853e8b4ae87fe0ee69e58a8/4978c/b.png 659w&quot;
-        sizes=&quot;(max-width: 659px) 100vw, 659px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/TEaZcDmVvYo2pzB.png&quot; alt=&quot;transform变换DIV&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;transform方式实现主要代码逻辑&lt;/strong&gt; &lt;em&gt;(仅列举与clip-path不一样的代码)&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;  &lt;span class=&quot;token property&quot;&gt;--angle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 37deg&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -3605,27 +3268,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;h3 id=&quot;判断方向算法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%88%A4%E6%96%AD%E6%96%B9%E5%90%91%E7%AE%97%E6%B3%95&quot; aria-label=&quot;判断方向算法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;判断方向算法&lt;/h3&gt;
 &lt;p&gt;以上的Demo中，为每个DIV加入了mouseenter和mouseleave的事件监听，通过判断方向后然后为其添加不同方向的移入动画和移出动画。&lt;/p&gt;
 &lt;p&gt;JS实现判断进入方向，依然是将div按对角线切割成4个三角形，然后通过判断鼠标事件中移入的点是否在三角形内来确定方向。这里涉及到了一个如何判断点在区域内的算法实现。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 40.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA5ElEQVQoz5VS226DMAzN///VVPEBKw0aEdL6xPWBSxKCCHAqW0pFWdk0R5Yt59ixjyNwkG3b2HrvsSzLS4zsXvd3QcSx2Lqu7GdZhiRJYK19m3gWE8dXg1JhYwz6vn+Ch2FAWZZI0xTzPL/tWuAfMk0Tuq5D0zSnGEE8OecYHOw4jtzNPsb+6JgCrTX0oGGNZazRBm5yzLmghKIoeBTSuq6ZPykld0J3pFVV4f59R/wZ4/Jxwe16g7xKyFhCfSnkec7Ff4zcti2UUr+OTp1EUQQ/+7+XQt+FCD9bVlgY4bZwdkt5APvBb8Hmx0U6AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;对角线切割DIV&quot;
-        title=&quot;对角线切割DIV&quot;
-        src=&quot;/blog/static/dec264e92301d868930eb1cc15255289/d9f49/line-point.png&quot;
-        srcset=&quot;/blog/static/dec264e92301d868930eb1cc15255289/a8a0d/line-point.png 300w,
-/blog/static/dec264e92301d868930eb1cc15255289/d9f49/line-point.png 400w&quot;
-        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/hf1sQ2w8DOHloGy.png&quot; alt=&quot;判断点是否在同侧&quot;&gt;&lt;/p&gt;
 &lt;p&gt;以下提供一个函数判断点P和点O是否在直线AB的同一侧&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* 判断两点是否位于直线同一侧
 * @param {Object} p - P点坐标
@@ -3639,27 +3282,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;该函数需要传入4个点坐标（含有x,y属性的对象），参数1和参数2是需要判断的两点，参数3和参数4是确定直线的两点。使用的是矢量法，过程无需用到三角函数，而且参数1和参数2顺序可互换，参数3和参数4顺序也可互换。判断点在三角形内，就需要用3次这个函数分别为三条边进行判断。&lt;/p&gt;
 &lt;h3 id=&quot;移入方向判断&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%A7%BB%E5%85%A5%E6%96%B9%E5%90%91%E5%88%A4%E6%96%AD&quot; aria-label=&quot;移入方向判断 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;移入方向判断&lt;/h3&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 64.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAABmElEQVQ4y51Ty4rCQBDM/3/AehFvQb9BPOjBwxoRIomYxDe+M1F8gG5MUku1jJsVZWELOtM99pTVPT1GlmXI41X8vPculzD4ORwOcF0X5/NZNuM4xu12Q5Ikj0TGeWOOPrvf79FsNnE6ne6Eg8EApVJJrNPpYDweIwgCeJ6HRqOBarWKyWQie77vYzQaSU673UaxWES9XketVhNyI01Tkb5arRBFERaLhSSHYShk/GeS5XG5XEQEzyilZNXlG9rRPxLH4xH9fl+U6DYQbMF8PsdwOJTyiM1mI0ZQ3EtCjfV6LUqolkbfcRwh1cgTkuslIZXofZZnmiYqlYpchmVZaLVafxMul8tfCrnP3vES9K3SZysY5wlZyaNkfgiWtNvtxN9ut+j1erI+Q0VKbp+rxEohVOGPQjoksm1bVE6nU8xms7eDnKUZ4q8YgRc8xifwA+nr9Xq9E7InnCcalbFUXgDnLr9SWdfuwnVc+J4P69NC4aOAslmWh8HeG7pEjoeeSf1Sno0HkjSRlTHzaTyrx8h4907/A/bwG0Mx2NDjOJAmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;图形&quot;
-        title=&quot;图形&quot;
-        src=&quot;/blog/static/06f1ff5ef66cbac2d78fe414c389bbc5/d9f49/rectangle.png&quot;
-        srcset=&quot;/blog/static/06f1ff5ef66cbac2d78fe414c389bbc5/a8a0d/rectangle.png 300w,
-/blog/static/06f1ff5ef66cbac2d78fe414c389bbc5/d9f49/rectangle.png 400w&quot;
-        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/v2qT7iGQoLmBXwW.png&quot; alt=&quot;移入方向&quot;&gt;&lt;/p&gt;
 &lt;p&gt;如图，点P为鼠标事件移入获取到的点，当点P与点O在直线AB同一侧、点P与点A在直线OB同一侧、点P与点B在直线AO同一侧，即可判断出点P在三角形AOB内，即鼠标从上方进入。转换为代码即可写成:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isSameSide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isSameSide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isSameSide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;b&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -3728,7 +3351,10 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;
 &lt;p&gt;使用纯CSS实现判断方向会有一个比较大的缺点，就是浏览器鼠标移动事件含有&lt;strong&gt;一定延迟&lt;/strong&gt;，当鼠标速度很快的进入div时，有可能:hover会延迟执行到后面的元素。
 同时纯CSS方式只可判断移入方向，还未能实现可以同时判断&lt;strong&gt;移入和移出&lt;/strong&gt;。需要在记录移入方向的同时，再记录移出方向目前想到的只可使用JS去辅助实现了。&lt;/p&gt;
 &lt;p&gt;使用JS实现最主要是要运用到判断两点位于直线同侧的算法，这个算法只涉及四则运算，也比较简洁。获取DIV四个顶点和中心的坐标可以用&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect&quot; target=&quot;_blank&quot;&gt;getBoundingClientRect()&lt;/a&gt;来获取元素的top,left,width,height计算出来。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[常用NPM全局包记录]]></title><description><![CDATA[NPM全局安装的包默认会安装在 C:\Users\[当前用户]\AppData\Roaming\npm 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问 目录 pm2 cnpm rimraf nodemon…]]></description><link>https://kongfandong.cn/blog/personal-npm-collection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/personal-npm-collection/</guid><pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;NPM全局安装的包默认会安装在 &lt;strong&gt;C:\Users\[当前用户]\AppData\Roaming\npm&lt;/strong&gt; 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2021/10/01更新, 找到了一个使用Grid布局实现的移入方向Demo: &lt;a href=&quot;https://codepen.io/leon-kfd/pen/dyvJVRL&quot;&gt;CSS-only direction-aware hover effect&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[常用NPM全局包记录]]></title><description><![CDATA[NPM全局安装的包默认会安装在 C:\Users\[当前用户]\AppData\Roaming\npm 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问 目录 pm2 cnpm rimraf nodemon…]]></description><link>https://kongfandong.cn/blog/personal-npm-collection/</link><guid isPermaLink="false">https://kongfandong.cn/blog/personal-npm-collection/</guid><pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;NPM全局安装的包默认会安装在 &lt;strong&gt;C:\Users\[当前用户]\AppData\Roaming\npm&lt;/strong&gt; 目录下(windows)，并且会加入到系统环境变量中。若因电脑权限问题无法写入，在使用这些全局包时，就需要使用全路径访问&lt;/p&gt;
 &lt;h3 id=&quot;目录&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%9B%AE%E5%BD%95&quot; aria-label=&quot;目录 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;目录&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#pm2&quot;&gt;pm2&lt;/a&gt;&lt;/li&gt;
@@ -4300,7 +3926,7 @@ instance&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;intercepto
 &lt;/ul&gt;
 &lt;h3 id=&quot;加入购物车动画&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8A%A0%E5%85%A5%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%8A%A8%E7%94%BB&quot; aria-label=&quot;加入购物车动画 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;加入购物车动画&lt;/h3&gt;
 &lt;p&gt;使用定位 + transition + transform + 贝塞尔曲线模拟抛物线动画效果&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/65267487e84df6c280450ec9e7b5f2b4/add-to-cart.gif&quot; alt=&quot;抛物线动画&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/GSIrLKOJPXNV1pW.gif&quot; alt=&quot;抛物线动画&quot;&gt;&lt;/p&gt;
 &lt;p&gt;将过渡动画left设为线性，top设为为cubic-bezier(0.56, 0.15, 0.43, 0.85)时，在执行过渡时就能模拟出元素一个抛物线运动，曲线函数可以在Chrome控制台试出来&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 主要代码&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;showAnimateAddCart&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -4406,125 +4032,15 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;首页&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAAB6FTzJqMF/8QAGxAAAgEFAAAAAAAAAAAAAAAAAQMCEBETITH/2gAIAQEAAQUCaWg7rLNcc//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPwGn/8QAHhAAAAQHAAAAAAAAAAAAAAAAAAIRcQESEyAhIjH/2gAIAQEABj8CLTg9h5URNXGej//EABoQAAIDAQEAAAAAAAAAAAAAAAARASFRMUH/2gAIAQEAAT8huqhnr1Es1DHoSvDJlZ//2gAMAwEAAgADAAAAEIP/AP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/ECP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxAr/8QAHBABAAIDAAMAAAAAAAAAAAAAAQARITFBUWGh/9oACAEBAAE/EMhyrUPTd+rmzPgisbjfAXUqAUEqynYXWKAR1rP2f//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;首页&quot;
-        title=&quot;首页&quot;
-        src=&quot;/blog/static/d8f90098840618ea0d176f14c1980ea2/03ffe/%E9%A6%96%E9%A1%B5.jpg&quot;
-        srcset=&quot;/blog/static/d8f90098840618ea0d176f14c1980ea2/0cdb7/%E9%A6%96%E9%A1%B5.jpg 300w,
-/blog/static/d8f90098840618ea0d176f14c1980ea2/e224a/%E9%A6%96%E9%A1%B5.jpg 600w,
-/blog/static/d8f90098840618ea0d176f14c1980ea2/03ffe/%E9%A6%96%E9%A1%B5.jpg 1200w,
-/blog/static/d8f90098840618ea0d176f14c1980ea2/ca038/%E9%A6%96%E9%A1%B5.jpg 1276w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/wxI5W4KsCBYncuk.png&quot; alt=&quot;首页.jpg&quot;&gt;
 2. &lt;strong&gt;搜索页&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB7q98RkkP/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAECAxH/2gAIAQEAAQUCLu0zXg3Ns//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAEEAwEAAAAAAAAAAAAAAAEAAhARISIyQf/aAAgBAQAGPwJasvFw23EbeLs5Bj//xAAeEAACAQMFAAAAAAAAAAAAAAABEQAxUWEhQXGRwf/aAAgBAQABPyGncNAu4F72hoGEVMESuxNBDSXsqBxP/9oADAMBAAIAAwAAABDjD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQEAAgMBAQAAAAAAAAAAAAERACExQVFhgf/aAAgBAQABPxCEMlwafoyl1+sSrQCnjmj7LN+l8cigI2g73w5NzAHVkR9Pc//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;搜索页&quot;
-        title=&quot;搜索页&quot;
-        src=&quot;/blog/static/33b753d49cb59ab562e36fa0c66646a8/03ffe/%E6%90%9C%E7%B4%A2.jpg&quot;
-        srcset=&quot;/blog/static/33b753d49cb59ab562e36fa0c66646a8/0cdb7/%E6%90%9C%E7%B4%A2.jpg 300w,
-/blog/static/33b753d49cb59ab562e36fa0c66646a8/e224a/%E6%90%9C%E7%B4%A2.jpg 600w,
-/blog/static/33b753d49cb59ab562e36fa0c66646a8/03ffe/%E6%90%9C%E7%B4%A2.jpg 1200w,
-/blog/static/33b753d49cb59ab562e36fa0c66646a8/ca038/%E6%90%9C%E7%B4%A2.jpg 1276w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/kPg3fHJIsMvD68o.png&quot; alt=&quot;搜索.jpg&quot;&gt;
 3. &lt;strong&gt;购物车&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAEHJx5Y/8QAGRABAQADAQAAAAAAAAAAAAAAAQIAAxIR/9oACAEBAAEFAqUqRpkZwr107CdnXb//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAADAQEBAAAAAAAAAAAAAAAAAREhMVH/2gAIAQEABj8CxYREY14OrhUf/8QAGRABAQEBAQEAAAAAAAAAAAAAAQARIXFB/9oACAEBAAE/IQnolQ6nYVHHbg0F1QfGQxZ7f//aAAwDAQACAAMAAAAQ4w//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAbEAACAwADAAAAAAAAAAAAAAABEQAhMUFRcf/aAAgBAQABPxANuoy1mKIRgKQh6NxHwTPjp9wLLKIOYbIOEaan/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;购物车&quot;
-        title=&quot;购物车&quot;
-        src=&quot;/blog/static/2f795241ddcf4a8d43c729dd2d2057f7/03ffe/%E8%B4%AD%E7%89%A9%E8%BD%A6.jpg&quot;
-        srcset=&quot;/blog/static/2f795241ddcf4a8d43c729dd2d2057f7/0cdb7/%E8%B4%AD%E7%89%A9%E8%BD%A6.jpg 300w,
-/blog/static/2f795241ddcf4a8d43c729dd2d2057f7/e224a/%E8%B4%AD%E7%89%A9%E8%BD%A6.jpg 600w,
-/blog/static/2f795241ddcf4a8d43c729dd2d2057f7/03ffe/%E8%B4%AD%E7%89%A9%E8%BD%A6.jpg 1200w,
-/blog/static/2f795241ddcf4a8d43c729dd2d2057f7/ca038/%E8%B4%AD%E7%89%A9%E8%BD%A6.jpg 1276w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/iLDbIzdspo3tgwy.png&quot; alt=&quot;购物车.jpg&quot;&gt;
 4. &lt;strong&gt;订单&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAd1TosJg/8QAGBABAAMBAAAAAAAAAAAAAAAAAAIDE0H/2gAIAQEAAQUCdbxbxb1v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRABAAIDAAAAAAAAAAAAAAAAAAExEBEy/9oACAEBAAY/AmsXC4dP/8QAHRAAAgEEAwAAAAAAAAAAAAAAAAERITGx0UGBof/aAAgBAQABPyGksnJYVh8MXeirOTQoq+Gf/9oADAMBAAIAAwAAABDwD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQEAAgIDAAAAAAAAAAAAAAERACEx0UFR8P/aAAgBAQABPxAiBu7hksrQFtN3rODBq+gWcdJ5AgB+vGf/2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;订单&quot;
-        title=&quot;订单&quot;
-        src=&quot;/blog/static/209006c4115bf10a0a8c0f4c3dd147e9/03ffe/%E8%AE%A2%E5%8D%95.jpg&quot;
-        srcset=&quot;/blog/static/209006c4115bf10a0a8c0f4c3dd147e9/0cdb7/%E8%AE%A2%E5%8D%95.jpg 300w,
-/blog/static/209006c4115bf10a0a8c0f4c3dd147e9/e224a/%E8%AE%A2%E5%8D%95.jpg 600w,
-/blog/static/209006c4115bf10a0a8c0f4c3dd147e9/03ffe/%E8%AE%A2%E5%8D%95.jpg 1200w,
-/blog/static/209006c4115bf10a0a8c0f4c3dd147e9/ca038/%E8%AE%A2%E5%8D%95.jpg 1276w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/uIpYdnAq4Kb35WP.png&quot; alt=&quot;订单.jpg&quot;&gt;
 5. &lt;strong&gt;个人中心&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHtvmcuTD//xAAaEAEAAgMBAAAAAAAAAAAAAAABAAMCEBIh/9oACAEBAAEFAnx021sLcGdk/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAARAAISKh/9oACAEBAAY/Agxrkor/xAAbEAACAgMBAAAAAAAAAAAAAAAAARFBITFhgf/aAAgBAQABPyGUC2ULQ2avRh5fDqf/2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAICAgMAAAAAAAAAAAAAAQARIWFBUTHB0f/aAAgBAQABPxBgALrxpYGHyeCOGl1OSxOtxnLB39kDK4an/9k=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;个人中心&quot;
-        title=&quot;个人中心&quot;
-        src=&quot;/blog/static/5db20cd881411bd41ae81a3e61029b09/03ffe/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg&quot;
-        srcset=&quot;/blog/static/5db20cd881411bd41ae81a3e61029b09/0cdb7/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg 300w,
-/blog/static/5db20cd881411bd41ae81a3e61029b09/e224a/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg 600w,
-/blog/static/5db20cd881411bd41ae81a3e61029b09/03ffe/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg 1200w,
-/blog/static/5db20cd881411bd41ae81a3e61029b09/ca038/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg 1276w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/xL51dQUCFKh4Tfz.png&quot; alt=&quot;个人中心.jpg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;PS: 该项目仅作学习交流所用，不可作商业用途，所有图片来源于网上&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;DEMO系统在线预览地址: &lt;a href=&quot;http://eidea.kongfandong.cn&quot; target=&quot;_blank&quot;&gt;&lt;a href=&quot;http://eidea.kongfandong.cn&quot;&gt;http://eidea.kongfandong.cn&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[考试系统设计总结]]></title><description><![CDATA[该系统成品已部署与线上，在线访问：ExamSystem 系统线上环境部分功能已锁定 学生端登录 测试账号1: user1  密码: 7gzt9i0lkh 测试账号2: user2  密码: lyufmklxy 教师端登录 测试账号: admin1  密码: qrmeke4p7…]]></description><link>https://kongfandong.cn/blog/design-of-exam-system/</link><guid isPermaLink="false">https://kongfandong.cn/blog/design-of-exam-system/</guid><pubDate>Sat, 01 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;ul&gt;
@@ -4555,51 +4071,9 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;h3 id=&quot;系统架构&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84&quot; aria-label=&quot;系统架构 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;系统架构&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;系统功能架构&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;系统分为学生系统与教师系统，教师用户在登录页登录后自动跳转到教师系统首页，然后教师可以进行创建考试，创建的过程中可以对考试进行临时保存。把题目与考试班级等考试信息填写完毕后可以进行发布考试。这时学生用户登录到学生系统后，学生主页将会显示自己需要进行的考试列表或自己已经完成的考试列表。学生点击进入考试则可进行考试，在规定时间内完成考试后进行交卷。提交试卷后，将会弹出自动阅卷结果，学生可以进入查看自己的答卷与分数。与此同时，教师系统可获取到学生完成考试的列表，教师可以查看学生的成绩与答卷，并对需要进行阅卷的考试进行阅卷。教师系统提供一个公共功能，教师可以发布、编辑、删除公告，发布的公告将展示在学生系统上。&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 782px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 91.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE20lEQVQ4y12Uf0wTZxjHH9pOyKbg8NdiZtziMGICSKngxo9zXbJpxTH+GBhizGKyZdlitjgyjSPifhg1M+JgyQJFaLTUCqmuoy0tlPoLU4nU1itcr3etvfZKrqbtlfZGqjGxy3sqWbzkuTd5nuf95vM87/u8YDKZwGg0wszMjOTZs2d5uVwub3x8XGI0GiWpVApsNlux0+nccOPGjfVDQ0OyXC4H09PTUpqmpblcThKNRqXBYFCC/Mjg/PnzYLFYwOl0QjweBwCQItu4cePrKIFl2Wscx+UePXr0r8PhqH4Rz3spEAwGUQ4sCXZ1dcHAwIAEx/ESu91eefHixQ9CoVCp0+l82+fzgc/nq6dp+gBN060+n68QbYrFYg0sy37qcDjaFhYW9gQCAcWSIPp1dHRsSKVSyUwmk4tGo0+z2Swi0qAYx3Hw+PFjMa+trQ1VIEsmk4FEIpGjafop2sMwjB0AloMYlckkTU1NheFweDtJkttv375dQVFUtclkWo9E1Go1XL58GXp6esDj8YjCHo9nOU3TxTdv3ixaXFxc5/V6V5eUlKw0m80AdXV1UpVKtQolPnjw4HA6nR4nCELLcdxYMpm8ZDAYtlutVuXQ0FCly+Xak06np2iavhoKha6mUinryMhIHeqpUqlch2EYgFwulzY2NhYhQYIgPk8mkyfdbvdgOBw+E4vFDmm12nfMZvMmjUazdnp6ujKdTp8gSbLb5/P18Dzfef369a1IsL6+flVFRQWAQqGQ7t27dzUASGZnZ48iQhzHbRzHWeLx+GB/f/8KvV4PXq8XKIqqZ1nWjuP4BI7jdpZlzVar9UMAWLZz5851VVVVAFVVVdLdu3eLpzc7O6vief5Hl8t1LhKJHIvFYl8MDg6WGwyG2s7OzjdcLtcmiqIOEwTxld/v/5qiqEOTk5PvIsLa2triHTt2PCdsbGxEhFIcx4+FQqEJj8czSVGUjWXZQZPJVGQ0Gt+6cOECNjU11ZTNZjWRSKSPYRi1IAgDNputBhFiGLZWoVA8J9y1a5dIiOP4JwRBHCEI4huCIA77/f4vDQaD7MqVK3Dv3j24f/++fH5+/s+5ubkzOI7/Ho1GuyYmJsoRYUNDQ7FY8oserkLOQCDw/ZMnT/5mGOZSJpMZWVxc/GN4eHibxWJ5X6vVbnG73UpBEK5Fo1F0C3TpdHrYbDbXvujhmqUeqlQqkdDtdn8WiUR+mZmZORoMBo8zDPOtXq/fNDY2tlWn0224e/euguO40yRJnggEAj/Pz8+ftFqt4iljGPamWDIibG5uXokE/X7/d4Ig/MNxnJbn+ZF4PP6XTqcr6Ovrg7m5OSBJskEQhCmGYczhcHgsk8nYR0dHPwKAAqVSuUYuly/1UCyZIIgDgiD0hMPh04lE4hzP8x1nz54tPHjw4DI0VW63e8vCwsJPDx8+/IFhmHae54/cuXPnPQSjVCpXiIKVlZWSsrKyopaWloKXA/5/I0nyeCwWS6DP4XA0vxpHtwPDsMLy8vLCl4JQXV0t2bx5s6y9vX1Zb29v/qlTp/L1en0BovZ6vR8zDPNbJBL59datW9uQT6PRFHR3d+er1er81tbW10pLS2U1NTV5SAuNniiKVjQ6ZWVlou3fv198PNBbJwgCZLNZ9LCKvn379on5rxoS/A+WohIZfWJiIgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;系统功能架构图&quot;
-        title=&quot;系统功能架构图&quot;
-        src=&quot;/blog/static/4476dd7b40a63fb44e0326ad49fa5c10/f2aa7/a.png&quot;
-        srcset=&quot;/blog/static/4476dd7b40a63fb44e0326ad49fa5c10/a8a0d/a.png 300w,
-/blog/static/4476dd7b40a63fb44e0326ad49fa5c10/dface/a.png 600w,
-/blog/static/4476dd7b40a63fb44e0326ad49fa5c10/f2aa7/a.png 782w&quot;
-        sizes=&quot;(max-width: 782px) 100vw, 782px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/HTLEn4zjxKXiPs5.png&quot; alt=&quot;系统功能架构图&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;系统技术架构&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 906px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACl0lEQVQoz5VSTUgbQRR+MRs8VOi/t9JeWmihh4iXgHjMtRDvpfEQyMG0kNKCPaT00PYksfGgFVToLcZ4MLsmC+ImSP1brbsTs+roGnbdnbWuRmK8umXWGnrx0AcP3sx8fG++7z1wHAf+zasIhULNOp1Ow/HxMRBCQBCEdozx43K5/EQQhPubm5ugKAr4/f5LcCaT8RmGMWbb9k+McfwvsVfTNGZxcdHDsqzn6OjIW6/XffRNFMWviqKYsiz/FkXxk67rtFGraZot7odmZmYYVVW/EUI4SZJiAOBZW1uDer0OS0tLwHEcnJycwOnpKeRyOVdFV1fXQwC4TWtKWKvVwLbtS4WCIDC7u7vDhmHMS5L0BgDuWJb1+fDwMFsqlQK5XK6TEDJKCPk+OzvbWSwWn1uWlSaEpPr7+29qmvbOsqxxXdfDLmEmk2EMwxi1bbtUqVTeAsBdXddfa5qWXFhY6GRZtqNarX6gmc/nO4rF4jOM8RjG+EskErmFMX61v7//cW9v74VLmM1mmYODg0StVhvf3t5+SS8lSYLz83NYXl52JVP5Z2dnwPM8zM3NQTAYbAcAZmJiwsVROyjGJUQI+VRV/WGapqgoyvuroei67l1ZWfFwHOdpNBrearXqy+fz1MeniqIghFAhmUy20cGapsk0Go3LoVy3Nt3d3RAIBGBqaso9y7LcQlcEY/xoa2tLLZfL847j+OhQdnZ2qHVgGMb1hD09Pc2agumu0Xee5x8UCoUwz/MhlmXvURuoLc2IxWKQSqVgZGQEBgcHYXJyEqanpyGRSDQx1DfHcTwXFxewsbGRRAj9kmUZra6uRhFCsL6+7oX/iUgk4jaIx+MQjUZbh4aG2gYGBm709vb6wuEw9PX1NcF/AHWu3N1oQxNbAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;系统技术架构图&quot;
-        title=&quot;系统技术架构图&quot;
-        src=&quot;/blog/static/7af213e0831c4f93cfb0410902594457/8cb5d/b.png&quot;
-        srcset=&quot;/blog/static/7af213e0831c4f93cfb0410902594457/a8a0d/b.png 300w,
-/blog/static/7af213e0831c4f93cfb0410902594457/dface/b.png 600w,
-/blog/static/7af213e0831c4f93cfb0410902594457/8cb5d/b.png 906w&quot;
-        sizes=&quot;(max-width: 906px) 100vw, 906px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2021/12/04/z2ZQrXeiCMPuGxt.png&quot; alt=&quot;系统技术架构图&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;技术选型&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B&quot; aria-label=&quot;技术选型 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;技术选型&lt;/h3&gt;
 &lt;p&gt;本研究中，总体采用前后端分离的技术进行开发。前端使用近年流行的MVVM框架Vue，同时使用其附属的Vue-router路由管理模块和Vuex状态管理模块。UI将采用Element-ui框架，系统将采用部分响应式布局设计。&lt;/p&gt;
 &lt;p&gt;前端使用axios工具，其基于Ajax技术开发，前端可通过它把所有需要的动态数据以JSON格式请求后端，同时获取后端返回到的JSON数据。再将动态数据经过逻辑处理渲染到页面中。&lt;/p&gt;
@@ -4824,149 +4298,17 @@ router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;前端界面截图&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%89%8D%E7%AB%AF%E7%95%8C%E9%9D%A2%E6%88%AA%E5%9B%BE&quot; aria-label=&quot;前端界面截图 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;前端界面截图&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;登录界面&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdK9EMA//8QAGRABAAIDAAAAAAAAAAAAAAAAAQIDBCAi/9oACAEBAAEFAslSuDxp/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAAcAAAAAAAAAAAAAAAAAAAIgISJBUf/aAAgBAQAGPwKOgrUn/8QAGhABAAMAAwAAAAAAAAAAAAAAARARIQAxUf/aAAgBAQABPyEc2vxxm5aNl7j/2gAMAwEAAgADAAAAELDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAQACAwAAAAAAAAAAAAAAAREQUQAxkf/aAAgBAQABPxDo6w2jI642oUKTXuUxj//Z&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;登录界面&quot;
-        title=&quot;登录界面&quot;
-        src=&quot;/blog/static/3f56e676f550b8e154a199f596fa3a1a/03ffe/c.jpg&quot;
-        srcset=&quot;/blog/static/3f56e676f550b8e154a199f596fa3a1a/0cdb7/c.jpg 300w,
-/blog/static/3f56e676f550b8e154a199f596fa3a1a/e224a/c.jpg 600w,
-/blog/static/3f56e676f550b8e154a199f596fa3a1a/03ffe/c.jpg 1200w,
-/blog/static/3f56e676f550b8e154a199f596fa3a1a/304e1/c.jpg 1271w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/fMzSWQCV9YstbXg.jpg&quot; alt=&quot;登录界面&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;创建考试&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABrUlEQVQoz22SSY4UMRBF8/6X4QjsEQsWNM0oYNFUdZFzpu2wI+wHdg0UUlv6CitTfvHt+B2XlXNm3T3D4lhcJGhBDERp9aVVSkaKoKFn/fYaPx/oUkpUlZxxosw+Mzll3BLDFlsdt0iKiXhTbFUkMIaJ+fSR5cMr9v47XUyGj9aA4zhzPB5QjagmsulZWUmaUNX/ZKpkzViGAvTjfHYoIphZ6+qDZ3ETi58J6vBpZ5eVYB6zQOofsf1I9j3ZnTD3jLkTFGUYRrpqP4TQgBUeo7DJyrxPLG7GxY0tLA2cVND5B/LrLfH4jnh6T/z9SBo+QzGGcaKrsBvw+i7bwBqWszN1SPYEc0QN6PwTeXpDPD0Qfz80aBq/noHVYb3u/ZXr3otHUiQXa7JsWLE2VdsODZCGL5f6CV2foGTWbaOrcalSNTQlll2YfMsEOZdLPm45eTk+7Vdp0++uH+vUUowse2D0L2Wu3A7e6183EIl05dK1uhymmafnnmrsmrVa67CuUC66nrNciFowNaLIHdAyix85rD3zujNOA+u2EiQgUcgl3970XskMny4J+Qv8A+H8WclREHTpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;创建考试&quot;
-        title=&quot;创建考试&quot;
-        src=&quot;/blog/static/b0c1e42e7fb796cde0171e075cd41772/64756/d.png&quot;
-        srcset=&quot;/blog/static/b0c1e42e7fb796cde0171e075cd41772/a8a0d/d.png 300w,
-/blog/static/b0c1e42e7fb796cde0171e075cd41772/dface/d.png 600w,
-/blog/static/b0c1e42e7fb796cde0171e075cd41772/64756/d.png 1200w,
-/blog/static/b0c1e42e7fb796cde0171e075cd41772/6574a/d.png 1271w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/l58hipzMxXe7BRf.png&quot; alt=&quot;创建考试&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;成绩管理&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABlklEQVQoz1VTSY7cMAz0/3+WY34wlyDIdHvXwk2qgJTcwBgoaCFdKhalBfNTVZznheM4cV03iBgiChYB84D4fOIzj31DOV/Y1zcWmcHWWhD42DtgrYGIPnu+FgN67z/QPLk3/PoD/P46sTAzSinjJxuknmhmULXYVzOIKlLKEfNqWutx4LP2w7b9HAo9MAgtStVJ5ok++qEOJxQVZLkjh8RCRKIGNuA4jqGw1jqUiKCWAmEOMFOMVGsgpQTiipsOiDBq+Cy4iiBzw7bvWJgokrt7pA25CkjahIG0obKhkOLOhCKKixNIDcWr046zdiSZJe+l4XVbnHBTw+sS+N6WB/bSsSbD+1Z8H4w1K/6lhK00vJNE/O/V8Z2B13piKZWRcoXa4yFN/4aHozkaHtZSwcrTQ4XNeCJDVWDfDyxOQDRLFo2OP/duNENQKwW8Ke5hohMsHPZweKjTwwPL0137oVDHVfh0eZCnnKHCMMnRDG8mq+Em9xNYtwPL81KcbCisH2U+xouY18YJiAn3VOjzR2EiRc4F/wGm2lwJaG9+uQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;成绩管理&quot;
-        title=&quot;成绩管理&quot;
-        src=&quot;/blog/static/67d277fe9073062f5fec418b45265f00/64756/e.png&quot;
-        srcset=&quot;/blog/static/67d277fe9073062f5fec418b45265f00/a8a0d/e.png 300w,
-/blog/static/67d277fe9073062f5fec418b45265f00/dface/e.png 600w,
-/blog/static/67d277fe9073062f5fec418b45265f00/64756/e.png 1200w,
-/blog/static/67d277fe9073062f5fec418b45265f00/6574a/e.png 1271w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/POgNKjoARZ8uyE2.png&quot; alt=&quot;成绩管理&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;考试管理&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABNElEQVQoz51S7W7DIAzM+7/ZXmK/9qcfa0NIwDaYm+wkNG2laRrSCWH7zgd4wLZKKRjDhHEMiHGGiECkdJRSfWcWsBzA4rnT+YLrLWBYiYKmisQGI7IX1qqotUJKBc8zlAgN8NrWGrQ131tTfHwBn9+KgZmRUvJEzoSUMlQV9/voohaTUnC7XKEi63Vaw/tq3nyw7pmrdyEy8VU0hKkL5pwRpuiOVr32Blsu6CTi7jDGBcuSMN5DF7Tz6XR2578LKoacEwwWNAFzSUKIado+gbdGsROfxfDskIhgUG3+OdalVEEuyd+uSAWVjMhhIz4cHcW7Q7vGDjEyMeY5QUS9gEiwpOy5o8Oqa34/G9/GZ9g7+Xj4vD3P3iusznZ/GuIe9/lkwXC8//qjf8Mu+Bp/E9wL/4sfqKFf4V0XxO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;考试管理&quot;
-        title=&quot;考试管理&quot;
-        src=&quot;/blog/static/37c34a8de334c34fe05e7175d7bdbabd/64756/f.png&quot;
-        srcset=&quot;/blog/static/37c34a8de334c34fe05e7175d7bdbabd/a8a0d/f.png 300w,
-/blog/static/37c34a8de334c34fe05e7175d7bdbabd/dface/f.png 600w,
-/blog/static/37c34a8de334c34fe05e7175d7bdbabd/64756/f.png 1200w,
-/blog/static/37c34a8de334c34fe05e7175d7bdbabd/6574a/f.png 1271w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/STQC3lk1fWurIxa.png&quot; alt=&quot;考试管理&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;考试&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABs0lEQVQoz3WSu27bQBBF9f9NmvxEAPepUqVKEyBI4VhOCheWBUokl9z38wSzEm0ZSBa4GC6xODt37u5STKSUeRoM+2MipIZ3jnEcUUoRY6KUQsml15xzVwiRGDNezzizdoac3Rlj0cb2zfPDV/xyRC2a7z8fuP+153weMdaxrhq1rORSaYB1jpeXA6fhxKoN1jqEtbPW9g9Z998+Mx7+UIHJNU6j4vk4cDyNGJ+wPhFyI5WGj5nJJLQLhBA6ULTbyN6HDvUh9G5SSqh5Zp5nvPe01qhVVLtyrqQCrUErrTMuQGO7JWs9OSWc892+AGWOYlk6EFiplVJLv/hx+sGn/Qfufn/ky9PdxbK1lxnKZlYrSi0cDi8sq+ZsYdGuB+PcxYWEIR3Jct5yXk6M65l5nd5muAGlSlLDMDDNC5MH4yLGaIwxGK2p5dKdLHHhrMfZ0Oub5StMqtiSkNRqGHTlNGuU9kyrY1QGGwo+0yXPxvRxWW6begfs1VhcSMw2sRhHqrxKEt7kr8At3deU38GuVezElAgxUtsWRr2m3HriMf4HeAu7fUJb0hKEzPZW8k/O/Av4F9hcUgckUTQLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;考试&quot;
-        title=&quot;考试&quot;
-        src=&quot;/blog/static/3c614cf8782678027aab4f53114b1721/64756/g.png&quot;
-        srcset=&quot;/blog/static/3c614cf8782678027aab4f53114b1721/a8a0d/g.png 300w,
-/blog/static/3c614cf8782678027aab4f53114b1721/dface/g.png 600w,
-/blog/static/3c614cf8782678027aab4f53114b1721/64756/g.png 1200w,
-/blog/static/3c614cf8782678027aab4f53114b1721/6574a/g.png 1271w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/Rn6Ux3F2HMf1mO7.png&quot; alt=&quot;考试&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;考试结果&lt;/strong&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAACHVAAAh1QEEnLSdAAABJElEQVQoz5WR2W7CMBRE+f8PrPoGKgVCEpIQx3a83VPZoHRRKK2l83Dt0Xg83jjn8d5z6BwvB4ueAyHc9j4JK3hCTOixQ6sr3key12aaNFobrqOi6UaMnfm6RDKyTpKiSSmRfTLF0FrLqW553b6z222pm5ph6On6jmlSCEKStIpIIsZYQmWWhCEFmr6lao7sj2901ws+zrg449MD4kxIbjFcEuYhb9bnM/v9nrquyzOertuLi/abocmDdVS9oqpOtE2LUgqtdemKRx2KrBvmYfYOl3zpq4hEnqa8B1xJaAzaOC6DZRwGhq7j0rYMfZ/VyC/k8xR/JjSGYC1DdcaPCqxFjHmONoi1658SfCiJyq333v4Est6hc45xVOW2LPgPIYTF8AOF4lxtXMXTlgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;考试结果&quot;
-        title=&quot;考试结果&quot;
-        src=&quot;/blog/static/d18173cdf4e1be442218725ac125869d/64756/h.png&quot;
-        srcset=&quot;/blog/static/d18173cdf4e1be442218725ac125869d/a8a0d/h.png 300w,
-/blog/static/d18173cdf4e1be442218725ac125869d/dface/h.png 600w,
-/blog/static/d18173cdf4e1be442218725ac125869d/64756/h.png 1200w,
-/blog/static/d18173cdf4e1be442218725ac125869d/6574a/h.png 1271w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;img src=&quot;https://s2.loli.net/2021/12/04/rEqdBh2INZWJ4Fz.png&quot; alt=&quot;考试结果&quot;&gt;&lt;/p&gt;
 &lt;p&gt;由于时间仓促，本次开发的系统虽然基本功能已经完成，但仍有很大的提升空间。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;以上内容未经授权请勿随意转载。&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;系统在线访问：&lt;a href=&quot;https://kongfandong.cn/exam/index.html&quot; target=&quot;_blank&quot;&gt;ExamSystem&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
