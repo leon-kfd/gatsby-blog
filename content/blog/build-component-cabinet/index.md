@@ -256,5 +256,7 @@ app.use(static(__dirname + '/public'))
 ```
 3. 若是使用nginx搭建的静态资源服务器，可以参考官方推荐的 **<a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html#nginx" target="_blank">Nginx配置</a>** 实现History模式。
 
+![左侧导航中间Demo右侧代码](https://s2.loli.net/2021/12/04/mCQ9NYu7McxLXHl.png)
+
 
 在线预览个人组件库: **<a href="https://kongfandong.cn/howdy" target="_blank">Howdy</a>**

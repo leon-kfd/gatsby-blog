@@ -22,7 +22,7 @@ tag: "Personal"
 
 实现纯CSS判断鼠标进入方向，主要是先通过将DIV以对角线切割为4个部分，然后即可为这4个部分写入:hover选择器执行不同方向的动画。如果DIV是正方形的话，对角线切割就很简单，可以用伪元素通过rotate(45deg)就可以实现。但是当Div是长方形的时候，就需要使用以下的方法了。
 
-![对角线切割DIV](./a.png)
+![对角线切割DIV](https://s2.loli.net/2021/12/04/Afdp2u1U4S6oVWL.png)
 
 目前可以通过2种CSS3的方式实现
 1. 使用CSS3的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path" target="_blank">clip-path</a> 属性定向裁剪区域
@@ -142,7 +142,7 @@ HTML
 
 transform实现方式与clip-path方式基本差不多，主要是先将伪类通过旋转加偏移变换成一个平行四边形，将变换顶点定位在中心，然后隐藏超出部分即可。
 
-![transform变换DIV](./b.png)
+![transform变换DIV](https://s2.loli.net/2021/12/04/TEaZcDmVvYo2pzB.png)
 
 **transform方式实现主要代码逻辑** *(仅列举与clip-path不一样的代码)*
 
@@ -203,7 +203,7 @@ transform方式最大缺点就是需要计算角度，先将变换顶点改为0 
 
 JS实现判断进入方向，依然是将div按对角线切割成4个三角形，然后通过判断鼠标事件中移入的点是否在三角形内来确定方向。这里涉及到了一个如何判断点在区域内的算法实现。
 
-![对角线切割DIV](./line-point.png)
+![判断点是否在同侧](https://s2.loli.net/2021/12/04/hf1sQ2w8DOHloGy.png)
 
 以下提供一个函数判断点P和点O是否在直线AB的同一侧
 ```JS
@@ -222,7 +222,7 @@ function isSameSide (p, o, a, b) {
 
 ### 移入方向判断
 
-![图形](./rectangle.png)
+![移入方向](https://s2.loli.net/2021/12/04/v2qT7iGQoLmBXwW.png)
 
 如图，点P为鼠标事件移入获取到的点，当点P与点O在直线AB同一侧、点P与点A在直线OB同一侧、点P与点B在直线AO同一侧，即可判断出点P在三角形AOB内，即鼠标从上方进入。转换为代码即可写成:
 ```js
@@ -310,3 +310,5 @@ for (var i = 0; i < boxList.length; i++) {
 
 
 *以上内容未经授权请勿随意转载。*
+
+> 2021/10/01更新, 找到了一个使用Grid布局实现的移入方向Demo: [CSS-only direction-aware hover effect](https://codepen.io/leon-kfd/pen/dyvJVRL)

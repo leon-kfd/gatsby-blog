@@ -34,7 +34,7 @@ description: "在网页添加一些简单的切换动画一般使用CSS3的anima
 
 因为该API较新，所以对传统的浏览器支持并不友好，所有IE浏览器都不支持。在[Can I use](https://caniuse.com/?search=Element.animate)上查询如下：
 
-![兼容性](./caniuse.png)
+![兼容性](https://s2.loli.net/2021/12/04/2xKyCauonPReYEH.png)
 
 但是只要简单使用`if (dom.animate) {}`包裹即可向下兼容，对一些不支持的浏览器不执行动画就可以。
 
@@ -47,7 +47,7 @@ description: "在网页添加一些简单的切换动画一般使用CSS3的anima
 + FadeUpInOut: 旧文本先淡出新文本再淡入
 + Typewriter: 打字机特效
 
-![文字特效](./text.gif)
+![文字切换特效](https://s2.loli.net/2021/12/04/TKxs5kXyDIz8EPO.gif)
 
 **淡入淡出**
 
@@ -135,7 +135,7 @@ async function animateEffect3(text) {
 
 本次使用原生`Element.animate()`API实现了一个简单的图片切换特效。
 
-![图片特效](./img-effect.gif)
+![图片切换动画特效](https://s2.loli.net/2021/12/04/1s6NA9winbcuPaM.gif)
 
 这个特效主要原理：
 

@@ -141,7 +141,7 @@ export class MusicVisualizer {
 ['t', x, y],
 ```
 
-![简单示例](./play.gif)
+![简单示例](https://s2.loli.net/2021/12/04/gq5J82LKisQHxbI.gif)
 
 代码参考如下:
 ```ts
@@ -219,7 +219,7 @@ export function getImageCircle(canvas: Canvas, { x, y, r, shadowColor }: ImageCi
 
 如下图, **l = cos(θ) * r**, **t = sin(θ) * r**, 通过圆心O坐标加上偏移量即可算出点A坐标。
 
-![获取圆上的点](./deg.jpg)
+![获取圆上的点](https://s2.loli.net/2021/12/04/ePWZhx8tjOlBvuk.png)
 
 ```ts
 // POINT_NUM = 64 柱状条数
@@ -295,7 +295,7 @@ useEffect(() => {
 
 ### 在圆上的点跟随圆放大的同时做圆周运动
 
-![圆周运动](./circle.gif)
+![圆周运动](https://s2.loli.net/2021/12/04/Hu7aUsYVJ2oQyLK.gif)
 
 示例五中的动画会出现在圆上的点跟随圆放大的同时做圆周运动，这种动画在实现时有两种方案：
 
@@ -358,7 +358,7 @@ Array.from({ length: CIRCLE_NUM }, (item, index) => {
 
 定义粒子动画时，通过正弦函数与ratio计算出每帧粒子的实际x,y坐标即可。因为这次还会结合当前音频数据，让某个样点的粒子飘得高一点，让粒子的偏移量加大，这时还需要进一步对动画进行更改。
 
-![粒子特效](./particle.gif)
+![粒子特效](https://s2.loli.net/2021/12/04/gjG5s4KiaP1vhVy.gif)
 
 ```ts
 // POINT_NUM = 64 样点数

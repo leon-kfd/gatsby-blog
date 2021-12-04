@@ -212,10 +212,10 @@ this.$post('/delete', {
 这几个接口都会返回一个含有选取路径的成功回调，能拿到文件路径进行上传
 
 <div style="width:45%;display:inline-block;margin-right:5%" >
-  <img src="./upload-mode.jpg">
+  <img src="https://s2.loli.net/2021/12/04/f3C4Mj2gFIqTGxl.png" alt="upload-mode.jpg">
 </div>
 <div style="width:45%;display:inline-block" >
-  <img src="./upload-success.jpg">
+  <img src="https://s2.loli.net/2021/12/04/mzP7kLYUpTNGVcD.png" alt="upload-success.jpg">
 </div>
 
 <br>
@@ -302,7 +302,7 @@ handleUploadFile (type = 1) {
 以上，除了视频外，其余都是要先通过`wx.downloadFile`将文件下载到本地生成临时路径再执行相应预览操作，这时候可以添加下载进度条优化用户体验。而视频不会直接进行下载，需要后端将视频资源设为流视频（`Accept-Range`），这样视频可以一边下载一边播放。
 
 
-![图片预览](./文件预览.gif)
+![文件预览.gif](https://s2.loli.net/2021/12/04/z8tFMCYWKPoQ94S.gif)
 
 *进度条使用微信原生请求事件`onProgressUpdate`实现*
 
@@ -359,13 +359,13 @@ handleActionPreview (el) {
 
 使用了van-checkgroup实现，直接更换当前文件列表，但尽量保持节点位置没发生改变，可防止界面回流影响性能。
 
-![批量操作](./批量操作.gif)
+![批量操作.gif](https://s2.loli.net/2021/12/04/V8LEfZA6IrKzj4F.gif)
 
 ### 移动文件
 
 该功能对应PC端上的移动，可以选择文件仅移动或者是复制，PC端是使用一个树形组件进行选择文件夹。但发现Vant等并没有相关树形组件，可能需要自己封装一个，然后直接采用了用户点击移动操作后，记录选择的文件信息，然后用户需要进入到相应目录下进行粘贴操作。
 
-![移动文件](./移动文件.gif)
+![移动文件.gif](https://s2.loli.net/2021/12/04/juFimaRb3rPA7p4.gif)
 
 ## 关于打包发布
 

@@ -5,9 +5,11 @@ description: "一个浏览器首页站点, 包含可切换的常用搜索引擎�
 tag: "Personal"
 ---
 
+> 2021/11/01更新: 以下内容为旧版网站的记录，站点地址已更新为Howdz起始页项目地址
+
 一个浏览器首页站点, 包含可切换的常用搜索引擎搜索功能, 键盘布局添加快捷收藏网站, 并加入键盘按键监听可快速打开, 自定义背景图, 配置同步功能等功能
 
-系统半成品已部署与线上，在线访问：<a href="http://s.kongfandong.cn" target="_blank">http://s.kongfandong.cn</a>
+系统半成品已部署与线上，在线访问：<a href="https://s.kongfandong.cn" target="_blank">https://s.kongfandong.cn</a>
 
 ### 目录
 1. [搜索引擎切换功能](#搜索引擎切换功能)
@@ -99,7 +101,7 @@ handleInputKeyDown (e) {
 <div class="no-icon">{{userSettingKeyMap[key].remark.slice(0,1)}}</div>
 ```
 
-![添加展示](./keyboardDemo.gif)
+![添加展示](https://s2.loli.net/2021/12/04/kcrP38wJedoSsqT.gif)
 
 
 ## 背景图切换功能
@@ -293,7 +295,7 @@ export default new Vuex.Store({
 })
 ```
 
-![背景切换展示](./backgroundDemo.gif)
+![背景切换展示](https://s2.loli.net/2021/12/04/leuj5U6YL7GzDZo.gif)
 
 *当前并未实现自定义图片上传功能，后续进行优化*
 
@@ -335,7 +337,7 @@ module.exports = {
 
 
 
-系统半成品已部署与线上，在线访问：<a href="http://s.kongfandong.cn" target="_blank">http://s.kongfandong.cn</a>
+系统半成品已部署与线上，在线访问：<a href="https://s.kongfandong.cn" target="_blank">https://s.kongfandong.cn</a>
 
 *以上内容未经授权请勿随意转载。*
 

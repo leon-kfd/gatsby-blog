@@ -6,7 +6,7 @@ description: "Howdz是基于Vue3开发的一个完全自定义配置的浏览器
 
 ## 前言
 
-**[Howdz](https://howdz.vercel.app)**是基于`Vue3` + `Typescript`开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供[网页在线访问](https://s.kongfandong.cn)、打包出[浏览器插件](https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd)、打包出[桌面应用(Electron)](https://github.com/leon-kfd/Dashboard/releases)等访问方式。
+[Howdz](https://howdz.vercel.app)是基于`Vue3` + `Typescript`开发的一个完全自定义配置的浏览器导航起始页，支持按需添加物料组件，可自由编辑组件的位置、大小与功能。支持响应式设计，可自定义随机壁纸、动态壁纸等。项目提供[网页在线访问](https://s.kongfandong.cn)、打包出[浏览器插件](https://microsoftedge.microsoft.com/addons/detail/howdz%E8%B5%B7%E5%A7%8B%E9%A1%B5/cgcggcdgjfmeoemmdpleinicgepijegd)、打包出[桌面应用(Electron)](https://github.com/leon-kfd/Dashboard/releases)等访问方式。
 
 本文记录项目开发中使用的相关技术。
 
@@ -82,7 +82,7 @@ export default {
 }
 ```
 
-![JSX生成的表单](./standard-form.png)
+![JSX生成的表单](https://s2.loli.net/2021/12/04/OboPiN3ZfDayq9s.png)
 
 ## 右键菜单
 
@@ -110,7 +110,7 @@ setup () {
 </script>
 ```
 
-![右键菜单](./mouse-menu.gif)
+![右键菜单](https://s2.loli.net/2021/12/04/fYIsvFn7xXAZOac.gif)
 
 ## 物料组件布局
 
@@ -140,7 +140,7 @@ setup () {
 
 使用`v-model:layout`双向绑定栅格模式物料组件列表数据，因为物料数组存在vuex中，这里用`computed`的setter进行更新。`isLock`是用于判断当前是否处于编辑模式，在锁定状态下禁用拖拽与大小更改。当前使用的栅格数为12，即将屏幕宽度分割为12份。
 
-![栅格模式](./vue-grid-layout1.gif)
+![栅格模式](https://s2.loli.net/2021/12/04/OIGFoR6zrCN8cE1.gif)
 
 ### Fixed模式
 Fixed模式使用笔者自己开源的[@howdjs/to-control](https://kongfandong.cn/howdy/to-control)插件完成，可以让物料组件固定在页面的任何位置中，也支持拖拽右下角更改大小。
@@ -184,7 +184,7 @@ setup () {
 
 与栅格模式不同，这里是使用事件回调函数对组件的Vuex数据进行更新。也是使用`isLock`判断组件是否锁定。插件支持更改定位方向，记录在右上角、右下角等，这样对响应式布局很有效。更多用法可参考: [@howdjs/to-control](https://kongfandong.cn/howdy/to-control/example3)
 
-![Fixed模式](./to-control.gif)
+![Fixed模式](https://s2.loli.net/2021/12/04/7hEy1qkxtocZwRg.gif)
 
 ## 交互弹窗Popover
 
@@ -228,7 +228,7 @@ export function getPopoverActivePointByDirection(
 
 另外，使用`transform-origin`这个属性可以实现弹窗从点击元素过渡展开的动画。最后配置弹窗的方向与弹出的组件类型即可。代码参考：[ActionPopover.vue](https://github.com/leon-kfd/Dashboard/blob/main/src/components/Action/ActionPopover.vue)
 
-![不同方向的Popover](./popover.gif)
+![不同方向的Popover](https://s2.loli.net/2021/12/04/zFgUIwukiKxc5Xh.gif)
 
 ## 获取任意网站Favicon
 
@@ -245,7 +245,7 @@ export function getPopoverActivePointByDirection(
 
 另读取图标时，前端会使用Canvas通道法将图标的白色部分扣成透明，代码可[参考此处](https://github.com/leon-kfd/Dashboard/blob/main/src/utils/images.ts#L40)
 
-![添加网站自动获取图标](./favicon.gif)
+![添加网站自动获取图标](https://s2.loli.net/2021/12/04/QDbNksFeZ2VATKu.gif)
 
 ## 总结
 

@@ -105,7 +105,7 @@ function getWord (line: string, ch: number): [string, number] {
 
 当我们输入完关键词后，按`Tab`键时可快速匹配到相应代码块，当前支持`html`与`css`的速写。
 
-![Emmet](./emmet.gif)
+![emmet.gif](https://s2.loli.net/2021/12/04/3atBIHZYMW6fJyx.gif)
 
 
 ## 支持编写SASS代码
@@ -190,7 +190,7 @@ module.exports = {
 
 实现响应式设计一般采用CSS3的媒体查询实现，但由于布局问题，手机端下不适用拉伸布局，需要额外添加一个手机端下的标签页，所以这次需要使用js辅助实现。
 
-![响应式](./responsive.gif)
+![响应式](https://s2.loli.net/2021/12/04/jFqzUH3udXWkM2i.gif)
 
 ## 利用Github Workflows实现自动构建
 

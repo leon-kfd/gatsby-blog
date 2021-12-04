@@ -113,7 +113,7 @@ const handleMenuMouseEnter = ($event: MouseEvent, item: MenuSetting) => {
 
 + Example: [二级菜单](https://leon-kfd.github.io/howdyjs/#/mouse-menu/example2)
 
-![二级菜单](./children-menu.jpg)
+![二级菜单](https://s2.loli.net/2021/12/04/aPpE2L96XRtZiMF.png)
 
 
 ### 自定义样式
@@ -279,7 +279,7 @@ showMouseMenu(row, column, event) {
 
 + Example in `ElementPlusTable`: <a href="https://codepen.io/leon-kfd/pen/yLMKPOP" target="_blank">Demo</a>
 
-![ElementPlusTable](./element-plus-table-mouse-menu.gif)
+![element-plus-table-mouse-menu.gif](https://s2.loli.net/2021/12/04/FYVwsc24dCEiSPH.gif)
 
 
 ## ✨其他说明

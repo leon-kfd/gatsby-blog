@@ -16,11 +16,11 @@ tag: "Personal"
 ## 配置Webhooks
 
 1. 进入自己需要监听Push请求的Github仓库，点击Settings => Webhooks => Add webhook
-![Create Webhook](./create-webhook.png)
+![Create Webhook](https://s2.loli.net/2021/12/04/7mvAXfC5hNRlFZM.png)
 2. 填写自己服务器请求地址，配置Secret(用于后面的Sha1解码验证)，并选择要监听的事件，本次只监听push
-![Webhook form](./webhook-form.png)
+![Webhook form](https://s2.loli.net/2021/12/04/gPluNLOBHdbcwsK.png)
 3. 进入到对应Webhooks详情，下方可以查看到每个请求记录，点击Redeliver可以重新发送该请求。
-![Redeliver](./redeliver.png)
+![Redeliver](https://s2.loli.net/2021/12/04/KjZe4gN8RDJt7l9.png)
 
 ## 后端Koa2服务
 

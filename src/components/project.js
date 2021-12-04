@@ -60,7 +60,7 @@ const howdzDashboard = [
   },
   {
     title: '桌面应用 - Download install package',
-    link: 'https://github.com/leon-kfd/Dashboard/releases/tag/v1.0.1-beta.2'
+    link: 'https://github.com/leon-kfd/Dashboard/releases'
   }
 ]
 
@@ -89,7 +89,7 @@ const dashboardLink = [
     link: 'https://howdz.vercel.app'
   },
   {
-    name: '💾Online',
+    name: '🌈Live Demo',
     link: 'https://s.kongfandong.cn'
   }
 ]
@@ -162,7 +162,7 @@ export default () => {
         <section>
           <p style={{marginBottom: 0}}>个人JS插件库，包含自定义拖拽、滚动条、右键菜单、图片放大等原生JS插件和动画模态框、标签页等Vue3组件或指令。</p>
           <details>
-            <summary>预览组件</summary>
+            <summary>组件列表</summary>
             <ul className="howdy-component">
               {
                 howdyComponent.map(item => {
