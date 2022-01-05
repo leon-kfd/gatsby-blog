@@ -320,7 +320,7 @@ router.post('/upload', async ctx => {
 上传过程暂停，然后刷新页面，重新上传同一个文件，可以发现文件是从上传暂停的地方重新开始。
 
 **文件秒传演示**
-![文件秒传.gif](https://s2.loli.net/2021/12/04/Jznd2vTP87YC36S.gif)
+![文件秒传.gif](https://i.imgur.com/8lX6kJ4.gif)
 
 上传上面演示的同一个文件，由于发现是已经存在的文件，则会直接返回成功。
 
