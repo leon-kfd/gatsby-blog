@@ -358,7 +358,7 @@ Array.from({ length: CIRCLE_NUM }, (item, index) => {
 
 定义粒子动画时，通过正弦函数与ratio计算出每帧粒子的实际x,y坐标即可。因为这次还会结合当前音频数据，让某个样点的粒子飘得高一点，让粒子的偏移量加大，这时还需要进一步对动画进行更改。
 
-![粒子特效](https://s2.loli.net/2021/12/04/gjG5s4KiaP1vhVy.gif)
+![粒子特效](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e05ae8b50c0438687d24c69d1845f14~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
 
 ```ts
 // POINT_NUM = 64 样点数
