@@ -245,7 +245,7 @@ export function getPopoverActivePointByDirection(
 
 另读取图标时，前端会使用Canvas通道法将图标的白色部分扣成透明，代码可[参考此处](https://github.com/leon-kfd/Dashboard/blob/main/src/utils/images.ts#L40)
 
-![添加网站自动获取图标](https://s2.loli.net/2021/12/04/QDbNksFeZ2VATKu.gif)
+![添加网站自动获取图标](https://i.imgur.com/xaXQ3St.gif)
 
 ## 总结
 
